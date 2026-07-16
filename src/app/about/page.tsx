@@ -53,7 +53,6 @@ const differentiators = [
   'Design, printing, mailing lists, and postage all included',
   'Real expert guidance, not a self-serve portal',
   'Fast turnaround with same-day quote response',
-  'QR code and response tracking available',
   'Precision demographic targeting in every campaign',
   'Serving all 50 states nationwide',
 ]
