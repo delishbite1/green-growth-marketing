@@ -212,21 +212,23 @@ export default function ProductsPage() {
 
             {/* Printed Flyer */}
             <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:-translate-y-1 transition-transform">
-              <div className="w-full flex items-center justify-center p-4" style={{ aspectRatio: '4/3', background: '#f8fafc' }}>
-                <div className="w-full h-full rounded border border-gray-200 overflow-hidden flex flex-col" style={{ background: '#fff', fontSize: '9px' }}>
-                  <div style={{ background: 'linear-gradient(135deg,#1a5c1a,#3a8a2d)', color: '#fff', padding: '10px 12px' }}>
-                    <div style={{ fontWeight: 800, fontSize: '13px', marginBottom: '2px' }}>[Your Business Name]</div>
-                    <div style={{ opacity: 0.85 }}>Professional Services · Serving Your Area</div>
+              <div className="w-full flex items-center justify-center p-3" style={{ aspectRatio: '4/3', background: '#f5f7ff' }}>
+                <div className="w-full h-full rounded overflow-hidden flex flex-col" style={{ background: '#fff', fontSize: '9px', border: '1px solid #dde3ff', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>
+                  {/* Red margin line + blue header */}
+                  <div style={{ background: 'linear-gradient(135deg,#c0392b,#1a3a8a)', color: '#fff', padding: '10px 12px 10px 16px', borderLeft: '4px solid #e74c3c' }}>
+                    <div style={{ fontWeight: 800, fontSize: '13px', marginBottom: '2px', letterSpacing: '0.3px' }}>[Your Business Name]</div>
+                    <div style={{ opacity: 0.88, fontSize: '9px' }}>Professional Services · Serving Your Area</div>
                   </div>
-                  <div style={{ padding: '10px 12px', flex: 1, color: '#333' }}>
-                    <div style={{ fontWeight: 700, fontSize: '11px', marginBottom: '6px', color: '#1a5c1a' }}>Our Services Include:</div>
+                  {/* Lined paper body */}
+                  <div style={{ flex: 1, padding: '8px 12px 8px 16px', borderLeft: '3px solid #e74c3c', background: 'repeating-linear-gradient(#fff,#fff 17px,#b8c9e8 18px)', color: '#222', lineHeight: '18px' }}>
+                    <div style={{ fontWeight: 700, fontSize: '10px', marginBottom: '2px', color: '#1a3a8a' }}>Our Services Include:</div>
                     <div>✔ Service One</div>
                     <div>✔ Service Two</div>
                     <div>✔ Service Three</div>
-                    <div style={{ marginTop: '8px', background: '#fff7ed', border: '1px solid #fb923c', borderRadius: '6px', padding: '6px 8px', color: '#ea580c', fontWeight: 700, fontSize: '10px' }}>
+                    <div style={{ marginTop: '6px', background: '#fef2f2', border: '1px solid #e74c3c', borderRadius: '5px', padding: '5px 8px', color: '#c0392b', fontWeight: 700, fontSize: '9.5px' }}>
                       FREE No-Obligation Estimate
                     </div>
-                    <div style={{ marginTop: '8px', color: '#555' }}>📞 (555) 123-4567</div>
+                    <div style={{ marginTop: '5px', color: '#1a3a8a', fontWeight: 600 }}>📞 (555) 123-4567</div>
                   </div>
                 </div>
               </div>
