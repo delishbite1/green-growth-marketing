@@ -17,7 +17,7 @@ const faqs = [
   {
     question: 'How long does it take from quote to delivery?',
     answer:
-      "Quotes come back within a few hours. Once you approve the design and give the go-ahead, standard production is 5–7 business days plus USPS transit time (typically 3–5 days). We also offer rush production for time-sensitive campaigns.",
+      "Quotes come back the same business day. Once you approve the design and give the go-ahead, standard production is 5–7 business days plus USPS transit time (typically 3–5 days). We also offer rush production for time-sensitive campaigns.",
   },
   {
     question: "Can you help with design if I don't have artwork?",
@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "How does your price beat guarantee work?",
     answer:
-      "Get a quote from any competitor for the same specs (size, quantity, paper stock, postage class) and show it to us. We'll beat it. If we can't, we'll tell you why and do everything we can to get as close as possible. We're confident in our pricing.",
+      "Get a written quote from any competitor for the same specs (size, quantity, paper stock, postage class) and send it to us. We'll beat it. That's the whole guarantee. Same budget means more pieces in more mailboxes. Same volume means you pay less.",
   },
   {
     question: 'Do you handle postage and USPS mailing?',
@@ -57,7 +57,7 @@ export default function FAQ() {
               Questions? We've Got Answers.
             </h2>
             <p className="text-gray-500 text-base leading-relaxed mb-6">
-              Can't find what you're looking for? Our team responds within hours.
+              Can't find what you're looking for? Our team gets back to you the same business day.
             </p>
             <a
               href="tel:+18886016556"

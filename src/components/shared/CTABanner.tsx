@@ -5,7 +5,7 @@ interface Props { heading?: string; subheading?: string }
 
 export default function CTABanner({
   heading = 'Ready to Grow Your Business?',
-  subheading = "Get a custom direct mail campaign quote. No commitment, no minimum order. We'll beat any competitor's price, guaranteed.",
+  subheading = "Get a custom direct mail campaign quote. No commitment, no minimum order. Show us a written competitor quote for the same specs and we'll beat it.",
 }: Props) {
   return (
     <section className="py-20 px-6 lg:px-8 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1f0d 0%, #1a1040 40%, #2d1060 70%, #1a0a0a 100%)' }}>
@@ -41,7 +41,7 @@ export default function CTABanner({
           </a>
         </div>
 
-        <p className="text-white/25 text-sm mt-8">No contracts · No minimums · Response within 24 hours</p>
+        <p className="text-white/25 text-sm mt-8">No contracts · No minimums · Quote back the same business day</p>
       </div>
     </section>
   )

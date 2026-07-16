@@ -153,7 +153,7 @@ export default function Footer() {
 
             <div className="rounded-2xl p-5 border border-white/10" style={{ background: 'linear-gradient(135deg, rgba(58,138,45,0.25), rgba(124,58,237,0.2), rgba(234,88,12,0.15))' }}>
               <p className="text-white font-bold text-sm mb-1">Ready to grow?</p>
-              <p className="text-gray-400 text-xs mb-4 leading-relaxed">No commitment, no minimum order. We beat any competitor's price.</p>
+              <p className="text-gray-400 text-xs mb-4 leading-relaxed">No commitment, no minimum order. Show us a written competitor quote and we'll beat it.</p>
               <Link href="/contact" className="block text-center text-white font-bold text-sm py-2.5 rounded-xl transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg, #3a8a2d, #7dc242)' }}>
                 Get a Free Quote
               </Link>

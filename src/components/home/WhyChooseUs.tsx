@@ -5,7 +5,7 @@ const reasons = [
   { icon: Layers, title: 'A to Z Full Service', description: 'Design, list, print, address, stamp, and mail. Handled by us. No need to manage multiple vendors or coordinate logistics.', highlight: false, color: '#7c3aed', bg: '#faf5ff' },
   { icon: BadgeCheck, title: 'No Minimum Order', description: 'Start with 100 pieces or a million. We work with businesses of every size, from solo entrepreneurs to national enterprises.', highlight: false, color: '#ea580c', bg: '#fff7ed' },
   { icon: ShieldCheck, title: 'No Long-Term Contract', description: "Work with us campaign by campaign. We earn your repeat business by delivering results, not by locking you in.", highlight: false, color: '#2563eb', bg: '#eff6ff' },
-  { icon: Clock, title: 'Fast Turnaround', description: 'Industry-leading production speeds. We respond to quotes within hours and get your campaign in the mail without delays.', highlight: false, color: '#0d9488', bg: '#f0fdfa' },
+  { icon: Clock, title: 'Fast Turnaround', description: 'We get your quote back the same business day and move your campaign into the mail without delays.', highlight: false, color: '#0d9488', bg: '#f0fdfa' },
   { icon: Headphones, title: 'Personal Expert Guidance', description: "A real human walks you through everything, from strategy and targeting to creative and tracking. Not a self-serve portal.", highlight: false, color: '#d97706', bg: '#fffbeb' },
 ]
 

@@ -48,11 +48,11 @@ const promises = [
 ]
 
 const differentiators = [
-  'Guaranteed to beat any competitor\'s price',
+  'Show us a written competitor quote for the same specs and we\'ll beat it',
   'No minimum order, no long-term contract',
   'Design, printing, mailing lists, and postage all included',
   'Real expert guidance, not a self-serve portal',
-  'Fast turnaround with same-day quote response',
+  'Fast turnaround, with your quote back the same business day',
   'Precision demographic targeting in every campaign',
   'Serving all 50 states nationwide',
 ]

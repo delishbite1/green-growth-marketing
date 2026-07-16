@@ -6,7 +6,7 @@ import { Phone, Mail, Clock, MapPin } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Get a Free Quote | Green Growth Marketing',
   description:
-    'Contact Green Growth Marketing for a free direct mail quote. No commitment, no minimums. We\'ll respond within hours with a custom campaign proposal.',
+    'Contact Green Growth Marketing for a free direct mail quote. No commitment, no minimums. We\'ll get back to you the same business day with a custom campaign proposal.',
 }
 
 const contactInfo = [
@@ -29,7 +29,7 @@ const contactInfo = [
   {
     icon: Clock,
     label: 'Response Time',
-    value: 'Within a few hours on business days',
+    value: 'Same business day',
     href: null,
     color: 'text-amber-600',
     bg: 'bg-amber-50',
@@ -64,7 +64,7 @@ export default function ContactPage() {
             </span>
           </h1>
           <p className="text-gray-300 text-lg leading-relaxed">
-            Fill out the form below and a direct mail expert will reach out within hours with a custom campaign proposal.
+            Fill out the form below and a direct mail expert will get back to you the same business day with a custom campaign proposal.
           </p>
         </div>
       </section>
