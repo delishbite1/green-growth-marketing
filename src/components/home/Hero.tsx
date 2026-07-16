@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ChevronRight, Phone, CheckCircle2, Star } from 'lucide-react'
+import { ChevronRight, Phone, CheckCircle2, ShieldCheck } from 'lucide-react'
 
 const features = [
   { label: 'More Customers', color: '#16a34a' },
@@ -75,11 +75,11 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="flex items-center gap-2">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-              ))}
-              <span className="text-sm text-gray-500 font-medium">Trusted by hundreds of businesses nationwide</span>
+            <div className="flex items-start gap-2.5">
+              <ShieldCheck className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#3a8a2d' }} />
+              <span className="text-sm text-gray-600 font-medium leading-relaxed">
+                Bring us a written competitor quote for the same specs and we&rsquo;ll beat it. Guaranteed.
+              </span>
             </div>
           </div>
 
@@ -132,17 +132,17 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Stats bar */}
-      <div className="border-t border-gray-100">
+      {/* Promise bar */}
+      <div className="border-t border-gray-200/70">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           {[
-            { value: '10K+', label: 'Businesses Served', color: '#16a34a' },
-            { value: '50M+', label: 'Pieces Mailed', color: '#2563eb' },
-            { value: '98%', label: 'Delivery Rate', color: '#7c3aed' },
-            { value: 'A–Z', label: 'Full Service', color: '#d97706' },
+            { value: 'No Minimum', label: 'Order 100 pieces or a million', color: '#3a8a2d' },
+            { value: 'All 50 States', label: 'We mail anywhere in the USA', color: '#2563eb' },
+            { value: 'No Contract', label: 'Campaign by campaign', color: '#7c3aed' },
+            { value: 'A to Z', label: 'A real person, not a portal', color: '#d97706' },
           ].map(({ value, label, color }) => (
             <div key={label}>
-              <div className="text-3xl font-black" style={{ color }}>{value}</div>
+              <div className="text-2xl lg:text-[1.75rem] font-black" style={{ color }}>{value}</div>
               <div className="text-sm text-gray-500 font-medium mt-0.5">{label}</div>
             </div>
           ))}

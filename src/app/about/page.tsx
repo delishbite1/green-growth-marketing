@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { CheckCircle2, Users, Target, Heart, Zap } from 'lucide-react'
 import CTABanner from '@/components/shared/CTABanner'
-import AnimatedCounter from '@/components/shared/AnimatedCounter'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -41,11 +40,11 @@ const values = [
   },
 ]
 
-const stats = [
-  { value: 10000, suffix: '+', label: 'Businesses Served' },
-  { value: 50, suffix: 'M+', label: 'Pieces Mailed' },
-  { value: 98, suffix: '%', label: 'Delivery Rate' },
-  { value: 80, suffix: '+', label: 'Industries Served' },
+const promises = [
+  { value: 'All 50', label: 'States we mail to' },
+  { value: '80+', label: 'Industries we serve' },
+  { value: 'No Minimum', label: 'Order 100 or a million' },
+  { value: 'A to Z', label: 'A real person, not a portal' },
 ]
 
 const differentiators = [
@@ -135,14 +134,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Promises */}
       <section className="py-16 px-6 lg:px-8 bg-gray-950">
         <div className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-          {stats.map(({ value, suffix, label }) => (
+          {promises.map(({ value, label }) => (
             <div key={label}>
-              <div className="text-4xl font-black text-green-400 mb-1">
-                <AnimatedCounter end={value} suffix={suffix} />
-              </div>
+              <div className="text-2xl lg:text-3xl font-black text-green-400 mb-1">{value}</div>
               <div className="text-gray-400 text-sm font-medium">{label}</div>
             </div>
           ))}
