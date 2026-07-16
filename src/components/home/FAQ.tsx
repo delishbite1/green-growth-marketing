@@ -60,7 +60,7 @@ export default function FAQ() {
               Can't find what you're looking for? Our team responds within hours.
             </p>
             <a
-              href="tel:8886016556"
+              href="tel:+18886016556"
               className="inline-flex items-center gap-2 bg-brand-green hover:bg-brand-green-dark text-white font-bold px-6 py-3 rounded-xl transition-all duration-200 text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
               Call Us Now

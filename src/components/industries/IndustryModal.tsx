@@ -64,17 +64,19 @@ export default function IndustryModal({ industry, onClose }: Props) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
+            {/* Carries the chosen niche through to the form and lands on the
+                form itself, not the top of the page. */}
             <Link
-              href="/contact"
+              href={`/contact?industry=${encodeURIComponent(industry.name)}#quote-form`}
               onClick={onClose}
-              className="flex-1 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-5 rounded-xl transition-all duration-200 text-sm shadow-lg shadow-green-500/20"
+              className="flex-1 flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-5 rounded-xl transition-colors duration-200 text-sm shadow-lg shadow-green-500/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
             >
               Get a Free Quote
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4" aria-hidden="true" />
             </Link>
             <a
-              href="tel:8886016556"
-              className="flex-1 flex items-center justify-center gap-2 border-2 border-gray-200 hover:border-green-300 text-gray-700 hover:text-green-700 font-semibold py-3 px-5 rounded-xl transition-all duration-200 text-sm"
+              href="tel:+18886016556"
+              className="flex-1 flex items-center justify-center gap-2 border-2 border-gray-200 hover:border-green-300 text-gray-700 hover:text-green-700 font-semibold py-3 px-5 rounded-xl transition-colors duration-200 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
             >
               Call (888) 601-6556
             </a>

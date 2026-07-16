@@ -69,7 +69,7 @@ export default function Footer() {
               Direct mail campaigns for businesses nationwide. We handle everything so you can focus on what you do best.
             </p>
             <div className="space-y-3 text-sm">
-              <a href="tel:8886016556" className="flex items-center gap-3 text-gray-300 hover:text-green-400 transition-colors group">
+              <a href="tel:+18886016556" className="flex items-center gap-3 text-gray-300 hover:text-green-400 transition-colors group">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center transition-colors" style={{ background: 'rgba(122,194,66,0.15)' }}>
                   <Phone className="w-4 h-4 text-green-400" />
                 </div>
@@ -157,7 +157,7 @@ export default function Footer() {
               <Link href="/contact" className="block text-center text-white font-bold text-sm py-2.5 rounded-xl transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg, #3a8a2d, #7dc242)' }}>
                 Get a Free Quote
               </Link>
-              <a href="tel:8886016556" className="block text-center text-green-400 hover:text-green-300 text-xs font-semibold mt-3 transition-colors">
+              <a href="tel:+18886016556" className="block text-center text-green-400 hover:text-green-300 text-xs font-semibold mt-3 transition-colors">
                 Or call (888) 601-6556
               </a>
             </div>

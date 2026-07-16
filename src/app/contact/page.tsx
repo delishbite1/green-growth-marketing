@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import ContactForm from '@/components/contact/ContactForm'
 import { Phone, Mail, Clock, MapPin } from 'lucide-react'
 
@@ -13,7 +14,7 @@ const contactInfo = [
     icon: Phone,
     label: 'Phone',
     value: '(888) 601-6556',
-    href: 'tel:8886016556',
+    href: 'tel:+18886016556',
     color: 'text-green-600',
     bg: 'bg-green-50',
   },
@@ -114,7 +115,11 @@ export default function ContactPage() {
             <div id="quote-form" className="scroll-mt-28 bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-10">
               <h2 className="text-xl font-black mb-1" style={{ background: 'linear-gradient(90deg, #16a34a, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Request Your Free Quote</h2>
               <p className="text-gray-400 text-sm mb-8">All fields marked * are required.</p>
-              <ContactForm />
+              {/* Suspense is required: ContactForm reads ?industry= via
+                  useSearchParams, which opts it out of static prerender. */}
+              <Suspense fallback={<div className="py-12 text-center text-sm text-gray-400">Loading form…</div>}>
+                <ContactForm />
+              </Suspense>
             </div>
           </div>
         </div>

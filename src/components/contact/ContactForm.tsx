@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
@@ -30,6 +31,12 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [sendError, setSendError] = useState<string | null>(null)
 
+  // Someone who clicked "Dental" on the Industries page arrives with
+  // ?industry=Dental. Don't make them tell us twice. Capped because it lands
+  // in an input, and anything from a URL is untrusted.
+  const searchParams = useSearchParams()
+  const prefilledIndustry = (searchParams.get('industry') ?? '').slice(0, 120)
+
   const {
     register,
     handleSubmit,
@@ -38,7 +45,7 @@ export default function ContactForm() {
     watch,
   } = useForm<QuoteInput>({
     resolver: zodResolver(quoteSchema),
-    defaultValues: { services: [] },
+    defaultValues: { services: [], industry: prefilledIndustry },
   })
 
   const selectedServices = watch('services') ?? []
