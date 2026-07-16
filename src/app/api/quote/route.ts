@@ -99,7 +99,9 @@ export async function POST(req: NextRequest) {
   if (source === 'popup') {
     const d = parsed.data as { email: string }
     replyTo = d.email
-    subject = `1,000 free postcards request — ${d.email}`
+    // Deliberately not "1,000 free postcards" — Gmail reads offer language as
+    // marketing and files it under Promotions, where leads get missed.
+    subject = `New website lead: ${d.email}`
     text = `Popup lead (1,000 free postcards offer)\n\nEmail: ${d.email}\nReceived: ${stamp}\nIP: ${ip}\n\nThey have not given a phone number. Reply to this email to reach them.`
     html = `<div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:620px;margin:0 auto;">
       <div style="background:linear-gradient(135deg,#1a5c1a,#3a8a2d);padding:20px 24px;border-radius:12px 12px 0 0;">
@@ -190,6 +192,13 @@ export async function POST(req: NextRequest) {
         HTMLContent: html,
         PlainContent: text,
         Tags: [source === 'popup' ? 'popup-lead' : 'quote-lead'],
+        // Tell mail clients this is transactional, not a bulk campaign. Helps
+        // keep leads out of Gmail's Promotions tab. Not a guarantee — the
+        // Gmail-side filter is what actually pins this to Primary.
+        Headers: {
+          'X-Entity-Ref-ID': `lead-${Date.now()}`,
+          'X-Auto-Response-Suppress': 'OOF, AutoReply',
+        },
       }),
     })
 
