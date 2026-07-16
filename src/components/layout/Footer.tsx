@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
+import { business } from '@/config/business'
 
 const services = [
   'Postcard Campaigns', 'Personalized Letters', 'Handwritten Envelopes',
@@ -91,11 +92,19 @@ export default function Footer() {
                 </div>
                 <span className="break-all text-xs">greengrowthmarketinginc@gmail.com</span>
               </a>
-              <div className="flex items-center gap-3 text-gray-400">
+              {/* Real postal address. CAN-SPAM requires a valid physical
+                  address in commercial email, and quote follow-ups count. */}
+              <div className="flex items-start gap-3 text-gray-400">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,88,12,0.15)' }}>
                   <MapPin className="w-4 h-4 text-orange-400" />
                 </div>
-                Serving all 50 states nationwide
+                <address className="not-italic text-xs leading-relaxed">
+                  {business.address.line1}, {business.address.line2}
+                  <br />
+                  {business.address.city}, {business.address.state} {business.address.zip}
+                  <br />
+                  <span className="text-gray-500">Serving all 50 states nationwide</span>
+                </address>
               </div>
             </div>
             {/* Social. Only renders icons that have a real URL — a marketing
@@ -188,12 +197,11 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Green Growth Marketing Inc. All rights reserved.</p>
-          {/* Privacy Policy and Terms links are deliberately absent until those
-              pages exist. A visible link that goes nowhere is worse than no
-              link: it states a policy exists when it does not. Restore both
-              here the moment /privacy and /terms are live. */}
-          <p>Serving businesses in all 50 states.</p>
+          <p>© {new Date().getFullYear()} {business.legalName}. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-gray-300 transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>
