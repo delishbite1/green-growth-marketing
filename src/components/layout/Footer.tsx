@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
+import LogoSVG from '@/components/shared/LogoSVG'
 
 const services = [
   'Postcard Campaigns', 'Personalized Letters', 'Handwritten Envelopes',
@@ -26,12 +27,33 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-1">
+            <style>{`
+              @keyframes footerLogoIn {
+                from { opacity: 0; transform: translateY(8px); }
+                to   { opacity: 1; transform: translateY(0); }
+              }
+              .footer-logo-wrap {
+                animation: footerLogoIn 700ms ease-out both;
+                display: inline-block;
+                transition: transform 0.3s ease;
+                position: relative;
+              }
+              .footer-logo-wrap:hover { transform: scale(1.02); }
+              .footer-logo-glow {
+                position: absolute;
+                top: 50%; left: 28px;
+                transform: translate(-50%, -50%);
+                width: 60px; height: 60px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(125,194,66,0.10) 0%, transparent 70%);
+                pointer-events: none;
+              }
+            `}</style>
             <Link href="/" className="block mb-5 w-fit">
-              <img
-                src="/logo.png"
-                alt="Green Growth Marketing"
-                style={{ height: '64px', width: '180px', objectFit: 'contain', objectPosition: 'left center', display: 'block', mixBlendMode: 'screen' }}
-              />
+              <div className="footer-logo-wrap">
+                <div className="footer-logo-glow" aria-hidden="true" />
+                <LogoSVG className="h-20" textColor="white" />
+              </div>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               Direct mail campaigns for businesses nationwide. We handle everything so you can focus on what you do best.
