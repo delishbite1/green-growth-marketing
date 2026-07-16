@@ -7,6 +7,7 @@ import { Menu, X, Phone, ChevronRight, Home, Building2, Users, Mail } from 'luci
 
 const navLinks = [
   { label: 'Home',       href: '/',           icon: Home },
+  { label: 'Products',   href: '/products',   icon: Building2 },
   { label: 'Industries', href: '/industries', icon: Building2 },
   { label: 'About Us',   href: '/about',      icon: Users },
   { label: 'Contact',    href: '/contact',    icon: Mail },
