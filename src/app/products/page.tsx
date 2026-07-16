@@ -182,14 +182,8 @@ export default function ProductsPage() {
           <div className="grid sm:grid-cols-3 gap-5">
             {/* Black Ink */}
             <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:-translate-y-1 transition-transform">
-              <div className="w-full flex items-center justify-center p-4" style={{ aspectRatio: '4/3', background: '#fffef5' }}>
-                <div className="w-full h-full rounded border border-gray-200 overflow-hidden" style={{ background: 'repeating-linear-gradient(#fffef5, #fffef5 27px, #c5d8f0 28px)', fontFamily: 'Dancing Script, cursive', padding: '12px 14px', fontSize: '11px', color: '#111', lineHeight: '28px' }}>
-                  <div style={{ borderBottom: '2px solid #e57373', marginBottom: '4px', paddingBottom: '2px', fontSize: '12px', fontWeight: 700 }}>Dear Neighbor,</div>
-                  We wanted to introduce ourselves. We are [Your Business Name], a local company that has recently completed several projects in the area.
-                  <br />Many homeowners nearby have trusted us with their homes. We take pride in honest communication and quality workmanship.
-                  <br /><br />We offer FREE, no-obligation estimates.
-                  <br /><br />Thank you!
-                </div>
+              <div className="w-full bg-gray-50 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
+                <img src="https://i.imgur.com/lJD3qg7.jpeg" alt="Handwritten Letter Black Ink" className="w-full h-full object-contain" />
               </div>
               <div className="p-5 flex flex-col gap-3">
                 <h3 className="font-bold text-gray-900">Handwritten Letter Black Ink</h3>
@@ -203,14 +197,8 @@ export default function ProductsPage() {
 
             {/* Blue Ink */}
             <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:-translate-y-1 transition-transform">
-              <div className="w-full flex items-center justify-center p-4" style={{ aspectRatio: '4/3', background: '#fffef5' }}>
-                <div className="w-full h-full rounded border border-gray-200 overflow-hidden" style={{ background: 'repeating-linear-gradient(#fffef5, #fffef5 27px, #c5d8f0 28px)', fontFamily: 'Dancing Script, cursive', padding: '12px 14px', fontSize: '11px', color: '#1a3a8a', lineHeight: '28px' }}>
-                  <div style={{ borderBottom: '2px solid #e57373', marginBottom: '4px', paddingBottom: '2px', fontSize: '12px', fontWeight: 700 }}>Dear Neighbor,</div>
-                  We wanted to introduce ourselves. We are [Your Business Name], a local company that has recently completed several projects in the area.
-                  <br />Many homeowners nearby have trusted us with their homes. We take pride in honest communication and quality workmanship.
-                  <br /><br />We offer FREE, no-obligation estimates.
-                  <br /><br />Thank you!
-                </div>
+              <div className="w-full bg-gray-50 flex items-center justify-center" style={{ aspectRatio: '4/3', filter: 'hue-rotate(200deg) saturate(1.4) brightness(0.95)' }}>
+                <img src="https://i.imgur.com/lJD3qg7.jpeg" alt="Handwritten Letter Blue Ink" className="w-full h-full object-contain" />
               </div>
               <div className="p-5 flex flex-col gap-3">
                 <h3 className="font-bold text-gray-900">Handwritten Letter Blue Ink</h3>
