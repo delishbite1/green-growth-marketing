@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
-import LogoSVG from '@/components/shared/LogoSVG'
 
 const services = [
   'Postcard Campaigns', 'Personalized Letters', 'Handwritten Envelopes',
@@ -41,18 +40,29 @@ export default function Footer() {
               .footer-logo-wrap:hover { transform: scale(1.02); }
               .footer-logo-glow {
                 position: absolute;
-                top: 50%; left: 28px;
+                top: 38%; left: 50%;
                 transform: translate(-50%, -50%);
-                width: 60px; height: 60px;
+                width: 130%; height: 110%;
                 border-radius: 50%;
-                background: radial-gradient(circle, rgba(125,194,66,0.10) 0%, transparent 70%);
+                background: radial-gradient(ellipse, rgba(125,194,66,0.10) 0%, transparent 70%);
                 pointer-events: none;
               }
             `}</style>
-            <Link href="/" className="block mb-5 w-fit">
+            <Link href="/" className="block mb-6 w-fit">
               <div className="footer-logo-wrap">
                 <div className="footer-logo-glow" aria-hidden="true" />
-                <LogoSVG className="h-20" textColor="white" />
+                <img
+                  src="/logo-transparent.png"
+                  alt="Green Growth Marketing"
+                  style={{
+                    height: '96px',
+                    width: 'auto',
+                    objectFit: 'contain',
+                    display: 'block',
+                    position: 'relative',
+                    filter: 'brightness(1.45) saturate(1.15) drop-shadow(0 4px 16px rgba(125,194,66,0.18))',
+                  }}
+                />
               </div>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">

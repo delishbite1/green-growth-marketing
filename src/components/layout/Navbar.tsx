@@ -119,15 +119,14 @@ export default function Navbar() {
               style={{ animationDelay: '0ms' }}
             >
               <img
-                src="/logo.png"
+                src="/logo-transparent.png"
                 alt="Green Growth Marketing"
                 style={{
-                  height: '72px',
-                  width: '150px',
+                  height: '64px',
+                  width: 'auto',
                   objectFit: 'contain',
                   objectPosition: 'left center',
-                  mixBlendMode: 'multiply',
-                  filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.08))',
+                  filter: 'drop-shadow(0 2px 10px rgba(26,92,26,0.12))',
                 }}
               />
             </Link>
@@ -236,9 +235,9 @@ export default function Navbar() {
         )}
         <div className="px-5 pb-6 pt-4 space-y-1">
           <img
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt="Green Growth Marketing"
-            style={{ height: '64px', width: 'auto', mixBlendMode: 'multiply', marginBottom: '8px' }}
+            style={{ height: '64px', width: 'auto', marginBottom: '8px' }}
           />
           {navLinks.map(({ label, href, icon: Icon }) => {
             const active = pathname === href
