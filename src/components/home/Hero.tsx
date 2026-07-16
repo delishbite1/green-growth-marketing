@@ -14,7 +14,7 @@ export default function Hero() {
     <section className="overflow-hidden" style={{
       marginTop: '-80px',
       paddingTop: '80px',
-      background: 'radial-gradient(ellipse at 20% 60%, rgba(34,197,94,0.10) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.09) 0%, transparent 50%), radial-gradient(ellipse at 60% 80%, rgba(59,130,246,0.07) 0%, transparent 50%), #f8faf8',
+      background: 'radial-gradient(ellipse at 15% 40%, rgba(34,197,94,0.18) 0%, transparent 50%), radial-gradient(ellipse at 85% 15%, rgba(124,58,237,0.16) 0%, transparent 45%), radial-gradient(ellipse at 55% 75%, rgba(59,130,246,0.12) 0%, transparent 50%), linear-gradient(160deg, #edfaf2 0%, #f3eeff 50%, #eef4ff 100%)',
     }}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-12 lg:py-16">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-6">

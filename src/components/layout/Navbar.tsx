@@ -55,11 +55,10 @@ export default function Navbar() {
         }}
         className="w-full flex items-center"
       >
-        <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-3 py-2" style={{ minHeight: '44px' }}>
-          <p className="text-white" style={{ fontSize: '13px', fontWeight: 600, lineHeight: 1.4 }}>
+        <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-center gap-6 py-2" style={{ minHeight: '44px' }}>
+          <p className="text-white text-center" style={{ fontSize: '13px', fontWeight: 600, lineHeight: 1.4 }}>
             🎁 Get <strong style={{ fontWeight: 800, color: '#fde68a' }}>1,000 FREE Postcards</strong>
-            <span className="hidden sm:inline"> when you order 3,000+</span>
-            <span className="sm:hidden"> · 3,000+ order</span>
+            {' '}when you order 3,000+ · New customers only
           </p>
           <a
             href="tel:+18886016556"
