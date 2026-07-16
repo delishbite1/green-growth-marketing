@@ -12,10 +12,10 @@ const features = [
 ]
 
 const trustItems = [
-  { icon: ShieldCheck, label: 'Trusted by Businesses Across the U.S.' },
+  { icon: ShieldCheck, label: 'We Mail to All 50 States' },
   { icon: CheckCircle, label: 'High Quality Printing' },
   { icon: CheckCircle, label: 'Fast Turnaround' },
-  { icon: CheckCircle, label: 'Exceptional Service' },
+  { icon: CheckCircle, label: 'No Minimum Order' },
 ]
 
 export default function PopupOffer() {
@@ -94,13 +94,18 @@ export default function PopupOffer() {
             ) : (
               <>
                 {/* Logo */}
-                <img src="/logo.png" alt="Green Growth Marketing" style={{ height: '58px', width: '190px', objectFit: 'contain', objectPosition: 'left center', mixBlendMode: 'multiply', marginBottom: '14px' }} />
+                <img src="/logo-transparent.png" alt="Green Growth Marketing" style={{ height: '58px', width: 'auto', objectFit: 'contain', objectPosition: 'left center', marginBottom: '14px' }} />
 
                 {/* Headline */}
-                <div className="font-black leading-[1.0] mb-4" style={{ fontSize: 'clamp(2rem, 4.5vw, 2.9rem)' }}>
+                <div className="font-black leading-[1.0] mb-2.5" style={{ fontSize: 'clamp(2rem, 4.5vw, 2.9rem)' }}>
                   <span style={{ color: '#091C3B', display: 'block' }}>GET 1,000</span>
                   <span style={{ color: '#159447', display: 'block' }}>FREE POSTCARDS</span>
                 </div>
+
+                {/* Offer conditions — must sit next to the word "free" (FTC 16 CFR 251) */}
+                <p className="font-semibold text-sm mb-3.5" style={{ color: '#374151' }}>
+                  when you order 3,000 or more. New customers only.
+                </p>
 
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 text-white font-black text-[11px] px-4 py-2 rounded-full mb-3" style={{ background: 'linear-gradient(90deg, #1B73FF, #7A3DF0)', letterSpacing: '0.05em' }}>
@@ -111,8 +116,9 @@ export default function PopupOffer() {
 
                 {/* Desc */}
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  Grow your business faster with high impact direct mail that{' '}
-                  <span className="font-bold" style={{ color: '#159447' }}>gets noticed.</span>
+                  Tell us your email and we&rsquo;ll call you to build the campaign around{' '}
+                  <span className="font-bold" style={{ color: '#159447' }}>your business.</span>{' '}
+                  No prices online, because every niche is different.
                 </p>
 
                 {/* Form */}
