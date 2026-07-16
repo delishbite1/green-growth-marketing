@@ -1,7 +1,7 @@
 import { BadgeCheck, Headphones, Layers, ShieldCheck, Clock, Trophy } from 'lucide-react'
 
 const reasons = [
-  { icon: Trophy, title: 'Guaranteed Best Price', description: "Show us any competitor's quote and we'll beat it, every time. Same budget means more pieces mailed. Same volume means lower cost.", highlight: true },
+  { icon: Trophy, title: 'Guaranteed Best Price', description: "Show us a written competitor quote for the same specs and we'll beat it. Same budget means more pieces mailed. Same volume means lower cost.", highlight: true },
   { icon: Layers, title: 'A to Z Full Service', description: 'Design, list, print, address, stamp, and mail. Handled by us. No need to manage multiple vendors or coordinate logistics.', highlight: false, color: '#7c3aed', bg: '#faf5ff' },
   { icon: BadgeCheck, title: 'No Minimum Order', description: 'Start with 100 pieces or a million. We work with businesses of every size, from solo entrepreneurs to national enterprises.', highlight: false, color: '#ea580c', bg: '#fff7ed' },
   { icon: ShieldCheck, title: 'No Long-Term Contract', description: "Work with us campaign by campaign. We earn your repeat business by delivering results, not by locking you in.", highlight: false, color: '#2563eb', bg: '#eff6ff' },

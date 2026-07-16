@@ -88,7 +88,7 @@ export default function ProductsPage() {
             What We <span style={{ background: 'linear-gradient(90deg,#7dc242,#a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Actually Mail</span> for You
           </h1>
           <p className="text-lg text-white/70 leading-relaxed">
-            Every piece is handcrafted and mailed on your behalf. From design to your customers' mailboxes. These are our most proven formats.
+            Every piece is handcrafted and mailed on your behalf, from the design all the way to your customers&rsquo; mailboxes. These are the formats we build campaigns around.
           </p>
         </div>
       </section>
@@ -103,7 +103,7 @@ export default function ProductsPage() {
               <div>
                 <h3 className="font-bold text-green-800 mb-1">Why handwritten envelopes get opened</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">
-                  In a world of digital noise, a real handwritten envelope stands out. Studies show handwritten mail has a 99% open rate, far higher than email or printed flyers. That's why our envelope campaigns consistently deliver the highest return on investment for our clients.
+                  In a world of digital noise, a real handwritten envelope stands out. It doesn&rsquo;t look like advertising, so it doesn&rsquo;t get treated like advertising. People open a handwritten envelope because it looks like somebody sat down and wrote to them, and that is exactly why we build campaigns around them.
                 </p>
               </div>
             </div>

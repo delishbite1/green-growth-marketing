@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "I don't have a mailing list. Can you build one for me?",
     answer:
-      "Yes, this is one of our most popular services. We build precision-targeted lists using thousands of data filters: ZIP code, income, home value, age, business type, buying behavior, and much more. We help you reach exactly the right people.",
+      "Yes, and it's included. We build precision-targeted lists using filters like ZIP code, income, home value, age, business type, and buying behavior, so your mail reaches the people most likely to actually respond.",
   },
   {
     question: "How does your price beat guarantee work?",

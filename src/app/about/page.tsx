@@ -102,10 +102,10 @@ export default function AboutPage() {
                   We set out to change that. We built a streamlined, full-service operation that handles everything in-house: list building, creative design, premium printing, postage, and USPS delivery, so businesses of any size can access the power of direct mail without the headaches.
                 </p>
                 <p>
-                  Today, our team of four manages campaigns for businesses across all 50 states, across 80+ industries, ranging from solo entrepreneurs testing their first neighborhood drop to national brands running multi-state campaigns.
+                  We mail anywhere in the USA and we know 80+ industries, so whether you&rsquo;re a solo owner testing your first neighborhood drop or you&rsquo;re planning a multi-state rollout, we can build it, print it, and get it in the mail.
                 </p>
                 <p>
-                  Our promise has never changed: we will beat any competitor's price, provide better service, and deliver real results. Every time.
+                  And our promise is simple: show us a written competitor quote for the same specs and we&rsquo;ll beat it. Better service, a real person on the phone, and no contract locking you in.
                 </p>
               </div>
             </div>
