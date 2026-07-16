@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
+import { usePathname } from 'next/navigation'
 import { X, Mail, Send, Target, Palette, Printer, MapPin, Star, ShieldCheck, CheckCircle, TrendingUp, Phone, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -18,7 +19,11 @@ const trustItems = [
   { icon: CheckCircle, label: 'No Minimum Order' },
 ]
 
+const SEEN_KEY = 'ggm-offer-seen'
+const SEEN_FOR_MS = 30 * 24 * 60 * 60 * 1000 // 30 days
+
 export default function PopupOffer() {
+  const pathname = usePathname()
   const [isVisible, setIsVisible] = useState(false)
   const [email, setEmail] = useState('')
   const [hp, setHp] = useState('') // honeypot
@@ -28,15 +33,32 @@ export default function PopupOffer() {
   const [sendError, setSendError] = useState<string | null>(null)
 
   useEffect(() => {
-    const dismissed = sessionStorage.getItem('popup-dismissed')
-    if (dismissed) return
+    // Homepage only. This is a greeting when someone arrives, not something
+    // that chases them around the site. It used to fire on a blind timer on
+    // every page — including on top of the Industries modal a visitor had just
+    // opened, and over the quote form of someone already converting.
+    if (pathname !== '/') return
+
+    // Once per visitor, remembered for 30 days. localStorage rather than
+    // sessionStorage so closing the tab doesn't reset it and show it again.
+    try {
+      const seenAt = Number(localStorage.getItem(SEEN_KEY) ?? 0)
+      if (seenAt && Date.now() - seenAt < SEEN_FOR_MS) return
+    } catch {
+      // Private mode can throw on storage access. Showing it is the safe fail.
+    }
+
     const timer = setTimeout(() => setIsVisible(true), 3500)
     return () => clearTimeout(timer)
-  }, [])
+  }, [pathname])
 
   const dismiss = useCallback(() => {
     setIsVisible(false)
-    sessionStorage.setItem('popup-dismissed', '1')
+    try {
+      localStorage.setItem(SEEN_KEY, String(Date.now()))
+    } catch {
+      // Storage unavailable; worst case they see it again next visit.
+    }
   }, [])
 
   useEffect(() => {
