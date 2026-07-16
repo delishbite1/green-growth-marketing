@@ -180,20 +180,77 @@ export default function ProductsPage() {
           </div>
 
           <div className="grid sm:grid-cols-3 gap-5">
-            {letters.map((p) => (
-              <div key={p.name} className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:-translate-y-1 transition-transform">
-                <div className="w-full bg-gray-50 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
-                  <img src={p.img} alt={p.name} className="w-full h-full object-contain" />
-                </div>
-                <div className="p-5 flex flex-col gap-3">
-                  <h3 className="font-bold text-gray-900">{p.name}</h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {p.chips.map(c => <span key={c} className="text-xs bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 text-gray-500">{c}</span>)}
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+            {/* Black Ink */}
+            <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:-translate-y-1 transition-transform">
+              <div className="w-full flex items-center justify-center p-4" style={{ aspectRatio: '4/3', background: '#fffef5' }}>
+                <div className="w-full h-full rounded border border-gray-200 overflow-hidden" style={{ background: 'repeating-linear-gradient(#fffef5, #fffef5 27px, #c5d8f0 28px)', fontFamily: 'Dancing Script, cursive', padding: '12px 14px', fontSize: '11px', color: '#111', lineHeight: '28px' }}>
+                  <div style={{ borderBottom: '2px solid #e57373', marginBottom: '4px', paddingBottom: '2px', fontSize: '12px', fontWeight: 700 }}>Dear Neighbor,</div>
+                  We wanted to introduce ourselves. We are [Your Business Name], a local company that has recently completed several projects in the area.
+                  <br />Many homeowners nearby have trusted us with their homes. We take pride in honest communication and quality workmanship.
+                  <br /><br />We offer FREE, no-obligation estimates.
+                  <br /><br />Thank you!
                 </div>
               </div>
-            ))}
+              <div className="p-5 flex flex-col gap-3">
+                <h3 className="font-bold text-gray-900">Handwritten Letter Black Ink</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="text-xs bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 text-gray-500">Cursive on lined paper</span>
+                  <span className="text-xs bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 text-gray-500">Black ink</span>
+                </div>
+                <p className="text-sm text-gray-500 leading-relaxed">A personal handwritten style letter on lined paper in black ink. Creates an authentic connection that printed materials simply cannot match. Readers feel like someone took time to write to them specifically.</p>
+              </div>
+            </div>
+
+            {/* Blue Ink */}
+            <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:-translate-y-1 transition-transform">
+              <div className="w-full flex items-center justify-center p-4" style={{ aspectRatio: '4/3', background: '#fffef5' }}>
+                <div className="w-full h-full rounded border border-gray-200 overflow-hidden" style={{ background: 'repeating-linear-gradient(#fffef5, #fffef5 27px, #c5d8f0 28px)', fontFamily: 'Dancing Script, cursive', padding: '12px 14px', fontSize: '11px', color: '#1a3a8a', lineHeight: '28px' }}>
+                  <div style={{ borderBottom: '2px solid #e57373', marginBottom: '4px', paddingBottom: '2px', fontSize: '12px', fontWeight: 700 }}>Dear Neighbor,</div>
+                  We wanted to introduce ourselves. We are [Your Business Name], a local company that has recently completed several projects in the area.
+                  <br />Many homeowners nearby have trusted us with their homes. We take pride in honest communication and quality workmanship.
+                  <br /><br />We offer FREE, no-obligation estimates.
+                  <br /><br />Thank you!
+                </div>
+              </div>
+              <div className="p-5 flex flex-col gap-3">
+                <h3 className="font-bold text-gray-900">Handwritten Letter Blue Ink</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="text-xs bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 text-gray-500">Cursive on lined paper</span>
+                  <span className="text-xs bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 text-gray-500">Blue ink</span>
+                </div>
+                <p className="text-sm text-gray-500 leading-relaxed">Same warm handwritten format in blue ink. The color most associated with a genuine, personal signature. Small detail, big psychological impact on how the recipient perceives your message.</p>
+              </div>
+            </div>
+
+            {/* Printed Flyer */}
+            <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:-translate-y-1 transition-transform">
+              <div className="w-full flex items-center justify-center p-4" style={{ aspectRatio: '4/3', background: '#f8fafc' }}>
+                <div className="w-full h-full rounded border border-gray-200 overflow-hidden flex flex-col" style={{ background: '#fff', fontSize: '9px' }}>
+                  <div style={{ background: 'linear-gradient(135deg,#1a5c1a,#3a8a2d)', color: '#fff', padding: '10px 12px' }}>
+                    <div style={{ fontWeight: 800, fontSize: '13px', marginBottom: '2px' }}>[Your Business Name]</div>
+                    <div style={{ opacity: 0.85 }}>Professional Services · Serving Your Area</div>
+                  </div>
+                  <div style={{ padding: '10px 12px', flex: 1, color: '#333' }}>
+                    <div style={{ fontWeight: 700, fontSize: '11px', marginBottom: '6px', color: '#1a5c1a' }}>Our Services Include:</div>
+                    <div>✔ Service One</div>
+                    <div>✔ Service Two</div>
+                    <div>✔ Service Three</div>
+                    <div style={{ marginTop: '8px', background: '#fff7ed', border: '1px solid #fb923c', borderRadius: '6px', padding: '6px 8px', color: '#ea580c', fontWeight: 700, fontSize: '10px' }}>
+                      FREE No-Obligation Estimate
+                    </div>
+                    <div style={{ marginTop: '8px', color: '#555' }}>📞 (555) 123-4567</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col gap-3">
+                <h3 className="font-bold text-gray-900">Printed Flyer Full Color</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="text-xs bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 text-gray-500">Full Color Print</span>
+                  <span className="text-xs bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 text-gray-500">Logo, offer and CTA</span>
+                </div>
+                <p className="text-sm text-gray-500 leading-relaxed">A professionally designed full color printed flyer inside the envelope. Perfect for businesses with strong visual branding, multiple services, or a specific offer that benefits from layout and imagery.</p>
+              </div>
+            </div>
           </div>
         </section>
 
