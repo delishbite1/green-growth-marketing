@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { quoteSchema, popupSchema } from '@/lib/validation/lead'
 
-const SENDLAYER_ENDPOINT = 'https://console.sendlayer.com/api/v1/email'
+const RESEND_ENDPOINT = 'https://api.resend.com/emails'
+
+/**
+ * Until greengrowthmarketinginc.com is verified in Resend, we can only send
+ * FROM this shared address, and only TO the account's own signup email — which
+ * happens to be exactly where leads need to go. Once the domain is verified,
+ * set LEAD_FROM_EMAIL to something like "Green Growth Marketing
+ * <leads@greengrowthmarketinginc.com>" and nothing else needs to change.
+ */
+const DEFAULT_FROM = 'Green Growth Marketing <onboarding@resend.dev>'
 
 /** Escape user input before it goes into the HTML email body. */
 function esc(v: unknown): string {
@@ -39,15 +48,15 @@ function row(label: string, value: string): string {
 }
 
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.SENDLAYER_API_KEY
+  const apiKey = process.env.RESEND_API_KEY
   const to = process.env.LEAD_EMAIL
-  const from = process.env.LEAD_FROM_EMAIL
+  const from = process.env.LEAD_FROM_EMAIL || DEFAULT_FROM
 
-  if (!apiKey || apiKey === 'PASTE_YOUR_KEY_HERE' || !to || !from) {
+  if (!apiKey || apiKey.startsWith('PASTE_') || !to) {
     // Loud for us, useful for them. If the env vars are ever missing on the
     // live server this fires on EVERY submission, so the visitor must still
     // get a way to reach us rather than an internal-sounding dead end.
-    console.error('[quote] SENDLAYER_API_KEY / LEAD_EMAIL / LEAD_FROM_EMAIL missing. Check Vercel env vars.')
+    console.error('[quote] RESEND_API_KEY or LEAD_EMAIL missing. Check .env.local / Vercel env vars.')
     return NextResponse.json(
       { error: 'We could not send your request right now. Please call us at (888) 601-6556 and we will take care of you.' },
       { status: 503 },
@@ -180,46 +189,45 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const res = await fetch(SENDLAYER_ENDPOINT, {
+    const res = await fetch(RESEND_ENDPOINT, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        From: { name: 'Green Growth Marketing Website', email: from },
-        To: [{ name: 'Green Growth Marketing', email: to }],
-        ReplyTo: [{ email: replyTo }],
-        Subject: subject,
-        ContentType: 'HTML',
-        HTMLContent: html,
-        PlainContent: text,
-        Tags: [source === 'popup' ? 'popup-lead' : 'quote-lead'],
+        from,
+        to: [to],
+        reply_to: replyTo,
+        subject,
+        html,
+        text,
         // Tell mail clients this is transactional, not a bulk campaign. Helps
         // keep leads out of Gmail's Promotions tab. Not a guarantee — the
         // Gmail-side filter is what actually pins this to Primary.
-        Headers: {
-          'X-Entity-Ref-ID': `lead-${Date.now()}`,
+        headers: {
+          'X-Entity-Ref-ID': `lead-${stamp}`,
           'X-Auto-Response-Suppress': 'OOF, AutoReply',
         },
+        tags: [{ name: 'source', value: source === 'popup' ? 'popup_lead' : 'quote_lead' }],
       }),
     })
 
     const payload = await res.json().catch(() => null)
 
-    if (!res.ok || payload?.Errors) {
+    if (!res.ok || payload?.error) {
       // Log the real reason for us; never leak it to the visitor.
-      console.error('[quote] SendLayer rejected the send:', res.status, JSON.stringify(payload))
+      console.error('[quote] Resend rejected the send:', res.status, JSON.stringify(payload))
       return NextResponse.json(
         { error: 'We could not send your request. Please call us at (888) 601-6556.' },
         { status: 502 },
       )
     }
 
-    console.log('[quote] Sent', source, 'lead. MessageID:', payload?.MessageID)
+    console.log('[quote] Sent', source, 'lead. Resend id:', payload?.id)
     return NextResponse.json({ ok: true }, { status: 200 })
   } catch (err) {
-    console.error('[quote] Network error calling SendLayer:', err)
+    console.error('[quote] Network error calling Resend:', err)
     return NextResponse.json(
       { error: 'We could not send your request. Please call us at (888) 601-6556.' },
       { status: 502 },
