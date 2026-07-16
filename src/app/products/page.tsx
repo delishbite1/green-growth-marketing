@@ -120,7 +120,9 @@ export default function ProductsPage() {
           <div className="grid sm:grid-cols-2 gap-5">
             {envelopes.map((p) => (
               <div key={p.name} className={`rounded-2xl overflow-hidden border bg-white shadow-sm hover:-translate-y-1 transition-transform ${p.popular ? 'border-green-400' : 'border-gray-200'}`}>
-                <img src={p.img} alt={p.name} className="w-full object-cover" style={{ aspectRatio: '4/3' }} />
+                <div className="w-full bg-gray-50 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
+                  <img src={p.img} alt={p.name} className="w-full h-full object-contain" />
+                </div>
                 <div className="p-5 flex flex-col gap-3">
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="font-bold text-gray-900">{p.name}</h3>
@@ -149,7 +151,9 @@ export default function ProductsPage() {
           <div className="grid sm:grid-cols-2 gap-5">
             {postcards.map((p) => (
               <div key={p.name} className={`rounded-2xl overflow-hidden border bg-white shadow-sm hover:-translate-y-1 transition-transform ${p.bestseller ? 'border-green-400' : 'border-gray-200'}`}>
-                <img src={p.img} alt={p.name} className="w-full object-cover" style={{ aspectRatio: '4/3' }} />
+                <div className="w-full bg-gray-50 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
+                  <img src={p.img} alt={p.name} className="w-full h-full object-contain" />
+                </div>
                 <div className="p-5 flex flex-col gap-3">
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="font-bold text-gray-900">{p.name}</h3>
@@ -178,7 +182,9 @@ export default function ProductsPage() {
           <div className="grid sm:grid-cols-3 gap-5">
             {letters.map((p) => (
               <div key={p.name} className="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm hover:-translate-y-1 transition-transform">
-                <img src={p.img} alt={p.name} className="w-full object-cover" style={{ aspectRatio: '4/3' }} />
+                <div className="w-full bg-gray-50 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
+                  <img src={p.img} alt={p.name} className="w-full h-full object-contain" />
+                </div>
                 <div className="p-5 flex flex-col gap-3">
                   <h3 className="font-bold text-gray-900">{p.name}</h3>
                   <div className="flex flex-wrap gap-1.5">
