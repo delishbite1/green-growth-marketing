@@ -44,9 +44,12 @@ export async function POST(req: NextRequest) {
   const from = process.env.LEAD_FROM_EMAIL
 
   if (!apiKey || apiKey === 'PASTE_YOUR_KEY_HERE' || !to || !from) {
-    console.error('[quote] Email is not configured. Check .env.local / Vercel env vars.')
+    // Loud for us, useful for them. If the env vars are ever missing on the
+    // live server this fires on EVERY submission, so the visitor must still
+    // get a way to reach us rather than an internal-sounding dead end.
+    console.error('[quote] SENDLAYER_API_KEY / LEAD_EMAIL / LEAD_FROM_EMAIL missing. Check Vercel env vars.')
     return NextResponse.json(
-      { error: 'Email is not configured on the server.' },
+      { error: 'We could not send your request right now. Please call us at (888) 601-6556 and we will take care of you.' },
       { status: 503 },
     )
   }

@@ -359,9 +359,12 @@ export default function ContactForm() {
         )}
       </button>
 
-      <p className="text-xs text-gray-400 text-center leading-relaxed">
+      {/* No Privacy Policy link until /privacy actually exists — a 404 at the
+          exact moment someone hands over their phone number is worse than no
+          link at all. Put it back once the page is live. */}
+      <p className="text-xs text-gray-500 text-center leading-relaxed">
         🔒 We will never share or sell your information. We use it to prepare your quote and to
-        contact you about it. See our <a href="/privacy" className="underline hover:text-gray-600">Privacy Policy</a>.
+        contact you about it.
       </p>
     </form>
   )

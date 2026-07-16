@@ -29,11 +29,12 @@ export default function IndustryModal({ industry, onClose }: Props) {
         onClick={onClose}
       />
 
-      {/* Card */}
-      <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden animate-scale-in">
+      {/* Card. max-h + flex column so the body scrolls instead of the CTAs
+          falling off the bottom of a short phone screen. */}
+      <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden animate-scale-in flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="bg-gradient-to-br from-green-700 to-green-600 p-7 pr-14">
-          <div className="text-4xl mb-3">{industry.icon}</div>
+        <div className="bg-gradient-to-br from-green-700 to-green-600 p-7 pr-14 flex-shrink-0">
+          <div className="text-4xl mb-3" aria-hidden="true">{industry.icon}</div>
           <h2 className="text-xl font-black text-white mb-1">{industry.name}</h2>
           <div className="text-green-200 text-xs font-semibold uppercase tracking-wider">{industry.category}</div>
         </div>
@@ -47,8 +48,8 @@ export default function IndustryModal({ industry, onClose }: Props) {
           <X className="w-5 h-5 text-white" />
         </button>
 
-        {/* Body */}
-        <div className="p-7">
+        {/* Body — scrolls if the content is taller than the screen */}
+        <div className="p-7 overflow-y-auto">
           <p className="text-gray-600 text-sm leading-relaxed mb-6">{industry.description}</p>
 
           <div className="mb-7">

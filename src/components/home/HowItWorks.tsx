@@ -1,10 +1,10 @@
 import { MessageSquare, Palette, Truck, TrendingUp } from 'lucide-react'
 
 const steps = [
-  { number: '01', icon: MessageSquare, title: 'Tell Us Your Goals', description: "A real expert calls you to understand your business, your ideal customer, and what you want to achieve. No forms, no bots.", color: '#7dc242', numColor: 'rgba(122,194,66,0.28)' },
+  { number: '01', icon: MessageSquare, title: 'Tell Us Your Goals', description: "Call us or send the form, and a real person gets back to you the same business day to understand your business, your ideal customer, and what you want to achieve. Never a bot.", color: '#7dc242', numColor: 'rgba(122,194,66,0.28)' },
   { number: '02', icon: Palette, title: 'We Design & Target', description: 'Our team creates your artwork (or uses yours) and builds a precision-targeted mailing list to reach exactly the right people.', color: '#c4b5fd', numColor: 'rgba(196,181,253,0.28)' },
   { number: '03', icon: Truck, title: 'Print, Mail & Deliver', description: 'We print, address, apply postage, and drop your campaign at the USPS. You do nothing. We handle it all.', color: '#fb923c', numColor: 'rgba(251,146,60,0.28)' },
-  { number: '04', icon: TrendingUp, title: 'Watch Your Business Grow', description: 'Track calls, scans, and responses. We review results with you and optimize each campaign to improve your ROI.', color: '#7dc242', numColor: 'rgba(122,194,66,0.28)' },
+  { number: '04', icon: TrendingUp, title: 'Watch Your Business Grow', description: 'Your mail lands and the calls start. We talk through what came back and sharpen the next drop, so every campaign works harder than the last.', color: '#7dc242', numColor: 'rgba(122,194,66,0.28)' },
 ]
 
 export default function HowItWorks() {

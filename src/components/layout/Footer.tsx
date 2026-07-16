@@ -13,9 +13,19 @@ const industries = [
 
 const company = [
   { label: 'Home', href: '/' },
+  { label: 'Products', href: '/products' },
   { label: 'Industries', href: '/industries' },
   { label: 'About Us', href: '/about' },
   { label: 'Contact', href: '/contact' },
+]
+
+// TODO(Inbar): paste your real profile URLs here and the icons appear.
+// Leave one empty and it stays hidden — better than a link that goes nowhere.
+// YouTube is empty on purpose: there is no channel yet.
+const socials = [
+  { Icon: Facebook,  label: 'Facebook',  href: '', color: '#7dc242', bg: 'rgba(122,194,66,0.15)' },
+  { Icon: Instagram, label: 'Instagram', href: '', color: '#c4b5fd', bg: 'rgba(124,58,237,0.15)' },
+  { Icon: Youtube,   label: 'YouTube',   href: '', color: '#f97316', bg: 'rgba(234,88,12,0.15)' },
 ]
 
 export default function Footer() {
@@ -88,18 +98,28 @@ export default function Footer() {
                 Serving all 50 states nationwide
               </div>
             </div>
-            {/* Social */}
-            <div className="flex gap-3 mt-6">
-              {[
-                { Icon: Facebook, color: '#7dc242', bg: 'rgba(122,194,66,0.15)' },
-                { Icon: Instagram, color: '#c4b5fd', bg: 'rgba(124,58,237,0.15)' },
-                { Icon: Youtube, color: '#f97316', bg: 'rgba(234,88,12,0.15)' },
-              ].map(({ Icon, color, bg }, i) => (
-                <a key={i} href="#" className="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:scale-110" style={{ background: bg }}>
-                  <Icon className="w-4 h-4" style={{ color }} />
-                </a>
-              ))}
-            </div>
+            {/* Social. Only renders icons that have a real URL — a marketing
+                company with links that go nowhere is a bad look. Paste the
+                profile URLs into socials above and they appear automatically. */}
+            {socials.some((s) => s.href) && (
+              <div className="flex gap-3 mt-6">
+                {socials
+                  .filter((s) => s.href)
+                  .map(({ Icon, color, bg, href, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Green Growth Marketing on ${label}`}
+                      className="w-9 h-9 rounded-lg flex items-center justify-center transition-transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"
+                      style={{ background: bg }}
+                    >
+                      <Icon className="w-4 h-4" style={{ color }} aria-hidden="true" />
+                    </a>
+                  ))}
+              </div>
+            )}
           </div>
 
           {/* Services */}
@@ -168,11 +188,12 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Green Growth Marketing. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="#" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-gray-300 transition-colors">Terms of Service</Link>
-          </div>
+          <p>© {new Date().getFullYear()} Green Growth Marketing Inc. All rights reserved.</p>
+          {/* Privacy Policy and Terms links are deliberately absent until those
+              pages exist. A visible link that goes nowhere is worse than no
+              link: it states a policy exists when it does not. Restore both
+              here the moment /privacy and /terms are live. */}
+          <p>Serving businesses in all 50 states.</p>
         </div>
       </div>
     </footer>

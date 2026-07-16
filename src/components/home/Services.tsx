@@ -5,13 +5,13 @@ const services = [
   {
     icon: PenLine,
     title: 'Handwritten Envelopes',
-    description: 'Real pen-and-ink handwritten addresses that stand out in any mailbox. Open rates dramatically higher than printed envelopes.',
-    iconColor: '#ea580c', iconBg: '#fff7ed', borderColor: '#fed7aa', pill: 'Most Popular', pillStyle: { background: '#fef3c7', color: '#b45309' },
+    description: 'Real pen and ink handwritten addresses that stand out in any mailbox. It does not look like advertising, so it does not get treated like advertising.',
+    iconColor: '#ea580c', iconBg: '#fff7ed', borderColor: '#fed7aa', pill: 'Our Recommendation', pillStyle: { background: '#fef3c7', color: '#b45309' },
   },
   {
     icon: FileText,
     title: 'Personalized Letters',
-    description: "Variable-data letters with each recipient's name, address, and custom offer. Personal touch at scale, proven to outperform generic mail.",
+    description: "Variable data letters with each recipient's name, address, and custom offer. A personal touch, at scale, without the generic-mail feel.",
     iconColor: '#7c3aed', iconBg: '#faf5ff', borderColor: '#ddd6fe', pill: null, pillStyle: {},
   },
   {

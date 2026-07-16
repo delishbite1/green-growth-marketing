@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'About Us | Green Growth Marketing',
   description:
-    'Learn about Green Growth Marketing — a full-service direct mail company dedicated to helping businesses grow with postcards, personalized letters, and targeted mailing campaigns.',
+    'Learn about Green Growth Marketing, a full service direct mail company dedicated to helping businesses grow with postcards, personalized letters, and targeted mailing campaigns.',
 }
 
 const values = [

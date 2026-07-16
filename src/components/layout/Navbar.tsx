@@ -55,16 +55,21 @@ export default function Navbar() {
         }}
         className="w-full flex items-center"
       >
-        <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-center gap-6 py-2" style={{ minHeight: '44px' }}>
-          <p className="text-white text-center" style={{ fontSize: '13px', fontWeight: 600, lineHeight: 1.4 }}>
+        <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex items-center justify-center gap-3 sm:gap-6 py-2" style={{ minHeight: '44px' }}>
+          {/* Small phones: short version, one line. It used to wrap to 4-5 lines
+              at 360px and shove the hero off screen. */}
+          <p className="text-white text-center sm:hidden" style={{ fontSize: '12px', fontWeight: 600, lineHeight: 1.3 }}>
+            🎁 <strong style={{ fontWeight: 800, color: '#fde68a' }}>1,000 FREE Postcards</strong> on 3,000+
+          </p>
+          <p className="text-white text-center hidden sm:block" style={{ fontSize: '13px', fontWeight: 600, lineHeight: 1.4 }}>
             🎁 Get <strong style={{ fontWeight: 800, color: '#fde68a' }}>1,000 FREE Postcards</strong>
             {' '}when you order 3,000+ New customers only
           </p>
           <a
             href="tel:+18886016556"
             aria-label="Call us at 888-601-6556"
-            className="flex items-center gap-1.5 text-white hover:text-yellow-200 transition-colors flex-shrink-0"
-            style={{ fontSize: '13px', fontWeight: 700 }}
+            className="flex items-center gap-1.5 text-white hover:text-yellow-200 transition-colors flex-shrink-0 whitespace-nowrap"
+            style={{ fontSize: '12px', fontWeight: 700 }}
           >
             <Phone className="w-3.5 h-3.5" aria-hidden="true" />
             (888) 601-6556
@@ -114,7 +119,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              aria-label="Green Growth Marketing — homepage"
+              aria-label="Green Growth Marketing, homepage"
               className="nav-logo focus-visible:outline-2 focus-visible:outline-green-500 focus-visible:rounded-lg"
               style={{ animationDelay: '0ms' }}
             >

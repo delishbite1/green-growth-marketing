@@ -41,7 +41,7 @@ export default function CTABanner({
           </a>
         </div>
 
-        <p className="text-white/25 text-sm mt-8">No contracts · No minimums · Quote back the same business day</p>
+        <p className="text-white/25 text-sm mt-8">No contracts. No minimums. Quote back the same business day.</p>
       </div>
     </section>
   )

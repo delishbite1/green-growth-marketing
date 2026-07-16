@@ -5,7 +5,7 @@ import CTABanner from '@/components/shared/CTABanner'
 export const metadata: Metadata = {
   title: 'Industries We Serve | Green Growth Marketing',
   description:
-    'Direct mail marketing campaigns for 80+ industries — from home services to healthcare, real estate, restaurants, and more. Custom campaigns for any business type.',
+    'Direct mail marketing campaigns for 80+ industries, from home services to healthcare, real estate, restaurants, and more. Custom campaigns for any business type.',
 }
 
 export default function IndustriesPage() {
@@ -28,7 +28,7 @@ export default function IndustriesPage() {
             </span>
           </h1>
           <p className="text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
-            Whether you're a solo contractor or a national chain, we have the experience and targeting capabilities to get your message in front of the right customers. Click any industry to learn more.
+            Whether you&rsquo;re a solo contractor or a national chain, we have the targeting to get your message in front of the right customers. Click any industry to learn more.
           </p>
         </div>
       </section>

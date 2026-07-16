@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Green Growth Marketing | Direct Mail That Delivers Results',
   description:
-    'Full-service direct mail campaigns for businesses nationwide. Postcards, personalized letters, handwritten envelopes — design, printing, mailing lists, and postage all included.',
+    'Full service direct mail campaigns for businesses nationwide. Postcards, personalized letters, handwritten envelopes. Design, printing, mailing lists, and postage all included.',
   keywords:
     'direct mail marketing, postcards, mailing lists, printing, personalized letters, handwritten envelopes, business marketing USA',
   openGraph: {

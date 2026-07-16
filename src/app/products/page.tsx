@@ -5,29 +5,29 @@ const envelopes = [
     img: 'https://i.imgur.com/ifSNnjk.jpeg',
     name: 'Standard Envelope Style A',
     chips: ['Handwritten style', 'Return address', 'Forever stamp'],
-    desc: 'The cleanest, most trusted look. A real handwritten style address with a live Forever stamp, indistinguishable from personal mail. Recipients always open it. Our top choice for client acquisition campaigns.',
-    popular: true,
+    desc: 'The cleanest, most personal look. A real handwritten style address with a live Forever stamp, so it lands looking like a letter from a friend rather than an ad. This is the one we recommend first for winning new customers.',
+    recommended: true,
   },
   {
     img: 'https://i.imgur.com/uAl8tLi.jpeg',
     name: 'Standard Envelope Style B',
     chips: ['Handwritten style', 'Return address', 'Imprinted stamp'],
-    desc: 'Same personal handwritten appearance with an imprinted postage stamp. Perfect for high volume campaigns where you want maximum reach without sacrificing the authentic feel.',
-    popular: false,
+    desc: 'Same personal handwritten appearance with an imprinted postage stamp. Built for high volume campaigns where you want maximum reach without sacrificing the authentic feel.',
+    recommended: false,
   },
   {
     img: 'https://i.imgur.com/lLiJTlJ.jpeg',
     name: 'Branded Envelope Style C',
     chips: ['Handwritten style', 'Your logo', 'Forever stamp'],
-    desc: 'Combines the warmth of handwriting with your logo on the envelope. Builds instant brand recognition while keeping the personal touch that drives opens. Ideal for businesses with an established brand.',
-    popular: false,
+    desc: 'Combines the warmth of handwriting with your logo on the envelope. You get brand recognition while keeping the personal touch. Ideal for businesses with an established brand.',
+    recommended: false,
   },
   {
     img: 'https://i.imgur.com/1DjFMy3.jpeg',
     name: 'Branded Envelope Style D',
     chips: ['Handwritten style', 'Your logo', 'Imprinted stamp'],
     desc: 'Your logo paired with handwritten addressing and imprinted postage. A smart choice for scaling campaigns. You get brand visibility at the highest volume for your budget.',
-    popular: false,
+    recommended: false,
   },
 ]
 
@@ -36,15 +36,15 @@ const postcards = [
     img: 'https://i.imgur.com/KjuAyR6.jpeg',
     name: 'Large Postcard Premium',
     chips: ['6" x 11"', 'Double Sided', 'Your logo and offer', 'Forever stamp'],
-    desc: 'Our largest format postcard. A 6x11" full color mailer with your offer, logo, and call to action, delivered with a live Forever stamp. Proven to generate the highest response rates for service businesses and local campaigns.',
-    bestseller: true,
+    desc: 'Our largest format postcard. A 6x11" full color mailer with your offer, logo, and call to action, delivered with a live Forever stamp. It is hard to miss in a mailbox, which is why we reach for it on service businesses and local campaigns.',
+    recommended: true,
   },
   {
     img: 'https://i.imgur.com/r152TaL.jpeg',
     name: 'Large Postcard Value',
     chips: ['6" x 11"', 'Double Sided', 'Your logo and offer', 'Imprinted stamp'],
-    desc: 'The same full size, full color 6x11" postcard with imprinted postage. Best for large scale rollouts and national campaigns. Stretch your budget while maintaining a strong visual presence in every mailbox.',
-    bestseller: false,
+    desc: 'The same full size, full color 6x11" postcard with imprinted postage. Built for large scale rollouts and national campaigns. Stretch your budget while keeping a strong visual presence in every mailbox.',
+    recommended: false,
   },
 ]
 
@@ -119,14 +119,14 @@ export default function ProductsPage() {
 
           <div className="grid sm:grid-cols-2 gap-5">
             {envelopes.map((p) => (
-              <div key={p.name} className={`rounded-2xl overflow-hidden border bg-white shadow-sm hover:-translate-y-1 transition-transform ${p.popular ? 'border-green-400' : 'border-gray-200'}`}>
+              <div key={p.name} className={`rounded-2xl overflow-hidden border bg-white shadow-sm hover:-translate-y-1 transition-transform ${p.recommended ? 'border-green-400' : 'border-gray-200'}`}>
                 <div className="w-full bg-gray-50 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
                   <img src={p.img} alt={p.name} className="w-full h-full object-contain" />
                 </div>
                 <div className="p-5 flex flex-col gap-3">
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="font-bold text-gray-900">{p.name}</h3>
-                    {p.popular && <span className="text-xs font-bold uppercase tracking-wide bg-green-100 text-green-700 px-3 py-1 rounded-full whitespace-nowrap">Most Popular</span>}
+                    {p.recommended && <span className="text-xs font-bold uppercase tracking-wide bg-green-100 text-green-700 px-3 py-1 rounded-full whitespace-nowrap">Our Recommendation</span>}
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {p.chips.map(c => <span key={c} className="text-xs bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 text-gray-500">{c}</span>)}
@@ -150,14 +150,14 @@ export default function ProductsPage() {
 
           <div className="grid sm:grid-cols-2 gap-5">
             {postcards.map((p) => (
-              <div key={p.name} className={`rounded-2xl overflow-hidden border bg-white shadow-sm hover:-translate-y-1 transition-transform ${p.bestseller ? 'border-green-400' : 'border-gray-200'}`}>
+              <div key={p.name} className={`rounded-2xl overflow-hidden border bg-white shadow-sm hover:-translate-y-1 transition-transform ${p.recommended ? 'border-green-400' : 'border-gray-200'}`}>
                 <div className="w-full bg-gray-50 flex items-center justify-center" style={{ aspectRatio: '4/3' }}>
                   <img src={p.img} alt={p.name} className="w-full h-full object-contain" />
                 </div>
                 <div className="p-5 flex flex-col gap-3">
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="font-bold text-gray-900">{p.name}</h3>
-                    {p.bestseller && <span className="text-xs font-bold uppercase tracking-wide bg-orange-100 text-orange-700 px-3 py-1 rounded-full whitespace-nowrap">Best Seller</span>}
+                    {p.recommended && <span className="text-xs font-bold uppercase tracking-wide bg-orange-100 text-orange-700 px-3 py-1 rounded-full whitespace-nowrap">Best for Response</span>}
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {p.chips.map(c => <span key={c} className="text-xs bg-gray-50 border border-gray-200 rounded-md px-2 py-0.5 text-gray-500">{c}</span>)}
