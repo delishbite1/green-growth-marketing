@@ -104,13 +104,14 @@ export default function ContactPage() {
               <div className="bg-gradient-to-br from-green-700 to-green-600 rounded-2xl p-6 text-white">
                 <div className="text-lg font-black mb-2">Price Beat Guarantee</div>
                 <p className="text-green-100 text-sm leading-relaxed">
-                  Have a quote from a competitor? Share it with us. We'll beat it, or explain why we can't.
+                  Have a written quote from a competitor? Send it over. Same size, same quantity,
+                  same paper, same postage class, and we&rsquo;ll beat it.
                 </p>
               </div>
             </div>
 
             {/* Right: Form */}
-            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-10">
+            <div id="quote-form" className="scroll-mt-28 bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-10">
               <h2 className="text-xl font-black mb-1" style={{ background: 'linear-gradient(90deg, #16a34a, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Request Your Free Quote</h2>
               <p className="text-gray-400 text-sm mb-8">All fields marked * are required.</p>
               <ContactForm />

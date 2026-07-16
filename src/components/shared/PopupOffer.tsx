@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
-import { X, Mail, Send, Target, Palette, Printer, MapPin, Star, ShieldCheck, CheckCircle, TrendingUp, Phone } from 'lucide-react'
+import { X, Mail, Send, Target, Palette, Printer, MapPin, Star, ShieldCheck, CheckCircle, TrendingUp, Phone, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 
 const features = [
@@ -21,8 +21,11 @@ const trustItems = [
 export default function PopupOffer() {
   const [isVisible, setIsVisible] = useState(false)
   const [email, setEmail] = useState('')
+  const [hp, setHp] = useState('') // honeypot
   const [submitted, setSubmitted] = useState(false)
   const [focused, setFocused] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState<string | null>(null)
 
   useEffect(() => {
     const dismissed = sessionStorage.getItem('popup-dismissed')
@@ -47,11 +50,30 @@ export default function PopupOffer() {
     return () => { document.body.style.overflow = '' }
   }, [isVisible])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email) return
-    setSubmitted(true)
-    setTimeout(dismiss, 3000)
+    if (!email || sending) return
+    setSending(true)
+    setSendError(null)
+    try {
+      const res = await fetch('/api/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, website: hp, source: 'popup' }),
+      })
+      if (!res.ok) {
+        const payload = await res.json().catch(() => null)
+        setSendError(payload?.error ?? 'Something went wrong. Please call (888) 601-6556.')
+        return
+      }
+      // Only claim success once the server actually confirms it.
+      setSubmitted(true)
+      setTimeout(dismiss, 3000)
+    } catch {
+      setSendError('We could not reach our server. Please call (888) 601-6556.')
+    } finally {
+      setSending(false)
+    }
   }
 
   if (!isVisible) return null
@@ -123,16 +145,34 @@ export default function PopupOffer() {
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-2.5 mb-3">
+                  {/* Honeypot */}
+                  <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+                    <label htmlFor="popup-website">Website</label>
+                    <input id="popup-website" type="text" tabIndex={-1} autoComplete="off" value={hp} onChange={(e) => setHp(e.target.value)} />
+                  </div>
+
                   <div className="flex items-center gap-2.5 rounded-xl px-3.5 py-3 transition-all duration-200" style={{ border: focused ? '2px solid #159447' : '2px solid #d1fae5', background: focused ? '#f0fdf4' : '#fff', boxShadow: focused ? '0 0 0 3px rgba(21,148,71,0.10)' : 'none' }}>
                     <Mail className="w-4 h-4 flex-shrink-0" style={{ color: focused ? '#159447' : '#9ca3af' }} aria-hidden="true" />
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} placeholder="Enter your business email" required aria-label="Business email" className="flex-1 text-sm outline-none bg-transparent text-gray-800 placeholder-gray-400" />
                   </div>
-                  <button type="submit" className="w-full flex items-center justify-center gap-2 text-white font-black py-3.5 rounded-xl text-sm uppercase tracking-wide transition-all duration-200 hover:-translate-y-0.5"
-                    style={{ background: 'linear-gradient(135deg, #159447 0%, #30C257 100%)', boxShadow: '0 8px 22px rgba(21,148,71,0.32)', letterSpacing: '0.05em' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 14px 32px rgba(21,148,71,0.45)' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 8px 22px rgba(21,148,71,0.32)' }}>
-                    <Send className="w-3.5 h-3.5" aria-hidden="true" />
-                    CLAIM MY 1,000 FREE POSTCARDS →
+
+                  {sendError && (
+                    <p role="alert" className="text-xs text-red-600 text-left leading-relaxed px-1">{sendError}</p>
+                  )}
+
+                  <button type="submit" disabled={sending} className="w-full flex items-center justify-center gap-2 text-white font-black py-3.5 rounded-xl text-sm uppercase tracking-wide transition-transform duration-200 hover:-translate-y-0.5 disabled:opacity-70 disabled:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
+                    style={{ background: 'linear-gradient(135deg, #159447 0%, #30C257 100%)', boxShadow: '0 8px 22px rgba(21,148,71,0.32)', letterSpacing: '0.05em' }}>
+                    {sending ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" aria-hidden="true" />
+                        SENDING...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-3.5 h-3.5" aria-hidden="true" />
+                        CLAIM MY 1,000 FREE POSTCARDS →
+                      </>
+                    )}
                   </button>
                 </form>
 
