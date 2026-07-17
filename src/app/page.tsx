@@ -1,6 +1,7 @@
 import Hero from '@/components/home/Hero'
 import Services from '@/components/home/Services'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
+import BuiltForVolume from '@/components/home/BuiltForVolume'
 import Guarantee from '@/components/home/Guarantee'
 import FAQ from '@/components/home/FAQ'
 import CTABanner from '@/components/shared/CTABanner'
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Services />
       <HowItWorks />
       <WhyChooseUs />
+      <BuiltForVolume />
       <Guarantee />
       <FAQ />
       <CTABanner />
