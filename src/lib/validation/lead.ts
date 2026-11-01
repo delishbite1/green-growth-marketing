@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from 'zod/v3'
 
 /**
  * Shared between the browser form and the server route.
@@ -21,10 +21,10 @@ export const quoteSchema = z.object({
   industry: z.string().trim().min(1, 'Industry is required').max(120),
   phone: z.string().trim().min(7, 'Enter a valid phone number').max(32),
   email: z.string().trim().email('Enter a valid email address').max(160),
-  address: z.string().trim().min(5, 'Full address is required').max(200),
-  city: z.string().trim().min(1, 'City is required').max(80),
-  state: z.string().trim().min(1, 'State is required').max(40),
-  zip: z.string().trim().min(5, 'ZIP code is required').max(12),
+  address: z.string().trim().max(200).default(''),
+  city: z.string().trim().max(80).default(''),
+  state: z.string().trim().max(40).default(''),
+  zip: z.string().trim().max(12).default(''),
   services: z.array(z.string().max(80)).min(1, 'Select at least one service').max(20),
   budget: z.string().max(60).optional(),
   message: z.string().max(4000).optional(),
@@ -40,4 +40,5 @@ export const popupSchema = z.object({
 })
 
 export type QuoteInput = z.infer<typeof quoteSchema>
+export type QuoteFormInput = z.input<typeof quoteSchema>
 export type PopupInput = z.infer<typeof popupSchema>

@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
-import { quoteSchema, type QuoteInput } from '@/lib/validation/lead'
+import { quoteSchema, type QuoteInput, type QuoteFormInput } from '@/lib/validation/lead'
 
 const services = [
   'Postcard Campaign',
@@ -43,7 +43,7 @@ export default function ContactForm() {
     formState: { errors, isSubmitting },
     setValue,
     watch,
-  } = useForm<QuoteInput>({
+  } = useForm<QuoteFormInput, unknown, QuoteInput>({
     resolver: zodResolver(quoteSchema),
     defaultValues: { services: [], industry: prefilledIndustry },
   })
@@ -86,17 +86,17 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="text-center py-12" role="status" aria-live="polite">
-        <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
-          <CheckCircle2 className="w-8 h-8 text-green-600" />
+        <div className="w-16 h-16 rounded-full bg-ggm-sage-surface flex items-center justify-center mx-auto mb-5">
+          <CheckCircle2 className="w-8 h-8 text-ggm-forest" />
         </div>
-        <h3 className="text-2xl font-black text-gray-900 mb-3">Quote Request Received!</h3>
+        <h3 className="text-2xl font-semibold text-gray-900 mb-3">Quote Request Received!</h3>
         <p className="text-gray-500 leading-relaxed max-w-md mx-auto mb-6">
           Thanks for reaching out. A direct mail expert will review your request and be in touch
           with a custom quote.
         </p>
         <a
           href="tel:+18886016556"
-          className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold text-sm transition-colors"
+          className="inline-flex items-center gap-2 text-ggm-forest hover:text-ggm-forest font-semibold text-sm transition-colors"
         >
           Need it faster? Call (888) 601-6556
         </a>
@@ -106,7 +106,7 @@ export default function ContactForm() {
 
   const inputClass = (hasError: boolean) =>
     `w-full border-2 ${
-      hasError ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-green-500'
+      hasError ? 'border-red-300 focus:border-red-500' : 'border-gray-200 focus:border-ggm-forest'
     } rounded-xl px-4 py-3 text-sm outline-none transition-colors placeholder-gray-400`
 
   const labelClass = 'block text-xs font-bold text-gray-700 uppercase tracking-wide mb-2'
@@ -206,9 +206,10 @@ export default function ContactForm() {
         </div>
       </div>
 
+      <details className="rounded-xl border border-ggm-line p-4"><summary className="cursor-pointer text-sm font-semibold text-ggm-forest">Business address (optional)</summary><div className="mt-4 space-y-4">
       {/* Address */}
       <div>
-        <label htmlFor="address" className={labelClass}>Business Street Address *</label>
+        <label htmlFor="address" className={labelClass}>Business Street Address</label>
         <input
           id="address"
           {...register('address')}
@@ -222,7 +223,7 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="sm:col-span-1">
-          <label htmlFor="city" className={labelClass}>City *</label>
+          <label htmlFor="city" className={labelClass}>City</label>
           <input
             id="city"
             {...register('city')}
@@ -234,7 +235,7 @@ export default function ContactForm() {
           {errors.city && <p id="city-error" role="alert" className={errorClass}>{errors.city.message}</p>}
         </div>
         <div>
-          <label htmlFor="state" className={labelClass}>State *</label>
+          <label htmlFor="state" className={labelClass}>State</label>
           <input
             id="state"
             {...register('state')}
@@ -247,7 +248,7 @@ export default function ContactForm() {
           {errors.state && <p id="state-error" role="alert" className={errorClass}>{errors.state.message}</p>}
         </div>
         <div>
-          <label htmlFor="zip" className={labelClass}>ZIP Code *</label>
+          <label htmlFor="zip" className={labelClass}>ZIP Code</label>
           <input
             id="zip"
             {...register('zip')}
@@ -260,6 +261,7 @@ export default function ContactForm() {
         </div>
       </div>
 
+      </div></details>
       {/* Services */}
       <fieldset>
         <legend className={labelClass}>Services Interested In *</legend>
@@ -272,10 +274,10 @@ export default function ContactForm() {
                 type="button"
                 onClick={() => toggleService(service)}
                 aria-pressed={active}
-                className={`px-4 py-2.5 rounded-xl text-xs font-semibold border-2 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 ${
+                className={`px-4 py-2.5 rounded-xl text-xs font-semibold border-2 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ggm-forest ${
                   active
-                    ? 'bg-green-600 text-white border-green-600 shadow-md'
-                    : 'bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-green-700'
+                    ? 'bg-ggm-forest text-white border-ggm-forest shadow-md'
+                    : 'bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-ggm-forest'
                 }`}
               >
                 {service}
@@ -288,7 +290,7 @@ export default function ContactForm() {
 
       {/* Budget */}
       <div>
-        <label htmlFor="budget" className={labelClass}>Approximate Monthly Budget (Optional)</label>
+        <label htmlFor="budget" className={labelClass}>Approximate Campaign Budget (Optional)</label>
         <select id="budget" {...register('budget')} className={`${inputClass(false)} bg-white`}>
           <option value="">Select a budget range</option>
           {budgets.map((b) => (
@@ -318,7 +320,7 @@ export default function ContactForm() {
             {...register('consent')}
             aria-invalid={!!errors.consent}
             aria-describedby={errors.consent ? 'consent-error' : undefined}
-            className="mt-0.5 w-5 h-5 flex-shrink-0 rounded border-2 border-gray-300 text-green-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 cursor-pointer"
+            className="mt-0.5 w-5 h-5 flex-shrink-0 rounded border-2 border-gray-300 text-ggm-forest focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ggm-forest cursor-pointer"
           />
           <span className="text-xs text-gray-500 leading-relaxed">
             I agree that Green Growth Marketing may contact me at the phone number and email I
@@ -347,7 +349,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:opacity-70 text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base shadow-xl shadow-green-500/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
+        className="w-full flex items-center justify-center gap-2 bg-ggm-forest hover:bg-ggm-forest disabled:opacity-70 text-white font-bold py-4 rounded-xl transition-colors duration-200 text-base shadow-xl shadow-ggm-forest/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ggm-forest"
       >
         {isSubmitting ? (
           <>
@@ -360,7 +362,7 @@ export default function ContactForm() {
       </button>
 
       <p className="text-xs text-gray-500 text-center leading-relaxed">
-        🔒 We will never share or sell your information. We use it to prepare your quote and to
+        We will never share or sell your information. We use it to prepare your quote and to
         contact you about it. See our{' '}
         <a href="/privacy" className="underline hover:text-gray-700">Privacy Policy</a>.
       </p>

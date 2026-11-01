@@ -1,207 +1,67 @@
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
+import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react'
 import { business } from '@/config/business'
 
-const services = [
-  'Postcard Campaigns', 'Personalized Letters', 'Handwritten Envelopes',
-  'Targeted Mailing Lists', 'Premium Printing', 'Campaign Design', 'Postage & Delivery',
-]
-
-const industries = [
-  'Home Services', 'Real Estate', 'Healthcare & Dental', 'Restaurants',
-  'Automotive', 'Fitness & Wellness', 'Retail', 'Financial Services',
-]
-
-const company = [
-  { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-]
-
-// TODO(Inbar): paste your real profile URLs here and the icons appear.
-// Leave one empty and it stays hidden — better than a link that goes nowhere.
-// YouTube is empty on purpose: there is no channel yet.
-const socials = [
-  { Icon: Facebook,  label: 'Facebook',  href: '', color: '#7dc242', bg: 'rgba(122,194,66,0.15)' },
-  { Icon: Instagram, label: 'Instagram', href: '', color: '#c4b5fd', bg: 'rgba(124,58,237,0.15)' },
-  { Icon: Youtube,   label: 'YouTube',   href: '', color: '#f97316', bg: 'rgba(234,88,12,0.15)' },
+const groups = [
+  { title: 'Our services', links: [
+    { label: 'Personalized Letters', href: '/products' },
+    { label: 'Handwritten Envelopes', href: '/products' },
+    { label: 'Postcards', href: '/products' },
+    { label: 'Mailing Lists & Printing', href: '/contact' },
+  ] },
+  { title: 'Explore GGM', links: [
+    { label: 'Industries', href: '/industries' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+  ] },
 ]
 
 export default function Footer() {
   return (
-    <footer className="text-gray-300" style={{ background: 'linear-gradient(160deg, #0a1a0a 0%, #0d1b0d 40%, #0f0f1a 100%)' }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 items-start">
+    <footer className="brand-controls border-t border-ggm-line bg-ggm-ivory font-body text-ggm-forest">
+      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14">
+        <div className="flex flex-col items-start justify-between gap-5 border-b border-ggm-forest/15 pb-8 sm:flex-row sm:items-center">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ggm-gold-ink">Let’s talk direct mail</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">Bring a personal touch to your next campaign.</h2>
+          </div>
+          <Link href="/contact#quote-form" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-3 rounded-lg bg-ggm-forest px-5 text-sm font-semibold text-ggm-ivory transition hover:bg-ggm-forest-deep">Get a Free Quote <ArrowUpRight className="h-4 w-4" aria-hidden /></Link>
+        </div>
 
-          {/* Brand column */}
-          <div className="lg:col-span-1">
-            <style>{`
-              @keyframes footerLogoIn {
-                from { opacity: 0; transform: translateY(8px); }
-                to   { opacity: 1; transform: translateY(0); }
-              }
-              .footer-logo-wrap {
-                animation: footerLogoIn 700ms ease-out both;
-                display: inline-block;
-                transition: transform 0.3s ease;
-                position: relative;
-              }
-              .footer-logo-wrap:hover { transform: scale(1.02); }
-              .footer-logo-glow {
-                position: absolute;
-                top: 38%; left: 50%;
-                transform: translate(-50%, -50%);
-                width: 130%; height: 110%;
-                border-radius: 50%;
-                background: radial-gradient(ellipse, rgba(125,194,66,0.10) 0%, transparent 70%);
-                pointer-events: none;
-              }
-            `}</style>
-            <Link href="/" className="block mb-6 w-fit">
-              <div className="footer-logo-wrap">
-                <div className="footer-logo-glow" aria-hidden="true" />
-                <img
-                  src="/logo-transparent.png"
-                  alt="Green Growth Marketing"
-                  style={{
-                    height: '96px',
-                    width: 'auto',
-                    objectFit: 'contain',
-                    display: 'block',
-                    position: 'relative',
-                    filter: 'brightness(1.45) saturate(1.15) drop-shadow(0 4px 16px rgba(125,194,66,0.18))',
-                  }}
-                />
-              </div>
+        <div className="grid gap-8 pt-8 lg:grid-cols-[1.1fr_1fr_1.1fr] lg:gap-12">
+          <div>
+            <Link href="/" aria-label="Green Growth Marketing, homepage" className="inline-flex flex-col text-ggm-forest">
+              <span className="font-display text-4xl font-medium leading-none tracking-wide">GGM</span>
+              <span aria-hidden className="mt-2 text-[8px] font-semibold uppercase tracking-[0.2em]">Green Growth Marketing</span>
             </Link>
-            <p className="text-sm text-gray-400 leading-relaxed mb-6">
-              Direct mail campaigns for businesses nationwide. We handle everything so you can focus on what you do best.
-            </p>
-            <div className="space-y-3 text-sm">
-              <a href="tel:+18886016556" className="flex items-center gap-3 text-gray-300 hover:text-green-400 transition-colors group">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center transition-colors" style={{ background: 'rgba(122,194,66,0.15)' }}>
-                  <Phone className="w-4 h-4 text-green-400" />
-                </div>
-                (888) 601-6556
-              </a>
-              <a href="mailto:greengrowthmarketinginc@gmail.com" className="flex items-center gap-3 text-gray-300 hover:text-purple-400 transition-colors group">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'rgba(124,58,237,0.15)' }}>
-                  <Mail className="w-4 h-4 text-purple-400" />
-                </div>
-                <span className="break-all text-xs">greengrowthmarketinginc@gmail.com</span>
-              </a>
-              {/* Real postal address. CAN-SPAM requires a valid physical
-                  address in commercial email, and quote follow-ups count. */}
-              <div className="flex items-start gap-3 text-gray-400">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(234,88,12,0.15)' }}>
-                  <MapPin className="w-4 h-4 text-orange-400" />
-                </div>
-                <address className="not-italic text-xs leading-relaxed">
-                  {business.address.line1}, {business.address.line2}
-                  <br />
-                  {business.address.city}, {business.address.state} {business.address.zip}
-                  <br />
-                  <span className="text-gray-500">Serving all 50 states nationwide</span>
-                </address>
-              </div>
-            </div>
-            {/* Social. Only renders icons that have a real URL — a marketing
-                company with links that go nowhere is a bad look. Paste the
-                profile URLs into socials above and they appear automatically. */}
-            {socials.some((s) => s.href) && (
-              <div className="flex gap-3 mt-6">
-                {socials
-                  .filter((s) => s.href)
-                  .map(({ Icon, color, bg, href, label }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Green Growth Marketing on ${label}`}
-                      className="w-9 h-9 rounded-lg flex items-center justify-center transition-transform hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"
-                      style={{ background: bg }}
-                    >
-                      <Icon className="w-4 h-4" style={{ color }} aria-hidden="true" />
-                    </a>
-                  ))}
-              </div>
-            )}
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ggm-muted">Personalized letters, handwritten envelopes and postcards. Design, printing and mailing, brought together for your business.</p>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />
-              Services
-            </h3>
-            <ul className="space-y-2.5">
-              {services.map((s) => (
-                <li key={s}>
-                  <Link href="/contact" className="text-sm text-gray-400 hover:text-green-400 transition-colors">
-                    {s}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="grid grid-cols-2 gap-5">
+            {groups.map(group => (
+              <nav key={group.title} aria-label={`Footer ${group.title}`}>
+                <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.12em]">{group.title}</h3>
+                <ul className="space-y-1">
+                  {group.links.map(link => <li key={link.label}><Link href={link.href} className="inline-flex min-h-10 items-center text-sm leading-snug text-ggm-muted underline-offset-4 transition hover:text-ggm-forest hover:underline">{link.label}</Link></li>)}
+                </ul>
+              </nav>
+            ))}
           </div>
 
-          {/* Industries */}
           <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-purple-400 inline-block" />
-              Industries
-            </h3>
-            <ul className="space-y-2.5">
-              {industries.map((ind) => (
-                <li key={ind}>
-                  <Link href="/industries" className="text-sm text-gray-400 hover:text-purple-400 transition-colors">{ind}</Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/industries" className="text-sm text-purple-400 hover:text-purple-300 font-semibold">View all 80+ industries →</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company + CTA */}
-          <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-orange-400 inline-block" />
-              Company
-            </h3>
-            <ul className="space-y-2.5 mb-8">
-              {company.map(({ label, href }) => (
-                <li key={href}>
-                  <Link href={href} className="text-sm text-gray-400 hover:text-orange-400 transition-colors">{label}</Link>
-                </li>
-              ))}
-            </ul>
-
-            <div className="rounded-2xl p-5 border border-white/10" style={{ background: 'linear-gradient(135deg, rgba(58,138,45,0.25), rgba(124,58,237,0.2), rgba(234,88,12,0.15))' }}>
-              <p className="text-white font-bold text-sm mb-1">Ready to grow?</p>
-              <p className="text-gray-400 text-xs mb-4 leading-relaxed">No commitment, no minimum order. Show us a written competitor quote and we'll beat it.</p>
-              <Link href="/contact" className="block text-center text-white font-bold text-sm py-2.5 rounded-xl transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg, #3a8a2d, #7dc242)' }}>
-                Get a Free Quote
-              </Link>
-              <a href="tel:+18886016556" className="block text-center text-green-400 hover:text-green-300 text-xs font-semibold mt-3 transition-colors">
-                Or call (888) 601-6556
-              </a>
-            </div>
+            <h3 className="mb-3 text-xs font-bold uppercase tracking-[0.12em]">Get in touch</h3>
+            <address className="space-y-3 text-sm not-italic leading-relaxed text-ggm-muted">
+              <a href="tel:+18886016556" className="flex min-h-10 items-center gap-3 hover:text-ggm-forest"><Phone className="h-4 w-4 shrink-0 text-ggm-forest" aria-hidden />(888) 601-6556</a>
+              <a href="mailto:greengrowthmarketinginc@gmail.com" className="flex min-h-10 items-center gap-3 hover:text-ggm-forest"><Mail className="h-4 w-4 shrink-0 text-ggm-forest" aria-hidden /><span className="break-all">greengrowthmarketinginc@gmail.com</span></a>
+              <p className="flex items-start gap-3"><MapPin className="mt-1 h-4 w-4 shrink-0 text-ggm-forest" aria-hidden /><span>{business.address.line1}, {business.address.line2}<br />{business.address.city}, {business.address.state} {business.address.zip}</span></p>
+            </address>
           </div>
         </div>
       </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+      <div className="border-t border-ggm-forest/10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 text-xs leading-relaxed text-ggm-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>© {new Date().getFullYear()} {business.legalName}. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-gray-300 transition-colors">Terms of Service</Link>
-          </div>
+          <div className="flex gap-6"><Link href="/privacy" className="py-2 hover:underline">Privacy Policy</Link><Link href="/terms" className="py-2 hover:underline">Terms of Service</Link></div>
         </div>
       </div>
     </footer>

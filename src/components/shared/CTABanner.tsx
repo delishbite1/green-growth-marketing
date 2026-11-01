@@ -1,48 +1,6 @@
 import Link from 'next/link'
-import { Phone, ChevronRight, Sparkles } from 'lucide-react'
-
+import { ArrowUpRight, Phone } from 'lucide-react'
 interface Props { heading?: string; subheading?: string }
-
-export default function CTABanner({
-  heading = 'Ready to Grow Your Business?',
-  subheading = "Get a custom direct mail campaign quote. No commitment, no minimum order. Show us a written competitor quote for the same specs and we'll beat it.",
-}: Props) {
-  return (
-    <section className="py-20 px-6 lg:px-8 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0d1f0d 0%, #1a1040 40%, #2d1060 70%, #1a0a0a 100%)' }}>
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full blur-3xl opacity-25" style={{ background: 'radial-gradient(circle, #7dc242, transparent)' }} />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full blur-3xl opacity-20" style={{ background: 'radial-gradient(circle, #9333ea, transparent)' }} />
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 rounded-full blur-3xl opacity-15" style={{ background: 'radial-gradient(circle, #ea580c, transparent)' }} />
-      </div>
-
-      <div className="max-w-4xl mx-auto text-center relative">
-        <div className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full mb-6 border border-white/10" style={{ background: 'rgba(122,194,66,0.12)', color: '#a8e063' }}>
-          <Sparkles className="w-3.5 h-3.5" />
-          Price Beat Guarantee
-        </div>
-
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-5 leading-tight">{heading}</h2>
-
-        <p className="text-white/55 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">{subheading}</p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/contact"
-            className="flex items-center gap-2 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-200 text-base hover:-translate-y-0.5 w-full sm:w-auto justify-center"
-            style={{ background: 'linear-gradient(135deg, #3a8a2d, #7dc242)', boxShadow: '0 8px 30px rgba(122,194,66,0.25)' }}
-          >
-            Get My Free Quote <ChevronRight className="w-5 h-5" />
-          </Link>
-          <a
-            href="tel:+18886016556"
-            className="flex items-center gap-2 border-2 border-white/20 hover:border-white/40 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-200 text-base hover:bg-white/10 w-full sm:w-auto justify-center"
-          >
-            <Phone className="w-5 h-5" /> Call (888) 601-6556
-          </a>
-        </div>
-
-        <p className="text-white/25 text-sm mt-8">No contracts. No minimums. Quote back the same business day.</p>
-      </div>
-    </section>
-  )
+export default function CTABanner({ heading = 'Let’s put your next campaign in motion.', subheading = 'Share your audience, mailing area and goals. We can help you explore formats and prepare a quote for your business.' }: Props) {
+  return <section className="bg-ggm-sage-surface px-5 py-14 font-body sm:px-8 sm:py-20"><div className="mx-auto grid max-w-7xl gap-8 rounded-3xl border border-ggm-forest/10 bg-ggm-ivory p-7 sm:p-12 lg:grid-cols-[1.5fr_1fr] lg:items-center"><div><p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-ggm-gold-ink">Personal mail. Thoughtfully delivered.</p><h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-ggm-forest sm:text-4xl">{heading}</h2><p className="mt-4 max-w-2xl text-base leading-relaxed text-ggm-muted">{subheading}</p></div><div className="flex flex-col gap-3 lg:items-end"><Link href="/contact#quote-form" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-lg bg-ggm-forest px-6 font-semibold text-ggm-ivory hover:bg-ggm-forest-deep">Get a Free Quote <ArrowUpRight className="h-4 w-4" aria-hidden /></Link><a href="tel:+18886016556" className="inline-flex min-h-11 items-center justify-center gap-2 text-sm font-semibold text-ggm-forest"><Phone className="h-4 w-4" aria-hidden />(888) 601-6556</a><p className="text-center text-xs text-ggm-muted">Flexible planning. Personal service.</p></div></div></section>
 }

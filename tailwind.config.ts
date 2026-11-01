@@ -9,6 +9,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        /*
+         * The approved GGM identity, the same tokens the client portal uses, so
+         * the two properties cannot drift. Added ALONGSIDE brand.* rather than
+         * replacing it: every other page still paints from brand.*, and a
+         * palette swap underneath them would redesign pages nobody has reviewed.
+         *
+         * Gold is for rules and small marks only. #C6A875 on ivory measures
+         * about 2:1, so it must never carry text. Where gold type is wanted,
+         * ggm.gold-ink is the accessible one.
+         */
+        ggm: {
+          forest: '#173D32',
+          'forest-deep': '#102A23',
+          ivory: '#F6F3ED',
+          paper: '#FFFEFA',
+          charcoal: '#2E2E2E',
+          sage: '#8CA699',
+          'sage-surface': '#E5ECE7',
+          gold: '#C6A875',
+          'gold-ink': '#8A6A2B',
+          line: '#E2DFD7',
+          muted: '#5A615A',
+        },
         brand: {
           // Greens (from logo)
           forest: '#1a5c1a',
@@ -31,6 +54,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-figtree)', 'var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-playfair)', 'Georgia', 'serif'],
       },
       keyframes: {
         fadeIn: {

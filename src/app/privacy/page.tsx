@@ -1,9 +1,11 @@
+import PageHero from '@/components/brand/PageHero'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { business } from '@/config/business'
 import CTABanner from '@/components/shared/CTABanner'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/privacy' },
   title: 'Privacy Policy | Green Growth Marketing',
   description:
     'How Green Growth Marketing collects, uses, and protects your personal information. We do not sell or share your information.',
@@ -12,36 +14,26 @@ export const metadata: Metadata = {
 const addr = business.address
 
 function H2({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-2xl font-black text-gray-900 mt-12 mb-4 scroll-mt-28">{children}</h2>
+  return <h2 className="text-2xl font-semibold text-ggm-forest mt-12 mb-4 scroll-mt-28">{children}</h2>
 }
 
 function P({ children }: { children: React.ReactNode }) {
-  return <p className="text-gray-600 leading-relaxed mb-4">{children}</p>
+  return <p className="text-ggm-muted leading-relaxed mb-4">{children}</p>
 }
 
 function UL({ children }: { children: React.ReactNode }) {
-  return <ul className="list-disc pl-6 space-y-2 text-gray-600 leading-relaxed mb-4">{children}</ul>
+  return <ul className="list-disc pl-6 space-y-2 text-ggm-muted leading-relaxed mb-4">{children}</ul>
 }
 
 export default function PrivacyPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="py-16 lg:py-20 px-6 lg:px-8 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0d1f0d 0%, #1a4a1a 25%, #1a1040 55%, #2d1060 80%, #0d0d1f 100%)' }}
-      >
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-green-500/10 blur-3xl translate-x-1/3 -translate-y-1/3" />
-        </div>
-        <div className="max-w-3xl mx-auto relative">
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">Privacy Policy</h1>
-          <p className="text-gray-300 text-lg">Last updated: {business.legalLastUpdated}</p>
-        </div>
-      </section>
+      <PageHero compact eyebrow="Your information" title="Privacy Policy" description="How we handle information shared with Green Growth Marketing." />
 
-      <section className="py-14 lg:py-16 px-6 lg:px-8 bg-white">
+      <section className="py-14 lg:py-16 px-6 lg:px-8 bg-ggm-paper">
         <div className="max-w-3xl mx-auto">
+          <p className="mb-8 text-sm text-ggm-muted">Last updated: {business.legalLastUpdated}</p>
 
           <P>
             {business.legalName} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) helps businesses run direct mail
@@ -59,15 +51,15 @@ export default function PrivacyPage() {
           </UL>
           <P>
             If you received mail from us and want it to stop, skip to{' '}
-            <a href="#received-mail" className="text-green-700 underline font-semibold">
+            <a href="#received-mail" className="text-ggm-forest underline font-semibold">
               If You Received Mail From Us
             </a>
             .
           </P>
 
           <H2>1. Who We Are</H2>
-          <address className="not-italic text-gray-600 leading-relaxed mb-4">
-            <strong className="text-gray-900">{business.legalName}</strong>
+          <address className="not-italic text-ggm-muted leading-relaxed mb-4">
+            <strong className="text-ggm-forest">{business.legalName}</strong>
             <br />
             {addr.line1}
             <br />
@@ -78,15 +70,15 @@ export default function PrivacyPage() {
             {addr.country}
             <br />
             <br />
-            Phone: <a href={business.phoneHref} className="text-green-700 underline">{business.phone}</a>
+            Phone: <a href={business.phoneHref} className="text-ggm-forest underline">{business.phone}</a>
             <br />
-            Email: <a href={`mailto:${business.email}`} className="text-green-700 underline break-all">{business.email}</a>
+            Email: <a href={`mailto:${business.email}`} className="text-ggm-forest underline break-all">{business.email}</a>
           </address>
           <P>We serve businesses throughout the United States.</P>
 
           <H2>2. Information We Collect From You</H2>
           <P>
-            <strong className="text-gray-900">When you request a quote</strong>, we ask you for:
+            <strong className="text-ggm-forest">When you request a quote</strong>, we ask you for:
           </P>
           <UL>
             <li>Your first and last name</li>
@@ -99,20 +91,20 @@ export default function PrivacyPage() {
           </UL>
           <P>
             You give us this information voluntarily. If you would rather not, you can simply call us at{' '}
-            <a href={business.phoneHref} className="text-green-700 underline font-semibold">{business.phone}</a> instead.
+            <a href={business.phoneHref} className="text-ggm-forest underline font-semibold">{business.phone}</a> instead.
           </P>
           <P>
-            <strong className="text-gray-900">When you call us</strong>, we keep a record of your phone number and what we
+            <strong className="text-ggm-forest">When you call us</strong>, we keep a record of your phone number and what we
             discussed, so we can prepare your quote.
           </P>
           <P>
-            <strong className="text-gray-900">Automatically</strong>, our website host records standard technical
+            <strong className="text-ggm-forest">Automatically</strong>, our website host records standard technical
             information such as your IP address, browser type, and the pages you viewed. This is ordinary server activity
             and we use it only to keep the site running and secure. We also record the date, time, and IP address when you
             tick the consent box on our form, as a record that you asked us to contact you.
           </P>
           <P>
-            <strong className="text-gray-900">What we do not collect:</strong> we do not ask for and do not want your
+            <strong className="text-ggm-forest">What we do not collect:</strong> we do not ask for and do not want your
             Social Security number, bank account, credit card, or any government ID. Please never send those to us by
             email or through this website.
           </P>
@@ -127,7 +119,7 @@ export default function PrivacyPage() {
             <li>Respond to your questions</li>
           </UL>
           <P>
-            <strong className="text-gray-900">Consent to contact you.</strong> When you submit our quote form you tick a
+            <strong className="text-ggm-forest">Consent to contact you.</strong> When you submit our quote form you tick a
             box asking us to get back to you, and when you call us you are asking the same thing. We will contact you at
             the phone number and email you gave us in order to do that. You can tell us to stop at any time — say so on a
             call, or email us — and we will honor it. Consent is never a condition of buying anything from us.
@@ -186,13 +178,13 @@ export default function PrivacyPage() {
           </UL>
           <P>
             To make any of these requests, email{' '}
-            <a href={`mailto:${business.email}`} className="text-green-700 underline break-all font-semibold">{business.email}</a>{' '}
+            <a href={`mailto:${business.email}`} className="text-ggm-forest underline break-all font-semibold">{business.email}</a>{' '}
             or call{' '}
-            <a href={business.phoneHref} className="text-green-700 underline font-semibold">{business.phone}</a>. We will
+            <a href={business.phoneHref} className="text-ggm-forest underline font-semibold">{business.phone}</a>. We will
             respond within 45 days. We will not charge you, and we will not treat you differently for asking.
           </P>
           <P>
-            <strong className="text-gray-900">If you live in California</strong>, the California Consumer Privacy Act
+            <strong className="text-ggm-forest">If you live in California</strong>, the California Consumer Privacy Act
             gives you these specific rights:
           </P>
           <UL>
@@ -203,7 +195,7 @@ export default function PrivacyPage() {
             <li>The right not to be discriminated against for exercising these rights</li>
           </UL>
           <P>
-            <strong className="text-gray-900">
+            <strong className="text-ggm-forest">
               We do not sell or share your personal information as those terms are defined by the CCPA.
             </strong>{' '}
             Because of that, there is no &ldquo;Do Not Sell or Share My Personal Information&rdquo; link on this site. If
@@ -219,16 +211,16 @@ export default function PrivacyPage() {
           <P>If a postcard or letter arrived at your home and you do not know why:</P>
           <P>
             We are a direct mail company. A business hired us to print and mail it.{' '}
-            <strong className="text-gray-900">We do not own or maintain a list of you personally.</strong> The mailing
+            <strong className="text-ggm-forest">We do not own or maintain a list of you personally.</strong> The mailing
             list came either from that business&rsquo;s own customer records, or from a licensed list provider that
             sources publicly available and commercially available information, such as property records and consumer
             marketing databases.
           </P>
           <P>
-            <strong className="text-gray-900">To stop receiving our mail</strong>, email{' '}
-            <a href={`mailto:${business.email}`} className="text-green-700 underline break-all font-semibold">{business.email}</a>{' '}
+            <strong className="text-ggm-forest">To stop receiving our mail</strong>, email{' '}
+            <a href={`mailto:${business.email}`} className="text-ggm-forest underline break-all font-semibold">{business.email}</a>{' '}
             or call{' '}
-            <a href={business.phoneHref} className="text-green-700 underline font-semibold">{business.phone}</a> with the
+            <a href={business.phoneHref} className="text-ggm-forest underline font-semibold">{business.phone}</a> with the
             name and address exactly as printed on the mail piece. We will remove you from future mailings we handle, and
             we will pass your request to the business that hired us.
           </P>
@@ -242,7 +234,7 @@ export default function PrivacyPage() {
               href="https://dmachoice.thedma.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-700 underline font-semibold"
+              className="text-ggm-forest underline font-semibold"
             >
               dmachoice.org
             </a>
@@ -269,22 +261,22 @@ export default function PrivacyPage() {
 
           <H2>14. Contact Us</H2>
           <P>Questions about this policy, or about your information:</P>
-          <address className="not-italic text-gray-600 leading-relaxed mb-4">
-            <strong className="text-gray-900">{business.legalName}</strong>
+          <address className="not-italic text-ggm-muted leading-relaxed mb-4">
+            <strong className="text-ggm-forest">{business.legalName}</strong>
             <br />
             {addr.line1}, {addr.line2}
             <br />
             {addr.city}, {addr.state} {addr.zip}
             <br />
-            Email: <a href={`mailto:${business.email}`} className="text-green-700 underline break-all">{business.email}</a>
+            Email: <a href={`mailto:${business.email}`} className="text-ggm-forest underline break-all">{business.email}</a>
             <br />
-            Phone: <a href={business.phoneHref} className="text-green-700 underline">{business.phone}</a>
+            Phone: <a href={business.phoneHref} className="text-ggm-forest underline">{business.phone}</a>
           </address>
 
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <p className="text-sm text-gray-500">
+          <div className="mt-12 pt-8 border-t border-ggm-line">
+            <p className="text-sm text-ggm-muted">
               See also our{' '}
-              <Link href="/terms" className="text-green-700 underline font-semibold">
+              <Link href="/terms" className="text-ggm-forest underline font-semibold">
                 Terms of Service
               </Link>
               .

@@ -1,0 +1,13 @@
+.env*
+.vercel
+.git
+node_modules
+.next*
+*.tsbuildinfo
+preview-local.ps1
+.npm-cache
+.deps-before-upgrade
+audit-production.json
+
+# Local design review files are not release assets
+public/opening-concept

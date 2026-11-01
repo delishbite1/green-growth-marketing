@@ -1,9 +1,11 @@
+import PageHero from '@/components/brand/PageHero'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { business } from '@/config/business'
 import CTABanner from '@/components/shared/CTABanner'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/terms' },
   title: 'Terms of Service | Green Growth Marketing',
   description:
     'The terms that apply when you request a quote from or run a direct mail campaign with Green Growth Marketing.',
@@ -12,42 +14,32 @@ export const metadata: Metadata = {
 const addr = business.address
 
 function H2({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-2xl font-black text-gray-900 mt-12 mb-4">{children}</h2>
+  return <h2 className="text-2xl font-semibold text-ggm-forest mt-12 mb-4">{children}</h2>
 }
 
 function P({ children }: { children: React.ReactNode }) {
-  return <p className="text-gray-600 leading-relaxed mb-4">{children}</p>
+  return <p className="text-ggm-muted leading-relaxed mb-4">{children}</p>
 }
 
 function UL({ children }: { children: React.ReactNode }) {
-  return <ul className="list-disc pl-6 space-y-2 text-gray-600 leading-relaxed mb-4">{children}</ul>
+  return <ul className="list-disc pl-6 space-y-2 text-ggm-muted leading-relaxed mb-4">{children}</ul>
 }
 
 export default function TermsPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="py-16 lg:py-20 px-6 lg:px-8 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #0d1f0d 0%, #1a4a1a 25%, #1a1040 55%, #2d1060 80%, #0d0d1f 100%)' }}
-      >
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-green-500/10 blur-3xl translate-x-1/3 -translate-y-1/3" />
-        </div>
-        <div className="max-w-3xl mx-auto relative">
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">Terms of Service</h1>
-          <p className="text-gray-300 text-lg">Last updated: {business.legalLastUpdated}</p>
-        </div>
-      </section>
+      <PageHero compact eyebrow="Working together" title="Terms of Service" description="The terms that apply to quotes and direct mail campaigns with Green Growth Marketing." />
 
-      <section className="py-14 lg:py-16 px-6 lg:px-8 bg-white">
+      <section className="py-14 lg:py-16 px-6 lg:px-8 bg-ggm-paper">
         <div className="max-w-3xl mx-auto">
+          <p className="mb-8 text-sm text-ggm-muted">Last updated: October 16, 2026</p>
 
           <P>
             These terms apply when you use this website, ask us for a quote, or run a campaign with{' '}
             {business.legalName} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;). We have written them in plain
             English on purpose. If anything here is unclear, call us at{' '}
-            <a href={business.phoneHref} className="text-green-700 underline font-semibold">{business.phone}</a> and we
+            <a href={business.phoneHref} className="text-ggm-forest underline font-semibold">{business.phone}</a> and we
             will explain it.
           </P>
 
@@ -65,31 +57,12 @@ export default function TermsPage() {
             <li>Prices are quoted in US dollars.</li>
           </UL>
 
-          <H2>3. Our Price Beat Guarantee</H2>
+          <H2>3. Comparing Quotes</H2>
           <P>
-            This is our main promise, so here are its actual terms rather than a slogan.
+            We welcome quotes from other companies and can review them to see whether we can offer a better price.
+            Comparisons consider the format, quantity, paper stock, addressing, mailing list and postage requirements.
+            A lower price is not guaranteed. Any offer we make will be set out in your individual quote.
           </P>
-          <P>
-            <strong className="text-gray-900">
-              Show us a written competitor quote for the same specifications and we will beat it.
-            </strong>
-          </P>
-          <P>For the guarantee to apply:</P>
-          <UL>
-            <li>The quote must be <strong>written</strong> — an email, a PDF, or a screenshot from a named competitor. We cannot price against a number quoted verbally.</li>
-            <li>It must be for the <strong>same specifications</strong>: same piece size, same quantity, same paper stock, and same postage class.</li>
-            <li>It must be <strong>current</strong>, and from a company actually able to fulfil it in the United States.</li>
-            <li>It must be an <strong>all-in</strong> comparison. If their price excludes design, list, postage, or addressing and ours includes them, we will compare the totals for the same work.</li>
-          </UL>
-          <P>
-            Where those conditions are met, we will beat the price. That can mean a lower total for the same volume, or
-            more pieces mailed for the same budget — your choice.
-          </P>
-          <P>
-            We reserve the right to decline where a quote cannot be verified, or where it is below our own cost of
-            postage — nobody can beat the USPS on what they charge us to carry your mail.
-          </P>
-
           <H2>4. The Free Postcards Offer</H2>
           <P>Where we advertise 1,000 free postcards, these are the terms:</P>
           <UL>
@@ -100,10 +73,9 @@ export default function TermsPage() {
             <li>We may withdraw or change the offer at any time, but not on an order you have already approved.</li>
           </UL>
 
-          <H2>5. No Minimum, No Contract</H2>
+          <H2>5. Flexible Campaign Planning</H2>
           <P>
-            There is no minimum order and no long-term contract. You can work with us campaign by campaign. We would
-            rather earn your repeat business than lock you into it.
+            We offer flexible campaign planning without a long-term contract. Quantities, pricing and the scope of work are agreed in your individual campaign quote.
           </P>
 
           <H2>6. Artwork, Proofs, and Approval</H2>
@@ -111,7 +83,7 @@ export default function TermsPage() {
             <li>We will design your piece from scratch, or print from artwork you supply.</li>
             <li>You will receive a proof before anything is printed. <strong>Nothing goes to print until you approve it.</strong></li>
             <li>
-              <strong className="text-gray-900">Once you approve a proof, you own that approval.</strong> Printing is not
+              <strong className="text-ggm-forest">Once you approve a proof, you own that approval.</strong> Printing is not
               reversible, so we cannot refund or reprint for an error that was present in a proof you signed off on.
               Please read proofs carefully, especially phone numbers, offers, and expiry dates.
             </li>
@@ -153,7 +125,7 @@ export default function TermsPage() {
             it generates — most of which is not in our control.
           </P>
           <P>
-            <strong className="text-gray-900">
+            <strong className="text-ggm-forest">
               We do not guarantee any particular response rate, number of leads, or return on investment,
             </strong>{' '}
             and you should be sceptical of anyone in this industry who does.
@@ -180,7 +152,7 @@ export default function TermsPage() {
           <H2>13. Privacy</H2>
           <P>
             How we handle your information is set out in our{' '}
-            <Link href="/privacy" className="text-green-700 underline font-semibold">
+            <Link href="/privacy" className="text-ggm-forest underline font-semibold">
               Privacy Policy
             </Link>
             . We do not sell or share your personal information.
@@ -198,8 +170,8 @@ export default function TermsPage() {
           </P>
 
           <H2>16. Contact Us</H2>
-          <address className="not-italic text-gray-600 leading-relaxed mb-4">
-            <strong className="text-gray-900">{business.legalName}</strong>
+          <address className="not-italic text-ggm-muted leading-relaxed mb-4">
+            <strong className="text-ggm-forest">{business.legalName}</strong>
             <br />
             {addr.line1}, {addr.line2}
             <br />
@@ -208,15 +180,15 @@ export default function TermsPage() {
             {addr.country}
             <br />
             <br />
-            Email: <a href={`mailto:${business.email}`} className="text-green-700 underline break-all">{business.email}</a>
+            Email: <a href={`mailto:${business.email}`} className="text-ggm-forest underline break-all">{business.email}</a>
             <br />
-            Phone: <a href={business.phoneHref} className="text-green-700 underline">{business.phone}</a>
+            Phone: <a href={business.phoneHref} className="text-ggm-forest underline">{business.phone}</a>
           </address>
 
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <p className="text-sm text-gray-500">
+          <div className="mt-12 pt-8 border-t border-ggm-line">
+            <p className="text-sm text-ggm-muted">
               See also our{' '}
-              <Link href="/privacy" className="text-green-700 underline font-semibold">
+              <Link href="/privacy" className="text-ggm-forest underline font-semibold">
                 Privacy Policy
               </Link>
               .

@@ -9,6 +9,39 @@ export const business = {
   legalName: 'Green Growth Marketing Inc',
   shortName: 'Green Growth Marketing',
 
+  /**
+   * The canonical address of this site, with no www.
+   *
+   * Written out here rather than read from NEXT_PUBLIC_SITE_URL, because that
+   * variable is currently set to the www subdomain and **www is not configured
+   * in Vercel at all**. Only the apex is. On 3 Sep the live /free-letters page
+   * was serving an og:image at www..., which resolves to nothing, so every
+   * Facebook preview of the page GGM advertises had a broken image.
+   *
+   * Anything Google or a crawler is told has to be a URL that exists, so the
+   * sitemap, robots and schema all read this constant. Change it only if the
+   * domain itself changes.
+   */
+  siteUrl: 'https://greengrowthmarketinginc.com',
+
+  /**
+   * The Meta Pixel, created by Inbar on 3 Sep 2026.
+   *
+   * In the code rather than only in an environment variable, for two reasons.
+   * It is public either way: the id is printed into the page source of every
+   * page and anybody can read it, so there is nothing here to protect. And the
+   * Vercel CLI on this machine has twice stored whitespace instead of a value,
+   * which broke a build on 1 September, so a step that can be avoided should be.
+   *
+   * NEXT_PUBLIC_META_PIXEL_ID still wins when set, so a second pixel or a move
+   * to another ad account needs no deploy.
+   *
+   * Do not confuse this with the ad account id, 1526070912465638. They are
+   * different objects and Meta shows both on adjacent screens. The wrong one
+   * reports nothing while appearing configured, which is worse than no pixel.
+   */
+  metaPixelId: '1075971171747917',
+
   phone: '(888) 601-6556',
   phoneHref: 'tel:+18886016556',
   email: 'greengrowthmarketinginc@gmail.com',

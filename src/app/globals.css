@@ -49,3 +49,12 @@
   background: #16a34a;
   border-radius: 3px;
 }
+
+/* Public brochure pages share the approved type and paper palette. */
+.public-site { font-family: var(--font-figtree), system-ui, sans-serif; color: #173D32; background: #F6F3ED; }
+.public-site h1, .public-site h2, .public-site h3 { font-family: var(--font-figtree), system-ui, sans-serif; }
+
+/* Shared action shape: square corners, including existing inline nav styles. */
+:is(.public-site, .brand-controls) :is(button, [role="button"], a[class*="flex"]) {
+  border-radius: 0 !important;
+}

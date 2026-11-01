@@ -1,0 +1,13 @@
+{
+  "extends": "next/core-web-vitals",
+  "overrides": [
+    {
+      "files": ["src/components/home/FAQ.tsx", "src/components/home/HowItWorks.tsx", "src/components/shared/PopupOffer.tsx"],
+      "rules": { "react/no-unescaped-entities": "warn" }
+    },
+    {
+      "files": ["src/app/free-letters/thanks/page.tsx"],
+      "rules": { "@next/next/no-html-link-for-pages": "warn" }
+    }
+  ]
+}

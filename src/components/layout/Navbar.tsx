@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Home',       href: '/',           icon: Home },
   { label: 'Products',   href: '/products',   icon: Building2 },
   { label: 'Industries', href: '/industries', icon: Building2 },
+  { label: 'How It Works', href: '/#how-it-works', icon: Mail },
   { label: 'About Us',   href: '/about',      icon: Users },
   { label: 'Contact',    href: '/contact',    icon: Mail },
 ]
@@ -42,14 +43,14 @@ export default function Navbar() {
   }, [closeOnEsc])
 
   return (
-    <div className="relative z-50">
+    <div className="brand-controls relative z-50 font-body">
 
       {/* ── ANNOUNCEMENT BAR ── */}
       <div
         role="region"
         aria-label="Promotional offer"
         style={{
-          background: 'linear-gradient(90deg, #159447 0%, #087f7a 25%, #275bd8 55%, #7436dc 78%, #c126bb 100%)',
+          background: '#173D32',
           boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
           minHeight: '44px',
         }}
@@ -59,16 +60,16 @@ export default function Navbar() {
           {/* Small phones: short version, one line. It used to wrap to 4-5 lines
               at 360px and shove the hero off screen. */}
           <p className="text-white text-center sm:hidden" style={{ fontSize: '12px', fontWeight: 600, lineHeight: 1.3 }}>
-            🎁 <strong style={{ fontWeight: 800, color: '#fde68a' }}>1,000 FREE Postcards</strong> on 3,000+
+            <strong style={{ fontWeight: 800, color: '#C6A875' }}>1,000 FREE Postcards</strong> on 3,000+<span className="block text-[10px] font-normal text-white/85">New customers only</span>
           </p>
           <p className="text-white text-center hidden sm:block" style={{ fontSize: '13px', fontWeight: 600, lineHeight: 1.4 }}>
-            🎁 Get <strong style={{ fontWeight: 800, color: '#fde68a' }}>1,000 FREE Postcards</strong>
+            Get <strong style={{ fontWeight: 800, color: '#C6A875' }}>1,000 FREE Postcards</strong>
             {' '}when you order 3,000+ New customers only
           </p>
           <a
             href="tel:+18886016556"
             aria-label="Call us at 888-601-6556"
-            className="flex items-center gap-1.5 text-white hover:text-yellow-200 transition-colors flex-shrink-0 whitespace-nowrap"
+            className="hidden sm:flex items-center gap-1.5 text-white hover:text-yellow-200 transition-colors flex-shrink-0 whitespace-nowrap"
             style={{ fontSize: '12px', fontWeight: 700 }}
           >
             <Phone className="w-3.5 h-3.5" aria-hidden="true" />
@@ -96,7 +97,7 @@ export default function Navbar() {
         .nav-links-anim { animation: navFadeIn 700ms ease-out both; }
         .hamburger-line {
           display: block; width: 22px; height: 2px;
-          background: #12213d; border-radius: 2px;
+          background: #173D32; border-radius: 2px;
           transition: background 0.2s;
         }
       `}</style>
@@ -105,16 +106,20 @@ export default function Navbar() {
         aria-label="Main navigation"
         className="w-full transition-all duration-500"
         style={{
-          background: scrolled
-            ? 'rgba(255,255,255,0.08)'
-            : 'transparent',
-          backdropFilter: scrolled ? 'blur(14px)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(14px)' : 'none',
-          boxShadow: scrolled ? '0 1px 0 rgba(255,255,255,0.12)' : 'none',
+          /*
+             A solid ivory surface rather than a transparent one.
+
+             Transparent worked over the old light hero. Over the forest hero it
+             left the forest wordmark and the forest nav links drawn on forest,
+             which is to say invisible. An opaque bar also stops the links
+             sitting on whatever photograph happens to scroll beneath them.
+          */
+          background: '#F6F3ED',
+          boxShadow: '0 1px 0 #E2DFD7',
         }}
       >
         <div className="max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between" style={{ height: '80px' }}>
+          <div className="flex h-14 items-center justify-between sm:h-20">
 
             {/* Logo */}
             <Link
@@ -123,48 +128,40 @@ export default function Navbar() {
               className="nav-logo focus-visible:outline-2 focus-visible:outline-green-500 focus-visible:rounded-lg"
               style={{ animationDelay: '0ms' }}
             >
-              <img
-                src="/logo-transparent.png"
-                alt="Green Growth Marketing"
-                style={{
-                  height: '64px',
-                  width: 'auto',
-                  objectFit: 'contain',
-                  objectPosition: 'left center',
-                  filter: 'drop-shadow(0 2px 10px rgba(26,92,26,0.12))',
-                }}
-              />
+              <span className="inline-flex flex-col leading-none ">
+            <span className="font-display text-[26px] font-medium tracking-[0.02em] text-ggm-forest">GGM</span>
+            <span aria-hidden className="mt-0.5 text-[7.5px] font-semibold uppercase tracking-[0.18em] text-ggm-forest">Green Growth Marketing</span>
+          </span>
             </Link>
 
             {/* Desktop nav links */}
-            <div className="hidden lg:flex items-center gap-1 nav-links-anim" role="list" style={{ animationDelay: '100ms' }}>
+            <div className="hidden lg:flex items-center gap-1 nav-links-anim" style={{ animationDelay: '100ms' }}>
               {navLinks.map(({ label, href }) => {
                 const active = pathname === href
                 return (
                   <Link
                     key={href}
                     href={href}
-                    role="listitem"
                     aria-current={active ? 'page' : undefined}
                     className="transition-all duration-200 focus-visible:outline-2 focus-visible:outline-green-500"
                     style={{
                       fontSize: '15px',
                       fontWeight: 600,
-                      borderRadius: '999px',
+                      borderRadius: '12px',
                       padding: '10px 16px',
-                      color: active ? '#13823b' : '#12213d',
-                      background: active ? 'rgba(22,163,74,0.10)' : 'transparent',
+                      color: active ? '#173D32' : '#2E2E2E',
+                      background: active ? 'rgba(23,61,50,0.07)' : 'transparent',
                     }}
                     onMouseEnter={e => {
                       if (!active) {
-                        e.currentTarget.style.background = 'rgba(22,163,74,0.08)'
+                        e.currentTarget.style.background = 'rgba(23,61,50,0.07)'
                         e.currentTarget.style.color = '#15803d'
                       }
                     }}
                     onMouseLeave={e => {
                       if (!active) {
                         e.currentTarget.style.background = 'transparent'
-                        e.currentTarget.style.color = '#12213d'
+                        e.currentTarget.style.color = '#2E2E2E'
                       }
                     }}
                   >
@@ -180,20 +177,22 @@ export default function Navbar() {
                 href="tel:+18886016556"
                 aria-label="Call us at 888-601-6556"
                 className="flex items-center gap-2 transition-colors duration-200 hover:opacity-70"
-                style={{ color: '#12213d', fontWeight: 600, fontSize: '14px' }}
+                style={{ color: '#2E2E2E', fontWeight: 600, fontSize: '14px' }}
               >
                 <Phone className="w-4 h-4 text-green-600" />
                 (888) 601-6556
               </a>
+
+
               <Link
                 href="/contact#quote-form"
                 className="flex items-center gap-2 text-white font-bold transition-all duration-200 hover:-translate-y-0.5"
                 style={{
-                  background: 'linear-gradient(100deg, #16953d 0%, #18a85a 38%, #6c35de 75%, #922ee7 100%)',
-                  borderRadius: '999px',
+                  background: '#173D32',
+                  borderRadius: '12px',
                   padding: '12px 22px',
                   fontSize: '14px',
-                  boxShadow: '0 8px 22px rgba(97,54,220,0.22), 0 4px 14px rgba(22,149,61,0.16)',
+
                   whiteSpace: 'nowrap',
                 }}
               >
@@ -212,7 +211,7 @@ export default function Navbar() {
               style={{ padding: '12px', minWidth: '44px', minHeight: '44px', background: 'transparent', border: 'none', cursor: 'pointer' }}
             >
               {isOpen ? (
-                <X className="w-6 h-6" style={{ color: '#12213d' }} />
+                <X className="w-6 h-6" style={{ color: '#2E2E2E' }} />
               ) : (
                 <>
                   <span className="hamburger-line" />
@@ -238,12 +237,11 @@ export default function Navbar() {
         {isOpen && (
           <div className="fixed inset-0 z-[-1]" onClick={() => setIsOpen(false)} aria-hidden="true" />
         )}
-        <div className="px-5 pb-6 pt-4 space-y-1">
-          <img
-            src="/logo-transparent.png"
-            alt="Green Growth Marketing"
-            style={{ height: '64px', width: 'auto', marginBottom: '8px' }}
-          />
+        {isOpen && <div className="px-5 pb-6 pt-4 space-y-1">
+          <span className="inline-flex flex-col leading-none mb-2">
+            <span className="font-display text-[26px] font-medium tracking-[0.02em] text-ggm-forest">GGM</span>
+            <span aria-hidden className="mt-0.5 text-[7.5px] font-semibold uppercase tracking-[0.18em] text-ggm-forest">Green Growth Marketing</span>
+          </span>
           {navLinks.map(({ label, href, icon: Icon }) => {
             const active = pathname === href
             return (
@@ -255,8 +253,8 @@ export default function Navbar() {
                 style={{
                   minHeight: '48px',
                   fontSize: '15px',
-                  color: active ? '#13823b' : '#12213d',
-                  background: active ? 'rgba(22,163,74,0.08)' : 'transparent',
+                  color: active ? '#173D32' : '#2E2E2E',
+                  background: active ? 'rgba(23,61,50,0.07)' : 'transparent',
                 }}
               >
                 <Icon className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
@@ -264,10 +262,14 @@ export default function Navbar() {
               </Link>
             )
           })}
+          {/* Existing customers, on the device they are most likely to be
+              holding when they wonder where their campaign has got to. */}
+
+
           <div className="pt-4 space-y-3 border-t border-gray-100">
             <a
               href="tel:+18886016556"
-              className="flex items-center justify-center gap-2 w-full border-2 border-green-600 text-green-700 font-bold rounded-xl hover:bg-green-50 transition-colors"
+              className="flex items-center justify-center gap-2 w-full border border-ggm-line text-ggm-forest font-bold rounded-xl hover:bg-ggm-sage-surface transition-colors"
               style={{ minHeight: '48px', fontSize: '15px' }}
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
@@ -279,15 +281,15 @@ export default function Navbar() {
               style={{
                 minHeight: '48px',
                 fontSize: '15px',
-                background: 'linear-gradient(100deg, #16953d 0%, #18a85a 38%, #6c35de 75%, #922ee7 100%)',
-                boxShadow: '0 6px 18px rgba(97,54,220,0.20)',
+                background: '#173D32',
+                boxShadow: 'none',
                 whiteSpace: 'nowrap',
               }}
             >
               Get a Free Quote <ChevronRight className="w-4 h-4" aria-hidden="true" />
             </Link>
           </div>
-        </div>
+        </div>}
       </div>
 
     </div>

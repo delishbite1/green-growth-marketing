@@ -24,3 +24,10 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+
+.npm-cache/
+.deps-before-upgrade/
+.next-*/
+audit-production.json
