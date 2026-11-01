@@ -14,3 +14,16 @@
 .ggm-approved .announcement{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 20px;padding:13px 5%;font-size:12px;letter-spacing:.3px;line-height:1.6;color:#f4f6f6}.ggm-approved .announcement strong{color:#e5c38e;font-weight:700}.ggm-approved .announcement span{margin:0}.ggm-approved .announcement .offer-terms{font-size:10px;color:#d3dee2;padding-left:20px;border-left:1px solid #74888e;letter-spacing:.3px}.ggm-approved .announcement .promo-call{font-size:11px;letter-spacing:.5px;color:#f4f6f6}.ggm-approved .mobile-nav{font-size:14px;font-weight:600}.ggm-approved .menu{font-size:12px;font-weight:600;min-height:44px}
 @media(max-width:850px){.ggm-approved .navlinks{font-size:13px;gap:20px}}
 @media(max-width:700px){.ggm-approved .announcement{display:flex;gap:3px 12px;padding:10px 15px;font-size:11px;letter-spacing:0;line-height:1.65}.ggm-approved .announcement .offer-main{flex-basis:100%}.ggm-approved .announcement .offer-terms{padding-left:0;border-left:0;font-size:10px;letter-spacing:.2px}.ggm-approved .announcement .promo-call{font-size:10px}.ggm-approved .mobile-nav{gap:22px;padding-top:8px;padding-bottom:25px}}
+
+/* Show the mail immediately on phones, before the headline and actions. */
+@media(max-width:700px){
+  .ggm-approved .hero{min-height:0}
+  .ggm-approved .hero>.photo{grid-row:1;min-height:0;height:clamp(210px,62vw,280px)}
+  .ggm-approved .hero>.photo img{object-position:center 47%}
+  .ggm-approved .hero>.photo .photo-label{display:none}
+  .ggm-approved .hero>.copy{grid-row:2;padding:27px 7% 30px}
+  .ggm-approved .hero .eyebrow{margin-bottom:15px}
+  .ggm-approved .hero h1{font-size:clamp(39px,11.7vw,60px);margin-bottom:18px}
+  .ggm-approved .hero .intro{margin-bottom:20px}
+  .ggm-approved .hero .checks{margin-top:20px}
+}
