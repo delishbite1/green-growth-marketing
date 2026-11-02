@@ -95,7 +95,7 @@ export function FaqStructuredData() {
   )
 }
 
-function JsonLd({ data }: { data: object }) {
+export function JsonLd({ data }: { data: object }) {
   return (
     <script
       type="application/ld+json"
