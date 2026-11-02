@@ -8,6 +8,7 @@ import {
   QuoteSection,
 } from '@/components/home/brand/Sections'
 import CampaignFAQ from '@/components/brand/CampaignFAQ'
+import { FaqStructuredData } from '@/components/seo/StructuredData'
 
 /**
  * The homepage, reordered around the questions a business owner asks.
@@ -40,6 +41,7 @@ export default function HomePage() {
       <Industries />
       <HowItWorks />
       <CampaignFAQ />
+      <FaqStructuredData />
       <QuoteSection>
         {/*
           Suspense, because ContactForm reads useSearchParams() to capture the

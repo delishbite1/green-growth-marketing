@@ -1,5 +1,5 @@
 import { business } from '@/config/business'
-import { faqs } from '@/data/faqs'
+import { campaignFaqs } from '@/data/campaign-faqs'
 
 /**
  * What this business is, in the form search engines read.
@@ -23,11 +23,11 @@ import { faqs } from '@/data/faqs'
  * can become LocalBusiness and say the same thing the profile says.
  *
  * ---------------------------------------------------------------------------
- * The FAQ schema reads the same array the page renders, from src/data/faqs.ts.
- * Google explicitly penalises FAQ markup that does not match the visible page,
- * so a second copy of these answers would be a liability. If a question is
- * removed from the page it must disappear from here, and sharing the source is
- * what guarantees it does.
+ * No FAQPage here. This renders on every page from the root layout, but the FAQ
+ * is only on the homepage, and until 2 Nov 2026 the markup was built from an
+ * old list (faqs.ts) that no page showed any more, including an unconditional
+ * price beat promise. FaqStructuredData now emits FAQPage on the homepage
+ * only, from the same array the visible FAQ renders.
  */
 export function StructuredData() {
   const graph = {
@@ -65,18 +65,37 @@ export function StructuredData() {
         publisher: { '@id': `${business.siteUrl}/#organization` },
         inLanguage: 'en-US',
       },
-      {
+    ],
+  }
+
+  return <JsonLd data={graph} />
+}
+
+/**
+ * FAQPage for the homepage, rendered by app/page.tsx next to CampaignFAQ.
+ *
+ * It reads campaignFaqs, the array CampaignFAQ renders, so the questions and
+ * answers in the markup are the visible ones word for word. If a question is
+ * removed from the page it disappears from here too.
+ */
+export function FaqStructuredData() {
+  return (
+    <JsonLd
+      data={{
+        '@context': 'https://schema.org',
         '@type': 'FAQPage',
         '@id': `${business.siteUrl}/#faq`,
-        mainEntity: faqs.map((faq) => ({
+        mainEntity: campaignFaqs.map((faq) => ({
           '@type': 'Question',
           name: faq.question,
           acceptedAnswer: { '@type': 'Answer', text: faq.answer },
         })),
-      },
-    ],
-  }
+      }}
+    />
+  )
+}
 
+function JsonLd({ data }: { data: object }) {
   return (
     <script
       type="application/ld+json"
@@ -85,7 +104,7 @@ export function StructuredData() {
       // let whatever followed run as markup. The content is ours today, which
       // is exactly the assumption that stops being true later.
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(graph).replace(/</g, '\\u003c'),
+        __html: JSON.stringify(data).replace(/</g, '\\u003c'),
       }}
     />
   )
