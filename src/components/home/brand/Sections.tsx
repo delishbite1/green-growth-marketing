@@ -151,18 +151,22 @@ const PRODUCTS = [
     body: "Variable data letters carrying each homeowner's name, address and other details. A personal touch at scale.",
     img: '/products/letter-personalized.jpg',
     alt: 'Illustrative personalized letter sample generated with GGM’s handwriting tool for a fictional recipient',
+    href: '/products',
   },
   {
     name: 'Handwritten Envelopes',
     body: 'Handwritten names and addresses, a return address and a real stamp give your mail a personal touch.',
     img: '/products/env-style-a.jpg',
     alt: 'A hand addressed envelope ready to mail',
+    href: '/products',
   },
   {
     name: 'Postcards',
     body: 'Full colour postcards on heavy stock. Nothing to open, the offer is right there when the mail is picked up.',
     img: '/products/postcard-premium.jpg',
     alt: 'A full colour Green Growth Marketing postcard',
+    // The postcard service has its own page; the other two formats are on /products.
+    href: '/postcard-mailing',
   },
 ]
 
@@ -196,7 +200,7 @@ export function WhatWeSend() {
               <p className="mt-2 font-body text-[13.5px] leading-relaxed text-ggm-muted">
                 {p.body}
               </p>
-              <Link href="/products" aria-label={`Explore ${p.name}`} className="mt-4 inline-flex min-h-10 items-center gap-3 font-body text-sm font-semibold text-ggm-forest">Explore <ArrowRight className="h-4 w-4" aria-hidden /></Link>
+              <Link href={p.href} aria-label={`Explore ${p.name}`} className="mt-4 inline-flex min-h-10 items-center gap-3 font-body text-sm font-semibold text-ggm-forest">Explore <ArrowRight className="h-4 w-4" aria-hidden /></Link>
             </div>
           </article>
         ))}

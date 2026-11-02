@@ -32,6 +32,11 @@ export const quoteSchema = z.object({
     errorMap: () => ({ message: 'Please agree to be contacted so we can send your quote' }),
   }),
   website: honeypot,
+  // The page the form was sent from, e.g. "/postcard-mailing", so the team can
+  // see which page produced the lead. A path only, never the query string, so
+  // no UTM or personal data rides along. Optional, and anything malformed
+  // becomes undefined instead of failing: a bad path must never block a lead.
+  pagePath: z.string().trim().max(200).regex(/^\/[A-Za-z0-9/_.~-]*$/).optional().catch(undefined),
 })
 
 export const popupSchema = z.object({

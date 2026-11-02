@@ -1,6 +1,7 @@
 import ProductZoom from '@/components/brand/ProductZoom'
 import { Lightbulb, CheckCircle2 } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import BenefitStrip from '@/components/brand/BenefitStrip'
 import type { Metadata } from 'next'
 export const metadata: Metadata = { title: 'Direct Mail Products | Green Growth Marketing', description: 'Explore GGM handwritten envelopes, personalized letters and full color postcards for your next mailing.', alternates: { canonical: '/products' } }
@@ -89,7 +90,7 @@ export default function ProductsPage() {
         <ul className="space-y-3 border-ggm-forest/15 lg:border-l lg:pl-8">{['Handwritten addressing','Postage options','Return address and branding','Multiple styles to choose from'].map(f=><li key={f} className="flex items-center gap-3 text-sm text-ggm-forest"><CheckCircle2 className="h-4 w-4 shrink-0 text-ggm-gold-ink" aria-hidden />{f}</li>)}</ul>
       </aside>
       <section className="pb-14"><div className="mb-7 sm:pl-6"><h2 className="text-3xl font-bold tracking-tight text-ggm-forest sm:text-4xl">Handwritten Envelopes</h2><p className="mt-3 text-base text-ggm-muted">Choose the style that fits your business and campaign goals.</p></div><ProductRows products={envelopes} /></section>
-      <section className="border-t border-ggm-forest/15 py-14"><div className="mb-7 sm:pl-6"><h2 className="text-3xl font-bold tracking-tight text-ggm-forest sm:text-4xl">Double Sided Postcards</h2><p className="mt-3 text-base text-ggm-muted">A visual format for your message and offer.</p></div><ProductRows products={postcards} /></section>
+      <section className="border-t border-ggm-forest/15 py-14"><div className="mb-7 sm:pl-6"><h2 className="text-3xl font-bold tracking-tight text-ggm-forest sm:text-4xl">Double Sided Postcards</h2><p className="mt-3 text-base text-ggm-muted">A visual format for your message and offer.</p><p className="mt-2 text-base text-ggm-muted">Looking for a full service campaign? See our <Link href="/postcard-mailing" className="font-semibold text-ggm-forest underline decoration-ggm-gold underline-offset-4">postcard mailing service</Link>.</p></div><ProductRows products={postcards} /></section>
       <section className="border-t border-ggm-forest/15 pt-14"><div className="mb-7 sm:pl-6"><h2 className="text-3xl font-bold tracking-tight text-ggm-forest sm:text-4xl">Inside Letters</h2><p className="mt-3 text-base text-ggm-muted">From handwritten letters to full color flyers.</p></div><ProductRows products={letters} /></section>
     </div>
     <CTABanner heading="Not Sure Which Product is Right for You?" subheading="Tell us your goal and budget. We'll recommend a format and discuss the details of your mailing." />

@@ -6,7 +6,7 @@ const groups = [
   { title: 'Our services', links: [
     { label: 'Personalized Letters', href: '/products' },
     { label: 'Handwritten Envelopes', href: '/products' },
-    { label: 'Postcards', href: '/products' },
+    { label: 'Postcards', href: '/postcard-mailing' },
     { label: 'Mailing Lists & Printing', href: '/contact' },
   ] },
   { title: 'Explore GGM', links: [

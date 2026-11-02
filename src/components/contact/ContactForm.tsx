@@ -65,7 +65,7 @@ export default function ContactForm() {
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, source: 'quote' }),
+        body: JSON.stringify({ ...data, source: 'quote', pagePath: window.location.pathname }),
       })
 
       if (!res.ok) {

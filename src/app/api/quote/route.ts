@@ -153,6 +153,8 @@ export async function POST(req: NextRequest) {
       `--`,
       `Consent to be contacted: YES (checked at ${stamp})`,
       `IP: ${ip}`,
+      // Last on purpose: every line above keeps its place for anything that reads these emails.
+      `Page: ${d.pagePath || 'Not recorded'}`,
     ].join('\n')
 
     html = `<div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:620px;margin:0 auto;">
@@ -184,6 +186,7 @@ export async function POST(req: NextRequest) {
           at the number above.<br>Timestamp ${esc(stamp)} &middot; IP ${esc(ip)}
         </div>
         <p style="color:#94a3b8;font-size:12px;padding:0 14px;margin:0;">Hit reply to answer them directly.</p>
+        <p style="color:#94a3b8;font-size:12px;padding:6px 14px 0;margin:0;">Sent from page: ${esc(d.pagePath || 'Not recorded')}</p>
       </div>
     </div>`
   }

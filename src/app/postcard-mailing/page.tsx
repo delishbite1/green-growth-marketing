@@ -28,7 +28,7 @@ import { PACKAGES } from '@/lib/postcards/packages'
 
 const TITLE = 'Postcard Mailing Services: Designed, Printed & Mailed | GGM'
 const DESCRIPTION =
-  'Full service postcard mailing for U.S. businesses. We design, print and mail your postcards to a targeted homeowner list. 9 × 11 campaigns from $640.'
+  'Full service postcard mailing for U.S. businesses: design, a targeted homeowner list, printing and mailing. 9 × 11 campaigns start at $640 for 1,000.'
 
 export const metadata: Metadata = {
   title: TITLE,
