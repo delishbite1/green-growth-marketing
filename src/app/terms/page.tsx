@@ -33,7 +33,7 @@ export default function TermsPage() {
 
       <section className="py-14 lg:py-16 px-6 lg:px-8 bg-ggm-paper">
         <div className="max-w-3xl mx-auto">
-          <p className="mb-8 text-sm text-ggm-muted">Last updated: October 16, 2026</p>
+          <p className="mb-8 text-sm text-ggm-muted">Last updated: November 3, 2026</p>
 
           <P>
             These terms apply when you use this website, ask us for a quote, or run a campaign with{' '}

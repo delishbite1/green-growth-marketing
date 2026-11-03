@@ -67,7 +67,7 @@ export const business = {
    * whenever the wording materially changes — that is the whole point of the
    * date, so do not wire it to today's date automatically.
    */
-  legalLastUpdated: 'July 16, 2026',
+  legalLastUpdated: 'November 3, 2026',
 } as const
 
 /** One-line address, for inline use in a sentence. */
