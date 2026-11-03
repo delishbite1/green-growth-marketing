@@ -8,6 +8,7 @@ import { Loader2, AlertCircle, Gift } from 'lucide-react'
 import { metaLeadSchema, type MetaLeadInput } from '@/lib/validation/meta-lead'
 import { readAttribution, newEventId } from '@/lib/attribution'
 import { trackEvent } from '@/lib/meta/pixel'
+import { gaEvent } from '@/lib/analytics/ga'
 import { business } from '@/config/business'
 
 /**
@@ -87,6 +88,7 @@ export default function OfferForm() {
           content_name: '100 Free Personalized Letters',
           content_category: 'Direct Mail',
         })
+        gaEvent({ name: 'generate_lead', params: { form_name: 'free_letters' } })
       }
 
       router.push('/free-letters/thanks')

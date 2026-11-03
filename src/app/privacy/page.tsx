@@ -146,9 +146,60 @@ export default function PrivacyPage() {
 
           <H2>6. Cookies and Tracking</H2>
           <P>
-            This website does not use advertising cookies, tracking pixels, or third-party analytics. We do not track you
-            across other websites. If that ever changes, we will update this policy and say so clearly before we start.
+            We use three tools on this website, and for free letters requests our server also reports to Meta. Here is
+            what each one does.
           </P>
+          <UL>
+            <li>
+              <strong>Vercel Web Analytics</strong>, from the company that hosts this website, counts page visits. It does
+              not use cookies.
+            </li>
+            <li>
+              <strong>Google Analytics 4</strong> shows us which pages are visited, how visitors found the site, and
+              whether someone sent us a request or tapped our phone number. It uses cookies set by this website. We use it
+              for analytics only: its advertising features, Google Signals and ad personalization are turned off. We never
+              send Google your name, email address, phone number, or anything you type into a form.
+            </li>
+            <li>
+              <strong>The Meta Pixel</strong> tells Meta, the company behind Facebook and Instagram, which pages of this
+              website you visit and whether you request our free letters offer, so we can measure and improve our ads on
+              those platforms. It uses cookies, and Meta may connect this information with a Facebook or Instagram
+              account.
+            </li>
+            <li>
+              <strong>Meta Conversions API.</strong> If you request our free letters offer, our server may also report
+              to Meta that a request was made, so Meta can match it to the ad you saw. The report contains your email
+              address, phone number, and first and last name in scrambled (hashed) form, and the country (United States),
+              also hashed. It also contains, not hashed: your IP address, your browser&rsquo;s user agent (its name and
+              version), the address of the page you were on, the time of the request, the Meta browser identifier
+              stored in the <code>_fbp</code> cookie if your browser has one, and, if you arrived by clicking a Meta ad,
+              the click identifier from that link (<code>fbc</code>). It does not contain your business name, the ZIP
+              code you entered, or anything else you typed.
+            </li>
+          </UL>
+          <P>
+            These tools collect technical information such as your browser and device type, your approximate location
+            based on your IP address, the pages you view, and how you arrived.
+          </P>
+          <P>
+            <strong className="text-ggm-forest">Your choices.</strong>
+          </P>
+          <UL>
+            <li>
+              <strong>Google Analytics opt out.</strong> Google offers a browser add on that stops Google Analytics on
+              every website:{' '}
+              <a href="https://tools.google.com/dlpage/gaoptout" className="text-ggm-forest underline break-all" rel="noopener noreferrer" target="_blank">
+                tools.google.com/dlpage/gaoptout
+              </a>
+              .
+            </li>
+            <li>
+              <strong>Cookies and ad settings.</strong> You can block or delete cookies in your browser, and most browsers
+              and ad blockers can block the Meta Pixel. You can also control how Meta uses your activity for ads in your
+              Facebook or Instagram ad settings.
+            </li>
+          </UL>
+          <P>This website does not respond to Do Not Track signals, which most browsers no longer support.</P>
 
           <H2>7. How Long We Keep It</H2>
           <UL>
