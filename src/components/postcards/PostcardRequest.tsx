@@ -685,7 +685,7 @@ export default function PostcardRequest({
             </div>
           </div>
           <footer className="border-t border-[#E2DDD0] px-4 py-5 text-center text-[12px] text-[#5F6A63]">
-            Green Growth Marketing · <a href="/privacy" className="underline">Privacy</a> · <a href="/terms" className="underline">Terms</a>
+            Green Growth Marketing · <a href="/privacy" className="underline">Privacy</a> · <a href="/terms" className="underline">Terms</a> · <a href="/privacy-choices" className="underline">Your Privacy Choices</a>
           </footer>
         </section>
       )}

@@ -332,6 +332,8 @@ export default function FreeLettersPage() {
             {' · '}
             <a href="/terms" className="underline hover:text-gray-600">Terms of Service</a>
             {' · '}
+            <a href="/privacy-choices" className="underline hover:text-gray-600">Your Privacy Choices</a>
+            {' · '}
             <a href={business.phoneHref} className="underline hover:text-gray-600">
               {business.phone}
             </a>

@@ -9,7 +9,7 @@ import { metaLeadSchema, type MetaLeadInput } from '@/lib/validation/meta-lead'
 import { readAttribution, newEventId } from '@/lib/attribution'
 import { trackEvent } from '@/lib/meta/pixel'
 import { gaEvent } from '@/lib/analytics/ga'
-import { gpcEnabled } from '@/lib/privacy/gpc'
+import { adTrackingAllowed } from '@/lib/privacy/ad-choice'
 import { business } from '@/config/business'
 
 /**
@@ -53,8 +53,9 @@ export default function OfferForm() {
     // One id, generated here, used by both reports of this conversion. The
     // browser fires Lead with it below and the server sends the same id to the
     // Conversions API, which is what lets Meta see one event instead of two.
-    // Global Privacy Control: no id, so the server sends nothing to Meta either.
-    const eventId = gpcEnabled() ? undefined : newEventId()
+    // Global Privacy Control or a saved opt out: no id, so the server sends
+    // nothing to Meta either.
+    const eventId = adTrackingAllowed() ? newEventId() : undefined
 
     try {
       const res = await fetch('/api/meta-lead', {

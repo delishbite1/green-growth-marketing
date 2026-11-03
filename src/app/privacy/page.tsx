@@ -201,8 +201,15 @@ export default function PrivacyPage() {
           </P>
           <UL>
             <li>
-              <strong>Global Privacy Control (GPC).</strong> If your browser sends a GPC signal, the Meta Pixel does not
-              load, and we do not report a free letters request to Meta. Google Analytics and Vercel Web Analytics still
+              <strong>Your Privacy Choices.</strong> On our{' '}
+              <Link href="/privacy-choices" className="text-ggm-forest underline font-semibold">Your Privacy Choices</Link>{' '}
+              page you can turn off advertising tracking on your browser, and turn it back on later. When it is off, the
+              Meta Pixel does not load and we do not report a free letters request to Meta. We remember your choice with a
+              cookie on that browser, so it lasts across visits until you change it or clear your cookies.
+            </li>
+            <li>
+              <strong>Global Privacy Control (GPC).</strong> If your browser sends a GPC signal, we treat it the same way,
+              automatically, even if you have not visited that page. Google Analytics and Vercel Web Analytics still
               run, because we use them only to understand how this website is used, not for advertising. Firefox, Brave and
               DuckDuckGo are among the browsers that support GPC. Our website reads the signal with JavaScript; if
               JavaScript is turned off, none of these three tools load.
@@ -273,15 +280,16 @@ export default function PrivacyPage() {
           <P>
             <strong className="text-ggm-forest">We do not sell your personal information for money.</strong> Our use of
             the Meta Pixel may count as &ldquo;sharing&rdquo; personal information for cross context behavioral
-            advertising under California law. You can opt out of that sharing by turning on Global Privacy Control in your
-            browser, as described in{' '}
-            <a href="#tracking" className="text-ggm-forest underline font-semibold">Section 6</a>. When your browser
-            sends the signal, the Meta Pixel does not load and we do not report a free letters request to Meta.
+            advertising under California law. You can opt out of that sharing on our{' '}
+            <Link href="/privacy-choices" className="text-ggm-forest underline font-semibold">Your Privacy Choices</Link>{' '}
+            page, or by turning on Global Privacy Control in your browser, as described in{' '}
+            <a href="#tracking" className="text-ggm-forest underline font-semibold">Section 6</a>. Either way, the Meta
+            Pixel does not load on that browser and we do not report a free letters request to Meta.
           </P>
           <P>
             Residents of other states with privacy laws, including Colorado, Connecticut, Virginia, Utah, Texas, and
             Oregon, have similar rights, including the right to opt out of targeted advertising, and we honor them the
-            same way. Global Privacy Control works the same for every visitor, wherever you live.
+            same way. Your Privacy Choices and Global Privacy Control work the same for every visitor, wherever you live.
           </P>
 
           <span id="received-mail" className="block scroll-mt-28" aria-hidden="true" />

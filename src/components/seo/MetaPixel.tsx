@@ -36,7 +36,7 @@ export function MetaPixel() {
       />
       {/* No <noscript> image fallback. Without JavaScript the page cannot read
           Global Privacy Control, so that image would report visitors who opted
-          out. See lib/privacy/gpc.ts. */}
+          out. See lib/privacy/ad-choice.ts. */}
     </>
   )
 }
