@@ -151,7 +151,8 @@ const PRODUCTS = [
     body: "Variable data letters carrying each homeowner's name, address and other details. A personal touch at scale.",
     img: '/products/letter-personalized.jpg',
     alt: 'Illustrative personalized letter sample generated with GGM’s handwriting tool for a fictional recipient',
-    href: '/products',
+    // Letters have their own service page; envelopes are on /products.
+    href: '/handwritten-letters',
   },
   {
     name: 'Handwritten Envelopes',
@@ -165,7 +166,7 @@ const PRODUCTS = [
     body: 'Full colour postcards on heavy stock. Nothing to open, the offer is right there when the mail is picked up.',
     img: '/products/postcard-premium.jpg',
     alt: 'A full colour Green Growth Marketing postcard',
-    // The postcard service has its own page; the other two formats are on /products.
+    // The postcard service has its own page.
     href: '/postcard-mailing',
   },
 ]

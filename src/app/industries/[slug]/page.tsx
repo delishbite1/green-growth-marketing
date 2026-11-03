@@ -117,6 +117,16 @@ export default async function IndustryGuidePage({ params }: { params: Promise<{ 
           with no long-term contract. Have a quote from another company? We would be happy
           to review it and see if we can offer a better price for comparable specifications.
         </p>
+        <p className="mt-3 text-[15px] leading-relaxed text-ggm-muted">
+          Prefer a personal letter to a postcard? See our{' '}
+          <Link
+            href="/handwritten-letters"
+            className="font-semibold text-ggm-forest underline decoration-ggm-gold underline-offset-4"
+          >
+            handwritten direct mail service
+          </Link>
+          .
+        </p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
