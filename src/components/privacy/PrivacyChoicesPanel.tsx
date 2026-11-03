@@ -7,22 +7,39 @@ import { adOptOutSaved, saveAdOptOut } from '@/lib/privacy/ad-choice'
 
 type Status = 'checking' | 'gpc' | 'off' | 'on'
 
+// Survives the reload below so the page can say the choice was saved.
+const SAVED_FLAG = 'ggm_ads_choice_saved'
+
 /**
  * The visitor's advertising choice for this browser. Read after mount, because
  * the cookie and the GPC signal only exist in the browser.
  */
 export default function PrivacyChoicesPanel() {
   const [status, setStatus] = useState<Status>('checking')
-  const [justChanged, setJustChanged] = useState<'off' | 'on' | null>(null)
+  const [justSaved, setJustSaved] = useState(false)
 
   useEffect(() => {
     setStatus(gpcEnabled() ? 'gpc' : adOptOutSaved() ? 'off' : 'on')
+    try {
+      if (sessionStorage.getItem(SAVED_FLAG)) {
+        sessionStorage.removeItem(SAVED_FLAG)
+        setJustSaved(true)
+      }
+    } catch {
+      // Storage blocked: the status line is enough.
+    }
   }, [])
 
+  // A Pixel that already ran on this page cannot be fully unloaded, so the page
+  // reloads: the bootstrap then reads the new choice before anything loads.
   function choose(optOut: boolean) {
     saveAdOptOut(optOut)
-    setStatus(optOut ? 'off' : 'on')
-    setJustChanged(optOut ? 'off' : 'on')
+    try {
+      sessionStorage.setItem(SAVED_FLAG, '1')
+    } catch {
+      // Storage blocked: the page still reloads with the new choice.
+    }
+    window.location.reload()
   }
 
   const button =
@@ -47,7 +64,7 @@ export default function PrivacyChoicesPanel() {
             <p data-status="off">
               <strong className="text-ggm-forest">Off.</strong> The Meta Pixel does not load on this browser, and we do
               not report a free letters request to Meta.
-              {justChanged === 'off' && ' Your choice is saved.'}
+              {justSaved && ' Your choice is saved.'}
             </p>
             <button type="button" className={button} onClick={() => choose(false)}>
               Turn advertising tracking back on
@@ -60,7 +77,7 @@ export default function PrivacyChoicesPanel() {
             <p data-status="on">
               <strong className="text-ggm-forest">On.</strong> The Meta Pixel helps us measure our Facebook and Instagram
               ads.
-              {justChanged === 'on' && ' Your choice is saved and applies from the next page you open.'}
+              {justSaved && ' Your choice is saved.'}
             </p>
             <button type="button" className={button} onClick={() => choose(true)}>
               Turn off advertising tracking

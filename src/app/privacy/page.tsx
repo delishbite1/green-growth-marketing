@@ -204,8 +204,11 @@ export default function PrivacyPage() {
               <strong>Your Privacy Choices.</strong> On our{' '}
               <Link href="/privacy-choices" className="text-ggm-forest underline font-semibold">Your Privacy Choices</Link>{' '}
               page you can turn off advertising tracking on your browser, and turn it back on later. When it is off, the
-              Meta Pixel does not load and we do not report a free letters request to Meta. We remember your choice with a
-              cookie on that browser, so it lasts across visits until you change it or clear your cookies.
+              Meta Pixel does not load and we do not report a free letters request to Meta. The page reloads when you
+              change your choice, so it applies right away, and turning tracking off also deletes the Meta cookies this
+              website set on that browser. It does not change information Meta already received before you turned it
+              off. We remember your choice with a cookie on that browser, so it lasts across visits until you change it
+              or clear your cookies.
             </li>
             <li>
               <strong>Global Privacy Control (GPC).</strong> If your browser sends a GPC signal, we treat it the same way,

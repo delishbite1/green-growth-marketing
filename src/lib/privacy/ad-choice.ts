@@ -39,7 +39,7 @@ export function adTrackingAllowed(): boolean {
 /**
  * Save the visitor's choice. Turning tracking off also tells a Pixel that is
  * already running on this page to stop, and removes Meta's first party cookies.
- * Turning it back on takes effect from the next page the visitor opens.
+ * The caller reloads the page afterwards, so the choice applies at once.
  */
 export function saveAdOptOut(optOut: boolean): void {
   const secure = window.location.protocol === 'https:' ? '; Secure' : ''
