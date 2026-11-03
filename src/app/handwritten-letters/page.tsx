@@ -26,7 +26,7 @@ import { industryGuides } from '@/data/industry-guides'
 
 const TITLE = 'Handwritten Direct Mail Service for U.S. Businesses | GGM'
 const DESCRIPTION =
-  'Handwritten style letters and envelopes for U.S. businesses. We prepare your message and mailing list, then print and mail every letter. Get a free quote.'
+  'Handwritten-style direct mail letters for U.S. businesses. Personalized campaigns, mailing support and full-service fulfillment. Request a free quote.'
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -153,11 +153,12 @@ function Hero() {
         <div>
           <Eyebrow>Handwritten direct mail service</Eyebrow>
           <h1 className="mt-4 font-display text-[2.15rem] font-medium leading-[1.08] tracking-[-0.01em] text-ggm-forest sm:text-[2.9rem] lg:text-[3.2rem]">
-            Handwritten direct mail service, prepared, printed and mailed for you
+            Handwritten-Style Direct Mail, Prepared and Mailed for You
           </h1>
           <p className="mt-5 max-w-xl font-body text-[16px] leading-relaxed text-ggm-charcoal sm:text-[17px]">
-            Handwritten style letters bring a personal touch to your marketing. We prepare your message and your mailing list, then print, address and mail every
-            letter, for businesses across the United States.
+            Handwritten style letters bring a personal touch to your marketing. We prepare your
+            message and your mailing list, then address and mail every letter, for businesses across
+            the United States.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="#quote" className={quoteButton}>
