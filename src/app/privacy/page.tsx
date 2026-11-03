@@ -175,7 +175,10 @@ export default function PrivacyPage() {
               <strong>Google (Gmail)</strong> hosts our team&rsquo;s email. Quote requests and request notifications
               arrive there, and our emails with you are kept there.
             </li>
-            <li><strong>Printing partners:</strong> to print your postcards and letters, including the mailing list</li>
+            <li>
+              <strong>Our printing provider</strong> receives the artwork and the mailing list for each client campaign so
+              it can print, address, and mail the postcards and letters.
+            </li>
             <li><strong>The United States Postal Service:</strong> to physically deliver your mail</li>
             <li><strong>Professional advisors:</strong> our accountant or lawyer, if we are legally required to</li>
           </UL>
@@ -344,7 +347,9 @@ export default function PrivacyPage() {
             our clients arrived and you do not know why: we are a direct mail company, and a business hired us to print and
             mail it. The mailing list came either from that business&rsquo;s own customer records, or from a list we put
             together for that campaign from public records, such as county property records. We use a client&rsquo;s
-            mailing list to produce and mail that client&rsquo;s campaign.
+            mailing list to produce and mail that client&rsquo;s campaign. To do that, we send the list to our printing
+            provider, which prints, addresses, and mails the postcards and letters. Client mailing lists are different from
+            the business contact records we use for our own outreach, described next.
           </P>
           <P>
             <strong className="text-ggm-forest">Our own outreach to businesses.</strong> We also contact businesses that may
