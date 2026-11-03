@@ -130,6 +130,8 @@ export default function ThanksPage() {
             <a href="/privacy" className="underline hover:text-gray-600">Privacy Policy</a>
             {' · '}
             <a href="/terms" className="underline hover:text-gray-600">Terms of Service</a>
+            {' · '}
+            <a href="/privacy-choices" className="underline hover:text-gray-600">Your Privacy Choices</a>
           </p>
         </div>
       </footer>

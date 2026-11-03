@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react'
 import { quoteSchema, type QuoteInput, type QuoteFormInput } from '@/lib/validation/lead'
+import { gaEvent } from '@/lib/analytics/ga'
 
 const services = [
   'Postcard Campaign',
@@ -30,6 +31,8 @@ const budgets = [
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [sendError, setSendError] = useState<string | null>(null)
+  const leadTracked = useRef(false)
+  const inFlight = useRef(false)
 
   // Someone who clicked "Dental" on the Industries page arrives with
   // ?industry=Dental. Don't make them tell us twice. Capped because it lands
@@ -60,6 +63,10 @@ export default function ContactForm() {
   }
 
   const onSubmit = async (data: QuoteInput) => {
+    // A synchronous lock: isSubmitting disables the button a render too late to
+    // stop a fast double click, which used to send two requests and two emails.
+    if (inFlight.current) return
+    inFlight.current = true
     setSendError(null)
     try {
       const res = await fetch('/api/quote', {
@@ -76,10 +83,20 @@ export default function ContactForm() {
 
       // Only now is it true.
       setSubmitted(true)
+      // Counted once per form, and never for the honeypot, which the server
+      // answers with a fake success.
+      if (!leadTracked.current && !data.website) {
+        leadTracked.current = true
+        gaEvent({ name: 'generate_lead', params: { form_name: 'quote' } })
+      }
     } catch {
       setSendError(
         'We could not reach our server. Please check your connection, or call us at (888) 601-6556.',
       )
+    } finally {
+      // Released after a failure so the visitor can try again. After a success
+      // the form is replaced by the thank you message, so it no longer matters.
+      inFlight.current = false
     }
   }
 
@@ -362,8 +379,8 @@ export default function ContactForm() {
       </button>
 
       <p className="text-xs text-gray-500 text-center leading-relaxed">
-        We will never share or sell your information. We use it to prepare your quote and to
-        contact you about it. See our{' '}
+        We do not sell your information. We use it to prepare your quote and to contact you
+        about it. See our{' '}
         <a href="/privacy" className="underline hover:text-gray-700">Privacy Policy</a>.
       </p>
     </form>

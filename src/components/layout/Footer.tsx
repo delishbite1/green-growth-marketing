@@ -61,7 +61,7 @@ export default function Footer() {
       <div className="border-t border-ggm-forest/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 text-xs leading-relaxed text-ggm-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>© {new Date().getFullYear()} {business.legalName}. All rights reserved.</p>
-          <div className="flex gap-6"><Link href="/privacy" className="py-2 hover:underline">Privacy Policy</Link><Link href="/terms" className="py-2 hover:underline">Terms of Service</Link></div>
+          <div className="flex flex-wrap gap-x-6"><Link href="/privacy" className="py-2 hover:underline">Privacy Policy</Link><Link href="/terms" className="py-2 hover:underline">Terms of Service</Link><Link href="/privacy-choices" className="py-2 hover:underline">Your Privacy Choices</Link></div>
         </div>
       </div>
     </footer>

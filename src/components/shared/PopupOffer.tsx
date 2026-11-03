@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
+import { gaEvent } from '@/lib/analytics/ga'
 import { usePathname } from 'next/navigation'
 import { X, Mail, Send, Target, Palette, Printer, MapPin, Star, ShieldCheck, CheckCircle, TrendingUp, Phone, Loader2 } from 'lucide-react'
 import Link from 'next/link'
@@ -30,6 +31,7 @@ export default function PopupOffer() {
   const [submitted, setSubmitted] = useState(false)
   const [focused, setFocused] = useState(false)
   const [sending, setSending] = useState(false)
+  const leadTracked = useRef(false)
   const [sendError, setSendError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -90,6 +92,10 @@ export default function PopupOffer() {
       }
       // Only claim success once the server actually confirms it.
       setSubmitted(true)
+      if (!leadTracked.current && !hp) {
+        leadTracked.current = true
+        gaEvent({ name: 'generate_lead', params: { form_name: 'popup' } })
+      }
       setTimeout(dismiss, 3000)
     } catch {
       setSendError('We could not reach our server. Please call (888) 601-6556.')
@@ -201,7 +207,7 @@ export default function PopupOffer() {
                 {/* Privacy */}
                 <p className="text-xs text-gray-400 text-center mb-5 flex items-center justify-center gap-1">
                   <ShieldCheck className="w-3 h-3" aria-hidden="true" />
-                  We respect your privacy. Your information is never shared or sold.
+                  We respect your privacy. We do not sell your information.
                 </p>
 
                 {/* Features */}

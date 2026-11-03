@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/privacy' },
   title: 'Privacy Policy | Green Growth Marketing',
   description:
-    'How Green Growth Marketing collects, uses, and protects your personal information. We do not sell or share your information.',
+    'How Green Growth Marketing collects, uses, and protects your personal information, the tools this website uses, and the choices you have.',
 }
 
 const addr = business.address
@@ -41,18 +41,28 @@ export default function PrivacyPage() {
             about it. We have tried to write it in plain English rather than legal language.
           </P>
 
-          <P>It covers two different groups of people:</P>
+          <P>
+            This policy applies to our public website at greengrowthmarketinginc.com, to requests made through it, and to
+            the mail and outreach described in Section 10. It does not cover our client portal, the separate signed in
+            area our clients use to manage their campaigns. Privacy information for the portal is handled separately.
+          </P>
+
+          <P>It covers three different groups of people:</P>
           <UL>
-            <li><strong>Business visitors</strong> — people who visit this website or ask us for a quote.</li>
+            <li><strong>Business visitors:</strong> people who visit this website or ask us for a quote.</li>
             <li>
-              <strong>Mail recipients</strong> — people who received a postcard or letter that we mailed on behalf of one
+              <strong>Mail recipients:</strong> people who received a postcard or letter that we mailed on behalf of one
               of our clients.
+            </li>
+            <li>
+              <strong>Business contacts:</strong> owners and managers of businesses that we contact about our own
+              services.
             </li>
           </UL>
           <P>
-            If you received mail from us and want it to stop, skip to{' '}
+            If you received mail or a call from us and want it to stop, skip to{' '}
             <a href="#received-mail" className="text-ggm-forest underline font-semibold">
-              If You Received Mail From Us
+              If We Contacted You or Mailed You
             </a>
             .
           </P>
@@ -100,8 +110,16 @@ export default function PrivacyPage() {
           <P>
             <strong className="text-ggm-forest">Automatically</strong>, our website host records standard technical
             information such as your IP address, browser type, and the pages you viewed. This is ordinary server activity
-            and we use it only to keep the site running and secure. We also record the date, time, and IP address when you
-            tick the consent box on our form, as a record that you asked us to contact you.
+            and we use it to keep the site running and secure. When you agree on one of our forms that we may contact
+            you, we also record the date, time, and IP address, as a record that you asked us to contact you. Our
+            analytics and advertising tools also collect information about your visit; Section 6 explains them.
+          </P>
+          <P>
+            <strong className="text-ggm-forest">When you request free letters or postcards</strong>, we ask for your name,
+            business name, email address, and phone number, and details of the mailing you want, such as the ZIP codes or
+            cities to mail, a preferred date, your industry and website, and any instructions. We also record how you
+            reached us, such as the page you arrived on, the website that referred you, and the campaign tags or ad click
+            identifier in the link you followed, so we know which of our ads and mailings work, and your browser type.
           </P>
           <P>
             <strong className="text-ggm-forest">What we do not collect:</strong> we do not ask for and do not want your
@@ -117,43 +135,161 @@ export default function PrivacyPage() {
             <li>Run and deliver your direct mail campaign if you become a client</li>
             <li>Keep records for accounting and legal reasons</li>
             <li>Respond to your questions</li>
+            <li>Understand how this website is used and measure our advertising, as described in Section 6</li>
           </UL>
           <P>
             <strong className="text-ggm-forest">Consent to contact you.</strong> When you submit our quote form you tick a
             box asking us to get back to you, and when you call us you are asking the same thing. We will contact you at
-            the phone number and email you gave us in order to do that. You can tell us to stop at any time — say so on a
-            call, or email us — and we will honor it. Consent is never a condition of buying anything from us.
+            the phone number and email you gave us in order to do that. You can tell us to stop at any time, on a call or
+            by email, and we will honor it. Consent is never a condition of buying anything from us.
           </P>
 
           <H2>4. We Do Not Sell Your Information</H2>
-          <P>We do not sell, rent, or trade your personal information to anyone.</P>
-          <P>We do not share it with other marketers.</P>
+          <P>We do not sell, rent, or trade your personal information for money.</P>
+          <P>We do not give your name, email address, phone number, or mailing address to other marketers.</P>
           <P>We do not use your information to send you mail on behalf of other companies.</P>
+          <P>
+            One thing works differently: the Meta Pixel on this website sends Meta information about your visit, and Meta
+            can also use that information for its own purposes, including advertising. Some state privacy laws call this
+            &ldquo;sharing&rdquo; or &ldquo;targeted advertising&rdquo;. Section 6 explains what is sent and how to turn it
+            off.
+          </P>
 
           <H2>5. Who We Share It With</H2>
-          <P>To actually deliver your campaign, we have to share some information with the companies that do the work:</P>
+          <P>We use these companies to run this website and our business, and to deliver your campaign:</P>
           <UL>
-            <li><strong>Printing partners</strong> — to print your postcards and letters</li>
-            <li><strong>The United States Postal Service</strong> — to physically deliver your mail</li>
-            <li><strong>Our website host and email provider</strong> — which operate this website and deliver the message you send us through it</li>
-            <li><strong>Professional advisors</strong> — our accountant or lawyer, if we are legally required to</li>
+            <li>
+              <strong>Vercel</strong> hosts this website and processes every request you send through it, including your
+              IP address and browser type.
+            </li>
+            <li>
+              <strong>Supabase</strong> is our database provider. It stores free letters and postcard requests made on
+              this website: your contact and business details, the mailing you asked for, how you reached us, your browser
+              type, and the date, time, and IP address of your consent.
+            </li>
+            <li>
+              <strong>Resend</strong> sends our team an email with the details of each request you submit on this
+              website.
+            </li>
+            <li>
+              <strong>Google (Gmail)</strong> hosts our team&rsquo;s email. Quote requests and request notifications
+              arrive there, and our emails with you are kept there.
+            </li>
+            <li>
+              <strong>Our printing provider</strong> receives the artwork and the mailing list for each client campaign so
+              it can print, address, and mail the postcards and letters.
+            </li>
+            <li><strong>The United States Postal Service:</strong> to physically deliver your mail</li>
+            <li><strong>Professional advisors:</strong> our accountant or lawyer, if we are legally required to</li>
+          </UL>
+          <P>We give each of them only the information needed for the service they provide to us.</P>
+          <P>This website also uses analytics and advertising tools from three companies:</P>
+          <UL>
+            <li><strong>Vercel:</strong> website analytics, without cookies</li>
+            <li><strong>Google:</strong> Google Analytics, used for analytics only</li>
+            <li>
+              <strong>Meta:</strong> the Meta Pixel and, for free letters requests, a report that the request was made, used
+              to measure our Facebook and Instagram ads
+            </li>
           </UL>
           <P>
-            Each of these only receives what they need to do their job. They are not allowed to use your information for
-            their own marketing.
+            Google and Meta handle the information they receive under their own terms and privacy policies. Section 6
+            explains what each tool collects and the choices you have.
           </P>
           <P>We will also disclose information if we are legally required to, for example by a valid court order.</P>
 
+          <span id="tracking" className="block scroll-mt-28" aria-hidden="true" />
           <H2>6. Cookies and Tracking</H2>
           <P>
-            This website does not use advertising cookies, tracking pixels, or third-party analytics. We do not track you
-            across other websites. If that ever changes, we will update this policy and say so clearly before we start.
+            We use three tools on this website, and for free letters requests our server also reports to Meta. Here is
+            what each one does.
+          </P>
+          <UL>
+            <li>
+              <strong>Vercel Web Analytics</strong>, from the company that hosts this website, counts page visits. It does
+              not use cookies.
+            </li>
+            <li>
+              <strong>Google Analytics 4</strong> shows us which pages are visited, how visitors found the site, and
+              whether someone sent us a request or tapped our phone number. It uses cookies set by this website. We use it
+              for analytics only: its advertising features, Google Signals and ad personalization are turned off. We never
+              send Google your name, email address, phone number, or anything you type into a form.
+            </li>
+            <li>
+              <strong>The Meta Pixel</strong> tells Meta, the company behind Facebook and Instagram, which pages of this
+              website you visit, so we can measure and improve our ads on those platforms. It uses cookies, and Meta may
+              connect this information with a Facebook or Instagram account.
+            </li>
+            <li>
+              <strong>Meta Conversions API.</strong> If you request our free letters offer, our server may also report
+              to Meta that a request was made, so Meta can match it to the ad you saw. The report contains your email
+              address, phone number, and first and last name in scrambled (hashed) form, and the country (United States),
+              also hashed. It also contains, not hashed: your IP address, your browser&rsquo;s user agent (its name and
+              version), the address of the page you were on, the time of the request, the Meta browser identifier
+              stored in the <code>_fbp</code> cookie if your browser has one, and, if you arrived by clicking a Meta ad,
+              the click identifier from that link (<code>fbc</code>). It does not contain your business name, the ZIP
+              code you entered, or anything else you typed.
+            </li>
+          </UL>
+          <P>
+            These tools collect technical information such as your browser and device type, your approximate location
+            based on your IP address, the pages you view, and how you arrived.
+          </P>
+          <P>
+            <strong className="text-ggm-forest">Your choices.</strong>
+          </P>
+          <UL>
+            <li>
+              <strong>Your Privacy Choices.</strong> On our{' '}
+              <Link href="/privacy-choices" className="text-ggm-forest underline font-semibold">Your Privacy Choices</Link>{' '}
+              page you can turn off advertising tracking on your browser, and turn it back on later. When it is off, the
+              Meta Pixel does not load and we do not report a free letters request to Meta. The page reloads when you
+              change your choice, so it applies right away, and turning tracking off also deletes the Meta cookies this
+              website set on that browser. It does not change information Meta already received before you turned it
+              off. We remember your choice with a cookie on that browser, so it lasts across visits until you change it
+              or clear your cookies.
+            </li>
+            <li>
+              <strong>Global Privacy Control (GPC).</strong> If your browser sends a GPC signal, we treat it the same way,
+              automatically, even if you have not visited that page. Google Analytics and Vercel Web Analytics still
+              run, because we use them only to understand how this website is used, not for advertising. Firefox, Brave and
+              DuckDuckGo are among the browsers that support GPC. Our website reads the signal with JavaScript; if
+              JavaScript is turned off, none of these three tools load.
+            </li>
+            <li>
+              <strong>Google Analytics opt out.</strong> Google offers a browser add on that stops Google Analytics on
+              every website:{' '}
+              <a href="https://tools.google.com/dlpage/gaoptout" className="text-ggm-forest underline break-all" rel="noopener noreferrer" target="_blank">
+                tools.google.com/dlpage/gaoptout
+              </a>
+              .
+            </li>
+            <li>
+              <strong>Cookies and ad settings.</strong> You can block or delete cookies in your browser, and most browsers
+              and ad blockers can block the Meta Pixel. You can also control how Meta uses your activity for ads in your
+              Facebook or Instagram ad settings.
+            </li>
+          </UL>
+          <P>
+            This website does not respond to Do Not Track signals, which most browsers no longer support. It does respond
+            to Global Privacy Control as described above.
           </P>
 
           <H2>7. How Long We Keep It</H2>
           <UL>
             <li><strong>If you do not become a client:</strong> we keep your quote request for up to 2 years, in case you come back to us.</li>
             <li><strong>If you become a client:</strong> we keep your records for 7 years, which is standard for business and tax records.</li>
+            <li>
+              <strong>Client mailing lists:</strong> we keep a client&rsquo;s mailing list for that client&rsquo;s future
+              campaigns, with no fixed end date, unless the law or our contract with that client requires us to delete it
+              sooner, or we receive a valid request to delete it.
+            </li>
+            <li><strong>Free letters and postcard requests</strong> made on this website: our retention period is 24 months from the date we receive them.</li>
+            <li>
+              <strong>Google Analytics:</strong> we have set its event and user data retention to 14 months. That setting does not cover every kind of Google Analytics data; for example, Google keeps
+              summary reports under its own policies.
+            </li>
+            <li><strong>Your Privacy Choices:</strong> the cookie that remembers your choice lasts about 400 days, or until you clear your cookies.</li>
           </UL>
           <P>You can ask us to delete your information sooner. See Section 9.</P>
 
@@ -195,34 +331,55 @@ export default function PrivacyPage() {
             <li>The right not to be discriminated against for exercising these rights</li>
           </UL>
           <P>
-            <strong className="text-ggm-forest">
-              We do not sell or share your personal information as those terms are defined by the CCPA.
-            </strong>{' '}
-            Because of that, there is no &ldquo;Do Not Sell or Share My Personal Information&rdquo; link on this site. If
-            that ever changes, we will update this policy and add one.
+            <strong className="text-ggm-forest">We do not sell your personal information for money.</strong> Our use of
+            the Meta Pixel and the Meta Conversions API may count as &ldquo;sharing&rdquo; personal information for cross context behavioral
+            advertising under California law. You can opt out of that sharing on our{' '}
+            <Link href="/privacy-choices" className="text-ggm-forest underline font-semibold">Your Privacy Choices</Link>{' '}
+            page, or by turning on Global Privacy Control in your browser, as described in{' '}
+            <a href="#tracking" className="text-ggm-forest underline font-semibold">Section 6</a>. Either way, the Meta
+            Pixel does not load on that browser and we do not report a free letters request to Meta.
           </P>
           <P>
             Residents of other states with privacy laws, including Colorado, Connecticut, Virginia, Utah, Texas, and
-            Oregon, have similar rights, and we honor them the same way.
+            Oregon, have similar rights, including the right to opt out of targeted advertising, and we honor them the
+            same way. Your Privacy Choices and Global Privacy Control work the same for every visitor, wherever you live.
           </P>
 
           <span id="received-mail" className="block scroll-mt-28" aria-hidden="true" />
-          <H2>10. If You Received Mail From Us</H2>
-          <P>If a postcard or letter arrived at your home and you do not know why:</P>
+          <H2>10. If We Contacted You or Mailed You</H2>
           <P>
-            We are a direct mail company. A business hired us to print and mail it.{' '}
-            <strong className="text-ggm-forest">We do not own or maintain a list of you personally.</strong> The mailing
-            list came either from that business&rsquo;s own customer records, or from a licensed list provider that
-            sources publicly available and commercially available information, such as property records and consumer
-            marketing databases.
+            <strong className="text-ggm-forest">Mail we send for our clients.</strong> If a postcard or letter from one of
+            our clients arrived and you do not know why: we are a direct mail company, and a business hired us to print and
+            mail it. The mailing list came either from that business&rsquo;s own customer records, or from a list we put
+            together for that campaign from public records, such as county property records. We use a client&rsquo;s
+            mailing list to produce and mail that client&rsquo;s campaigns, including future campaigns for the same client.
+            To do that, we send the list to our printing provider, which prints, addresses, and mails the postcards and
+            letters. We do not use one client&rsquo;s mailing list for another client&rsquo;s campaigns without explicit
+            authorization. Client mailing lists are different from
+            the business contact records we use for our own outreach, described next.
           </P>
           <P>
-            <strong className="text-ggm-forest">To stop receiving our mail</strong>, email{' '}
+            <strong className="text-ggm-forest">Our own outreach to businesses.</strong> We also contact businesses that may
+            want direct mail, by mail and by phone. To do that, we build business contact records from public and online
+            sources: state contractor license records, state business registrations, company websites, online business
+            listings and maps, and public social media pages. A record can include the business name, the name and title
+            of an owner or manager, the business mailing address, phone number, business email address, website, trade,
+            and license details, along with our own notes, such as when we mailed or called and how the conversation went.
+            We keep these records in our own customer relationship database.
+          </P>
+          <P>
+            We use these records only for our own marketing, business development, and prospecting. We do not sell them,
+            and we do not provide them to clients for their mailing campaigns. Our technology and service providers, such as our database and email
+            providers, process these records as needed to provide their services to us.
+          </P>
+          <P>
+            <strong className="text-ggm-forest">To stop our mail or calls</strong>, email{' '}
             <a href={`mailto:${business.email}`} className="text-ggm-forest underline break-all font-semibold">{business.email}</a>{' '}
             or call{' '}
             <a href={business.phoneHref} className="text-ggm-forest underline font-semibold">{business.phone}</a> with the
-            name and address exactly as printed on the mail piece. We will remove you from future mailings we handle, and
-            we will pass your request to the business that hired us.
+            name and address exactly as printed on the mail piece. For mail we sent for a client, we will remove you from
+            future mailings we handle, and we will pass your request to the business that hired us. For our own outreach,
+            we will mark your record so we do not contact you again.
           </P>
           <P>
             Please allow up to 30 days, since campaigns are often already printed and in the mail before a request

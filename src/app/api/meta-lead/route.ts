@@ -3,6 +3,7 @@ import { metaLeadSchema } from '@/lib/validation/meta-lead'
 import { storeLead, type LeadRow } from '@/lib/leads-store'
 import { sendLeadEvent, capiConfigured } from '@/lib/meta/capi'
 import { business } from '@/config/business'
+import { adTrackingBlockedByRequest } from '@/lib/privacy/ad-choice'
 
 /**
  * The 100 free letters claim, from /free-letters.
@@ -160,7 +161,10 @@ export async function POST(req: NextRequest) {
   )
 
   // -------------------------------------------------------- 3. report it ---
-  if (d.eventId && capiConfigured()) {
+  // Global Privacy Control or the visitor's saved opt out: the form already
+  // leaves eventId out, and the Sec-GPC header and opt out cookie are checked
+  // here as well.
+  if (d.eventId && !adTrackingBlockedByRequest(req.headers, req.cookies) && capiConfigured()) {
     // business.siteUrl rather than NEXT_PUBLIC_SITE_URL: that variable held a
     // www host that does not resolve, and reporting a dead event_source_url to
     // Meta makes the conversion harder to attribute, not easier.

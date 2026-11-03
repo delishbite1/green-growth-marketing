@@ -8,6 +8,8 @@ import { Loader2, AlertCircle, Gift } from 'lucide-react'
 import { metaLeadSchema, type MetaLeadInput } from '@/lib/validation/meta-lead'
 import { readAttribution, newEventId } from '@/lib/attribution'
 import { trackEvent } from '@/lib/meta/pixel'
+import { gaEvent } from '@/lib/analytics/ga'
+import { adTrackingAllowed } from '@/lib/privacy/ad-choice'
 import { business } from '@/config/business'
 
 /**
@@ -51,7 +53,9 @@ export default function OfferForm() {
     // One id, generated here, used by both reports of this conversion. The
     // browser fires Lead with it below and the server sends the same id to the
     // Conversions API, which is what lets Meta see one event instead of two.
-    const eventId = newEventId()
+    // Global Privacy Control or a saved opt out: no id, so the server sends
+    // nothing to Meta either.
+    const eventId = adTrackingAllowed() ? newEventId() : undefined
 
     try {
       const res = await fetch('/api/meta-lead', {
@@ -83,10 +87,13 @@ export default function OfferForm() {
        * campaign for a lead the sales team already has.
        */
       if (!payload?.duplicate) {
-        trackEvent('Lead', eventId, {
-          content_name: '100 Free Personalized Letters',
-          content_category: 'Direct Mail',
-        })
+        if (eventId) {
+          trackEvent('Lead', eventId, {
+            content_name: '100 Free Personalized Letters',
+            content_category: 'Direct Mail',
+          })
+        }
+        gaEvent({ name: 'generate_lead', params: { form_name: 'free_letters' } })
       }
 
       router.push('/free-letters/thanks')
@@ -266,9 +273,10 @@ export default function OfferForm() {
       */}
       <p className="text-center text-xs leading-relaxed text-gray-400">
         No contract and no payment. We will call to confirm everything before anything is printed or
-        mailed. Offer available to qualifying businesses, limit one per business. We never sell or
-        share your information. See our{' '}
-        <a href="/privacy" className="underline hover:text-gray-600">Privacy Policy</a>.
+        mailed. Offer available to qualifying businesses, limit one per business. We do not sell your
+        information. We may report your request to Meta to measure our ads; see our{' '}
+        <a href="/privacy" className="underline hover:text-gray-600">Privacy Policy</a> and{' '}
+        <a href="/privacy-choices" className="underline hover:text-gray-600">Your Privacy Choices</a>.
       </p>
     </form>
   )

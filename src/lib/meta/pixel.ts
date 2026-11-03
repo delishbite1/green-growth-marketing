@@ -1,4 +1,5 @@
 import { business } from '@/config/business'
+import { AD_ALLOWED_JS } from '@/lib/privacy/ad-choice'
 
 /**
  * Meta Pixel, browser side.
@@ -55,15 +56,18 @@ export function pixelId(): string | undefined {
  * queues. `fbq.queue` is what makes an early call safe.
  */
 export function pixelScript(id: string): string {
-  return `!function(f,b,e,v,n,t,s)
+  // Global Privacy Control, or the visitor's saved opt out, turns the Pixel off
+  // entirely: no fbq, no library, no PageView. trackEvent below is then a no-op.
+  // See lib/privacy/ad-choice.ts.
+  return `if${AD_ALLOWED_JS}!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','${id}');
+'https://connect.facebook.net/en_US/fbevents.js'),
+fbq('init','${id}'),
 fbq('track','PageView');`
 }
 
