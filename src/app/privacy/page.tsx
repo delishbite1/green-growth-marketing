@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/privacy' },
   title: 'Privacy Policy | Green Growth Marketing',
   description:
-    'How Green Growth Marketing collects, uses, and protects your personal information. We do not sell or share your information.',
+    'How Green Growth Marketing collects, uses, and protects your personal information, including the analytics and advertising tools on this website.',
 }
 
 const addr = business.address
@@ -125,9 +125,15 @@ export default function PrivacyPage() {
             call, or email us — and we will honor it. Consent is never a condition of buying anything from us.
           </P>
 
-          <H2>4. We Do Not Sell Your Information</H2>
-          <P>We do not sell, rent, or trade your personal information to anyone.</P>
-          <P>We do not share it with other marketers.</P>
+          <H2>4. We Do Not Sell Client Information or Mailing Lists</H2>
+          <P>
+            We do not sell, rent, or trade your personal information, our clients&rsquo; information, or our clients&rsquo;
+            mailing lists. We do not give them to other companies for their own marketing.
+          </P>
+          <P>
+            We do use companies that help us run our business and deliver campaigns, listed in Section 5, and analytics
+            and advertising tools on this website, described in Section 6.
+          </P>
           <P>We do not use your information to send you mail on behalf of other companies.</P>
 
           <H2>5. Who We Share It With</H2>
@@ -137,10 +143,15 @@ export default function PrivacyPage() {
             <li><strong>The United States Postal Service</strong> — to physically deliver your mail</li>
             <li><strong>Our website host and email provider</strong> — which operate this website and deliver the message you send us through it</li>
             <li><strong>Professional advisors</strong> — our accountant or lawyer, if we are legally required to</li>
+            <li>
+              <strong>Google and Meta</strong>, through the analytics and advertising tools on this website described in
+              Section 6
+            </li>
           </UL>
           <P>
-            Each of these only receives what they need to do their job. They are not allowed to use your information for
-            their own marketing.
+            The companies that help us deliver campaigns only receive what they need to do their job, and they are not
+            allowed to use your information for their own marketing. Google and Meta receive information through the
+            tools described in Section 6 and handle it under their own terms.
           </P>
           <P>We will also disclose information if we are legally required to, for example by a valid court order.</P>
 
@@ -246,11 +257,11 @@ export default function PrivacyPage() {
             <li>The right not to be discriminated against for exercising these rights</li>
           </UL>
           <P>
-            <strong className="text-ggm-forest">
-              We do not sell or share your personal information as those terms are defined by the CCPA.
-            </strong>{' '}
-            Because of that, there is no &ldquo;Do Not Sell or Share My Personal Information&rdquo; link on this site. If
-            that ever changes, we will update this policy and add one.
+            <strong className="text-ggm-forest">Selling and sharing.</strong> We do not sell client information or customer
+            mailing lists, and we do not give them to other companies for their own marketing. We do use the Meta Pixel
+            and the Meta Conversions API, described in Section 6, to measure and improve our ads on Facebook and
+            Instagram. Some state privacy laws may treat that kind of advertising use as &ldquo;sharing&rdquo; personal
+            information. You can block the Meta Pixel and its cookies in your browser, as described in Section 6.
           </P>
           <P>
             Residents of other states with privacy laws, including Colorado, Connecticut, Virginia, Utah, Texas, and
