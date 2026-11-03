@@ -34,16 +34,9 @@ export function MetaPixel() {
         // a phone over cellular that is the difference a visitor feels.
         dangerouslySetInnerHTML={{ __html: pixelScript(id) }}
       />
-      <noscript>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          height="1"
-          width="1"
-          style={{ display: 'none' }}
-          alt=""
-          src={`https://www.facebook.com/tr?id=${id}&ev=PageView&noscript=1`}
-        />
-      </noscript>
+      {/* No <noscript> image fallback. Without JavaScript the page cannot read
+          Global Privacy Control, so that image would report visitors who opted
+          out. See lib/privacy/gpc.ts. */}
     </>
   )
 }

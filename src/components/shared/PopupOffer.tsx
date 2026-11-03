@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
+import { gaEvent } from '@/lib/analytics/ga'
 import { usePathname } from 'next/navigation'
 import { X, Mail, Send, Target, Palette, Printer, MapPin, Star, ShieldCheck, CheckCircle, TrendingUp, Phone, Loader2 } from 'lucide-react'
 import Link from 'next/link'
@@ -30,6 +31,7 @@ export default function PopupOffer() {
   const [submitted, setSubmitted] = useState(false)
   const [focused, setFocused] = useState(false)
   const [sending, setSending] = useState(false)
+  const leadTracked = useRef(false)
   const [sendError, setSendError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -90,6 +92,10 @@ export default function PopupOffer() {
       }
       // Only claim success once the server actually confirms it.
       setSubmitted(true)
+      if (!leadTracked.current && !hp) {
+        leadTracked.current = true
+        gaEvent({ name: 'generate_lead', params: { form_name: 'popup' } })
+      }
       setTimeout(dismiss, 3000)
     } catch {
       setSendError('We could not reach our server. Please call (888) 601-6556.')

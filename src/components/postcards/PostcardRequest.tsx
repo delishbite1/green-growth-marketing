@@ -6,6 +6,7 @@ import { useForm, type FieldPath } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { postcardRequestSchema, INDUSTRIES, type PostcardRequestInput } from '@/lib/validation/postcard-request'
 import { captureAttribution, readAttribution } from '@/lib/attribution'
+import { gaEvent } from '@/lib/analytics/ga'
 import StateSelect from '@/components/landing/StateSelect'
 import type { PostcardPackage } from '@/lib/postcards/packages'
 
@@ -185,6 +186,7 @@ export default function PostcardRequest({
   const idemKey = useRef<string | null>(null)
   // A synchronous lock: React state updates too late to stop a fast double tap.
   const submitLock = useRef(false)
+  const leadTracked = useRef(false)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const topRef = useRef<HTMLDivElement>(null)
 
@@ -265,6 +267,12 @@ export default function PostcardRequest({
           return
         }
         setReference(json.reference)
+        // A repeat of a request already stored is not a new lead, and the
+        // honeypot gets a fake success from the server.
+        if (!leadTracked.current && !json.duplicate && !data.website) {
+          leadTracked.current = true
+          gaEvent({ name: 'generate_lead', params: { form_name: 'postcard_request' } })
+        }
         requestAnimationFrame(() => topRef.current?.scrollIntoView({ block: 'start' }))
       } catch {
         setServerError(`We could not reach our server. Please try again or call us at ${phone}.`)

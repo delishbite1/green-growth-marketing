@@ -8,6 +8,7 @@ import SiteChrome from '@/components/layout/SiteChrome'
 import BrandFrame from '@/components/brand/BrandFrame'
 import { StructuredData } from '@/components/seo/StructuredData'
 import { MetaPixel } from '@/components/seo/MetaPixel'
+import { GoogleAnalytics } from '@/components/seo/GoogleAnalytics'
 import { Analytics } from '@vercel/analytics/react'
 import { business } from '@/config/business'
 
@@ -93,6 +94,7 @@ export default function RootLayout({
       <body className="font-sans">
         {/* Site wide, so every page reports, not only the ad landing page. */}
         <MetaPixel />
+        <GoogleAnalytics />
         {/* Advertising landing pages render bare. See SiteChrome for why. */}
         <SiteChrome>
           <Navbar />

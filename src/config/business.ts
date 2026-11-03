@@ -42,6 +42,13 @@ export const business = {
    */
   metaPixelId: '1075971171747917',
 
+  /**
+   * The GA4 web stream, created by Inbar on 2 Nov 2026. Public for the same
+   * reason as the Pixel id: it is printed into every page. NEXT_PUBLIC_GA_MEASUREMENT_ID
+   * wins when it holds a valid id. GA only loads on the live domain, see lib/analytics/ga.ts.
+   */
+  gaMeasurementId: 'G-J50PJRJEP6',
+
   phone: '(888) 601-6556',
   phoneHref: 'tel:+18886016556',
   email: 'greengrowthmarketinginc@gmail.com',
@@ -60,7 +67,7 @@ export const business = {
    * whenever the wording materially changes — that is the whole point of the
    * date, so do not wire it to today's date automatically.
    */
-  legalLastUpdated: 'July 16, 2026',
+  legalLastUpdated: 'November 2, 2026',
 } as const
 
 /** One-line address, for inline use in a sentence. */

@@ -8,6 +8,8 @@ import { Loader2, AlertCircle, Gift } from 'lucide-react'
 import { metaLeadSchema, type MetaLeadInput } from '@/lib/validation/meta-lead'
 import { readAttribution, newEventId } from '@/lib/attribution'
 import { trackEvent } from '@/lib/meta/pixel'
+import { gaEvent } from '@/lib/analytics/ga'
+import { gpcEnabled } from '@/lib/privacy/gpc'
 import { business } from '@/config/business'
 
 /**
@@ -51,7 +53,8 @@ export default function OfferForm() {
     // One id, generated here, used by both reports of this conversion. The
     // browser fires Lead with it below and the server sends the same id to the
     // Conversions API, which is what lets Meta see one event instead of two.
-    const eventId = newEventId()
+    // Global Privacy Control: no id, so the server sends nothing to Meta either.
+    const eventId = gpcEnabled() ? undefined : newEventId()
 
     try {
       const res = await fetch('/api/meta-lead', {
@@ -83,10 +86,13 @@ export default function OfferForm() {
        * campaign for a lead the sales team already has.
        */
       if (!payload?.duplicate) {
-        trackEvent('Lead', eventId, {
-          content_name: '100 Free Personalized Letters',
-          content_category: 'Direct Mail',
-        })
+        if (eventId) {
+          trackEvent('Lead', eventId, {
+            content_name: '100 Free Personalized Letters',
+            content_category: 'Direct Mail',
+          })
+        }
+        gaEvent({ name: 'generate_lead', params: { form_name: 'free_letters' } })
       }
 
       router.push('/free-letters/thanks')

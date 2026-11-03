@@ -3,6 +3,7 @@ import { metaLeadSchema } from '@/lib/validation/meta-lead'
 import { storeLead, type LeadRow } from '@/lib/leads-store'
 import { sendLeadEvent, capiConfigured } from '@/lib/meta/capi'
 import { business } from '@/config/business'
+import { gpcHeader } from '@/lib/privacy/gpc'
 
 /**
  * The 100 free letters claim, from /free-letters.
@@ -160,7 +161,9 @@ export async function POST(req: NextRequest) {
   )
 
   // -------------------------------------------------------- 3. report it ---
-  if (d.eventId && capiConfigured()) {
+  // Global Privacy Control: the form already leaves eventId out when it sees
+  // the signal, and the browser's Sec-GPC header is checked here as well.
+  if (d.eventId && !gpcHeader(req.headers) && capiConfigured()) {
     // business.siteUrl rather than NEXT_PUBLIC_SITE_URL: that variable held a
     // www host that does not resolve, and reporting a dead event_source_url to
     // Meta makes the conversion harder to attribute, not easier.
