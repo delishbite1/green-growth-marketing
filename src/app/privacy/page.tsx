@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/privacy' },
   title: 'Privacy Policy | Green Growth Marketing',
   description:
-    'How Green Growth Marketing collects, uses, and protects your personal information, the tools this website uses, and the choices you have.',
+    'How Green Growth Marketing collects, uses, and protects your personal information, including the analytics and advertising tools on this website and the choices you have.',
 }
 
 const addr = business.address
@@ -144,9 +144,15 @@ export default function PrivacyPage() {
             by email, and we will honor it. Consent is never a condition of buying anything from us.
           </P>
 
-          <H2>4. We Do Not Sell Your Information</H2>
-          <P>We do not sell, rent, or trade your personal information for money.</P>
-          <P>We do not give your name, email address, phone number, or mailing address to other marketers.</P>
+          <H2>4. We Do Not Sell Client Information or Mailing Lists</H2>
+          <P>
+            We do not sell, rent, or trade your personal information, our clients&rsquo; information, or our clients&rsquo;
+            mailing lists. We do not give them to other companies for their own marketing.
+          </P>
+          <P>
+            We do use companies that help us run our business and deliver campaigns, listed in Section 5, and analytics
+            and advertising tools on this website, described in Section 6.
+          </P>
           <P>We do not use your information to send you mail on behalf of other companies.</P>
           <P>
             One thing works differently: the Meta Pixel on this website sends Meta information about your visit, and Meta
@@ -182,7 +188,10 @@ export default function PrivacyPage() {
             <li><strong>The United States Postal Service:</strong> to physically deliver your mail</li>
             <li><strong>Professional advisors:</strong> our accountant or lawyer, if we are legally required to</li>
           </UL>
-          <P>We give each of them only the information needed for the service they provide to us.</P>
+          <P>
+            We give each of them only the information needed for the service they provide to us, and they are not allowed
+            to use your information for their own marketing.
+          </P>
           <P>This website also uses analytics and advertising tools from three companies:</P>
           <UL>
             <li><strong>Vercel:</strong> website analytics, without cookies</li>
@@ -217,8 +226,9 @@ export default function PrivacyPage() {
             </li>
             <li>
               <strong>The Meta Pixel</strong> tells Meta, the company behind Facebook and Instagram, which pages of this
-              website you visit, so we can measure and improve our ads on those platforms. It uses cookies, and Meta may
-              connect this information with a Facebook or Instagram account.
+              website you visit and whether you request our free letters offer, so we can measure and improve our ads on
+              those platforms. It uses cookies, and Meta may connect this information with a Facebook or Instagram
+              account.
             </li>
             <li>
               <strong>Meta Conversions API.</strong> If you request our free letters offer, our server may also report
@@ -274,6 +284,57 @@ export default function PrivacyPage() {
             This website does not respond to Do Not Track signals, which most browsers no longer support. It does respond
             to Global Privacy Control as described above.
           </P>
+          <UL>
+            <li>
+              <strong>Vercel Web Analytics</strong>, from the company that hosts this website, counts page visits. It does
+              not use cookies.
+            </li>
+            <li>
+              <strong>Google Analytics 4</strong> shows us which pages are visited, how visitors found the site, and
+              whether someone sent us a request or tapped our phone number. It uses cookies set by this website. We use it
+              for analytics only: its advertising features, Google Signals and ad personalization are turned off. We never
+              send Google your name, email address, phone number, or anything you type into a form.
+            </li>
+            <li>
+              <strong>The Meta Pixel</strong> tells Meta, the company behind Facebook and Instagram, which pages of this
+              website you visit and whether you request our free letters offer, so we can measure and improve our ads on
+              those platforms. It uses cookies, and Meta may connect this information with a Facebook or Instagram
+              account.
+            </li>
+            <li>
+              <strong>Meta Conversions API.</strong> If you request our free letters offer, our server may also report
+              to Meta that a request was made, so Meta can match it to the ad you saw. The report contains your email
+              address, phone number, and first and last name in scrambled (hashed) form, and the country (United States),
+              also hashed. It also contains, not hashed: your IP address, your browser&rsquo;s user agent (its name and
+              version), the address of the page you were on, the time of the request, the Meta browser identifier
+              stored in the <code>_fbp</code> cookie if your browser has one, and, if you arrived by clicking a Meta ad,
+              the click identifier from that link (<code>fbc</code>). It does not contain your business name, the ZIP
+              code you entered, or anything else you typed.
+            </li>
+          </UL>
+          <P>
+            These tools collect technical information such as your browser and device type, your approximate location
+            based on your IP address, the pages you view, and how you arrived.
+          </P>
+          <P>
+            <strong className="text-ggm-forest">Your choices.</strong>
+          </P>
+          <UL>
+            <li>
+              <strong>Google Analytics opt out.</strong> Google offers a browser add on that stops Google Analytics on
+              every website:{' '}
+              <a href="https://tools.google.com/dlpage/gaoptout" className="text-ggm-forest underline break-all" rel="noopener noreferrer" target="_blank">
+                tools.google.com/dlpage/gaoptout
+              </a>
+              .
+            </li>
+            <li>
+              <strong>Cookies and ad settings.</strong> You can block or delete cookies in your browser, and most browsers
+              and ad blockers can block the Meta Pixel. You can also control how Meta uses your activity for ads in your
+              Facebook or Instagram ad settings.
+            </li>
+          </UL>
+          <P>This website does not respond to Do Not Track signals, which most browsers no longer support.</P>
 
           <H2>7. How Long We Keep It</H2>
           <UL>
@@ -331,7 +392,9 @@ export default function PrivacyPage() {
             <li>The right not to be discriminated against for exercising these rights</li>
           </UL>
           <P>
-            <strong className="text-ggm-forest">We do not sell your personal information for money.</strong> Our use of
+            <strong className="text-ggm-forest">Selling and sharing.</strong> We do not sell your personal information for
+            money. We do not sell client information or customer mailing lists, and we do not give them to other companies
+            for their own marketing. Our use of
             the Meta Pixel and the Meta Conversions API may count as &ldquo;sharing&rdquo; personal information for cross context behavioral
             advertising under California law. You can opt out of that sharing on our{' '}
             <Link href="/privacy-choices" className="text-ggm-forest underline font-semibold">Your Privacy Choices</Link>{' '}

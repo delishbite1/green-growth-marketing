@@ -379,8 +379,8 @@ export default function ContactForm() {
       </button>
 
       <p className="text-xs text-gray-500 text-center leading-relaxed">
-        We do not sell your information. We use it to prepare your quote and to contact you
-        about it. See our{' '}
+        We do not sell your information or give it to other companies for their own marketing.
+        We use it to prepare your quote and to contact you about it. See our{' '}
         <a href="/privacy" className="underline hover:text-gray-700">Privacy Policy</a>.
       </p>
     </form>

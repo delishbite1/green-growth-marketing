@@ -155,7 +155,8 @@ export default function TermsPage() {
             <Link href="/privacy" className="text-ggm-forest underline font-semibold">
               Privacy Policy
             </Link>
-            . We do not sell your personal information for money.
+            . We do not sell client information or mailing lists, or give them to other companies for their own
+            marketing.
           </P>
 
           <H2>14. Changes to These Terms</H2>
