@@ -270,6 +270,7 @@ export default function PrivacyPage() {
           <UL>
             <li><strong>If you do not become a client:</strong> we keep your quote request for up to 2 years, in case you come back to us.</li>
             <li><strong>If you become a client:</strong> we keep your records for 7 years, which is standard for business and tax records.</li>
+            <li><strong>Google Analytics:</strong> event and user data is kept for 14 months, then deleted by Google.</li>
             <li><strong>Your Privacy Choices:</strong> the cookie that remembers your choice lasts about 400 days, or until you clear your cookies.</li>
           </UL>
           <P>You can ask us to delete your information sooner. See Section 9.</P>
@@ -332,7 +333,8 @@ export default function PrivacyPage() {
             <strong className="text-ggm-forest">Mail we send for our clients.</strong> If a postcard or letter from one of
             our clients arrived and you do not know why: we are a direct mail company, and a business hired us to print and
             mail it. The mailing list came either from that business&rsquo;s own customer records, or from a list we put
-            together for that campaign from public records, such as county property records.
+            together for that campaign from public records, such as county property records. We use a client&rsquo;s
+            mailing list to produce and mail that client&rsquo;s campaign.
           </P>
           <P>
             <strong className="text-ggm-forest">Our own outreach to businesses.</strong> We also contact businesses that may
@@ -341,7 +343,12 @@ export default function PrivacyPage() {
             listings and maps, and public social media pages. A record can include the business name, the name and title
             of an owner or manager, the business mailing address, phone number, business email address, website, trade,
             and license details, along with our own notes, such as when we mailed or called and how the conversation went.
-            We keep these records in our own customer relationship database and use them for our own outreach.
+            We keep these records in our own customer relationship database.
+          </P>
+          <P>
+            We use these records only for our own marketing, business development, and prospecting. We do not sell them,
+            and we do not provide them to clients for their mailing campaigns. Our technology and service providers, such as our database and email
+            providers, process these records as needed to provide their services to us.
           </P>
           <P>
             <strong className="text-ggm-forest">To stop our mail or calls</strong>, email{' '}
