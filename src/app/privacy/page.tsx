@@ -41,6 +41,12 @@ export default function PrivacyPage() {
             about it. We have tried to write it in plain English rather than legal language.
           </P>
 
+          <P>
+            This policy applies to our public website at greengrowthmarketinginc.com, to requests made through it, and to
+            the mail and outreach described in Section 10. It does not cover our client portal, the separate signed in
+            area our clients use to manage their campaigns. Privacy information for the portal is handled separately.
+          </P>
+
           <P>It covers three different groups of people:</P>
           <UL>
             <li><strong>Business visitors:</strong> people who visit this website or ask us for a quote.</li>
@@ -270,7 +276,11 @@ export default function PrivacyPage() {
           <UL>
             <li><strong>If you do not become a client:</strong> we keep your quote request for up to 2 years, in case you come back to us.</li>
             <li><strong>If you become a client:</strong> we keep your records for 7 years, which is standard for business and tax records.</li>
-            <li><strong>Google Analytics:</strong> event and user data is kept for 14 months, then deleted by Google.</li>
+            <li><strong>Free letters and postcard requests</strong> made on this website: our retention period is 24 months from the date we receive them.</li>
+            <li>
+              <strong>Google Analytics:</strong> we have set its event and user data retention to 14 months. That setting does not cover every kind of Google Analytics data; for example, Google keeps
+              summary reports under its own policies.
+            </li>
             <li><strong>Your Privacy Choices:</strong> the cookie that remembers your choice lasts about 400 days, or until you clear your cookies.</li>
           </UL>
           <P>You can ask us to delete your information sooner. See Section 9.</P>
