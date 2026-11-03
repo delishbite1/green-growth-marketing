@@ -100,8 +100,14 @@ export default function PrivacyPage() {
           <P>
             <strong className="text-ggm-forest">Automatically</strong>, our website host records standard technical
             information such as your IP address, browser type, and the pages you viewed. This is ordinary server activity
-            and we use it only to keep the site running and secure. We also record the date, time, and IP address when you
-            tick the consent box on our form, as a record that you asked us to contact you.
+            and we use it to keep the site running and secure. We also record the date, time, and IP address when you
+            tick the consent box on our form, as a record that you asked us to contact you. Our analytics and advertising
+            tools also collect information about your visit; Section 6 explains them.
+          </P>
+          <P>
+            <strong className="text-ggm-forest">When you request free letters or postcards</strong>, we also record how you
+            reached us, such as the page you arrived on, the website that referred you, and the campaign tags or ad click
+            identifier in the link you followed, so we know which of our ads and mailings work.
           </P>
           <P>
             <strong className="text-ggm-forest">What we do not collect:</strong> we do not ask for and do not want your
@@ -117,6 +123,7 @@ export default function PrivacyPage() {
             <li>Run and deliver your direct mail campaign if you become a client</li>
             <li>Keep records for accounting and legal reasons</li>
             <li>Respond to your questions</li>
+            <li>Understand how this website is used and measure our advertising, as described in Section 6</li>
           </UL>
           <P>
             <strong className="text-ggm-forest">Consent to contact you.</strong> When you submit our quote form you tick a
@@ -126,21 +133,40 @@ export default function PrivacyPage() {
           </P>
 
           <H2>4. We Do Not Sell Your Information</H2>
-          <P>We do not sell, rent, or trade your personal information to anyone.</P>
-          <P>We do not share it with other marketers.</P>
+          <P>We do not sell, rent, or trade your personal information for money.</P>
+          <P>We do not give your name, email address, phone number, or mailing address to other marketers.</P>
           <P>We do not use your information to send you mail on behalf of other companies.</P>
+          <P>
+            One thing works differently: the Meta Pixel on this website sends Meta information about your visit, and Meta
+            can also use that information for its own purposes, including advertising. Some state privacy laws call this
+            &ldquo;sharing&rdquo; or &ldquo;targeted advertising&rdquo;. Section 6 explains what is sent and how to turn it
+            off.
+          </P>
 
           <H2>5. Who We Share It With</H2>
           <P>To actually deliver your campaign, we have to share some information with the companies that do the work:</P>
           <UL>
-            <li><strong>Printing partners</strong> — to print your postcards and letters</li>
-            <li><strong>The United States Postal Service</strong> — to physically deliver your mail</li>
-            <li><strong>Our website host and email provider</strong> — which operate this website and deliver the message you send us through it</li>
-            <li><strong>Professional advisors</strong> — our accountant or lawyer, if we are legally required to</li>
+            <li><strong>Printing partners:</strong> to print your postcards and letters</li>
+            <li><strong>The United States Postal Service:</strong> to physically deliver your mail</li>
+            <li><strong>Our website host and email provider:</strong> which operate this website and deliver the message you send us through it</li>
+            <li><strong>Professional advisors:</strong> our accountant or lawyer, if we are legally required to</li>
           </UL>
           <P>
             Each of these only receives what they need to do their job. They are not allowed to use your information for
             their own marketing.
+          </P>
+          <P>This website also uses analytics and advertising tools from three companies:</P>
+          <UL>
+            <li><strong>Vercel:</strong> website analytics, without cookies</li>
+            <li><strong>Google:</strong> Google Analytics, used for analytics only</li>
+            <li>
+              <strong>Meta:</strong> the Meta Pixel and, for free letters requests, a report that the request was made, used
+              to measure our Facebook and Instagram ads
+            </li>
+          </UL>
+          <P>
+            Google and Meta handle the information they receive under their own terms and privacy policies. Section 6
+            explains what each tool collects and the choices you have.
           </P>
           <P>We will also disclose information if we are legally required to, for example by a valid court order.</P>
 

@@ -32,6 +32,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [sendError, setSendError] = useState<string | null>(null)
   const leadTracked = useRef(false)
+  const inFlight = useRef(false)
 
   // Someone who clicked "Dental" on the Industries page arrives with
   // ?industry=Dental. Don't make them tell us twice. Capped because it lands
@@ -62,6 +63,10 @@ export default function ContactForm() {
   }
 
   const onSubmit = async (data: QuoteInput) => {
+    // A synchronous lock: isSubmitting disables the button a render too late to
+    // stop a fast double click, which used to send two requests and two emails.
+    if (inFlight.current) return
+    inFlight.current = true
     setSendError(null)
     try {
       const res = await fetch('/api/quote', {
@@ -88,6 +93,10 @@ export default function ContactForm() {
       setSendError(
         'We could not reach our server. Please check your connection, or call us at (888) 601-6556.',
       )
+    } finally {
+      // Released after a failure so the visitor can try again. After a success
+      // the form is replaced by the thank you message, so it no longer matters.
+      inFlight.current = false
     }
   }
 
