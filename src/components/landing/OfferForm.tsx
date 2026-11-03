@@ -273,9 +273,10 @@ export default function OfferForm() {
       */}
       <p className="text-center text-xs leading-relaxed text-gray-400">
         No contract and no payment. We will call to confirm everything before anything is printed or
-        mailed. Offer available to qualifying businesses, limit one per business. We never sell or
-        share your information. See our{' '}
-        <a href="/privacy" className="underline hover:text-gray-600">Privacy Policy</a>.
+        mailed. Offer available to qualifying businesses, limit one per business. We do not sell your
+        information. We may report your request to Meta to measure our ads; see our{' '}
+        <a href="/privacy" className="underline hover:text-gray-600">Privacy Policy</a> and{' '}
+        <a href="/privacy-choices" className="underline hover:text-gray-600">Your Privacy Choices</a>.
       </p>
     </form>
   )

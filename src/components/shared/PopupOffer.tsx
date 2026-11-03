@@ -207,7 +207,7 @@ export default function PopupOffer() {
                 {/* Privacy */}
                 <p className="text-xs text-gray-400 text-center mb-5 flex items-center justify-center gap-1">
                   <ShieldCheck className="w-3 h-3" aria-hidden="true" />
-                  We respect your privacy. Your information is never shared or sold.
+                  We respect your privacy. We do not sell your information.
                 </p>
 
                 {/* Features */}
