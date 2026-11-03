@@ -214,7 +214,7 @@ export default function FreeLettersPage() {
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-5 px-5 py-6 text-center lg:grid-cols-4">
           {[
             { value: 'No contract', label: 'Campaign by campaign', color: '#3a8a2d' },
-            { value: 'No minimum', label: 'Order 100 pieces or a million', color: '#7c3aed' },
+            { value: 'Custom quotes', label: 'Tell us the quantity you have in mind', color: '#7c3aed' },
             { value: 'All 50 states', label: 'We mail anywhere in the USA', color: '#2563eb' },
             { value: 'A to Z', label: 'A real person, not a portal', color: '#d97706' },
           ].map(({ value, label, color }) => (

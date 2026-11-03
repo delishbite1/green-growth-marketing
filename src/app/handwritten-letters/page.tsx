@@ -37,27 +37,27 @@ export const metadata: Metadata = {
 
 const INCLUDED = [
   { h: 'Your message', p: 'We prepare the letter with you around your offer and your audience, or work from wording you already have.' },
-  { h: 'The mailing list', p: 'We prepare a targeted list of homeowners or property owners in the areas you choose, or mail to a list you already have.' },
-  { h: 'Letters and envelopes', p: 'Your letter is printed in a handwriting style, and the envelope is addressed in the same style.' },
+  { h: 'The mailing list', p: 'We discuss who you want to reach and the mailing list for your campaign, or mail to a list you already have.' },
+  { h: 'Letters and envelopes', p: 'Your letter and its envelope are prepared in a handwritten style, with the envelope addressed to each recipient.' },
   { h: 'Postage and mailing', p: 'We apply postage and send every letter, so nothing passes through your office.' },
 ]
 
 const SAMPLES = [
-  { src: '/products/letter-blue.jpg', w: 1102, h: 1428, name: 'Letter in blue ink', note: 'Handwriting style on lined paper', alt: 'Sample handwritten style letter in blue ink on lined paper, written as a template with placeholders for the business name' },
-  { src: '/products/letter-black.jpg', w: 1104, h: 1425, name: 'Letter in black ink', note: 'Handwriting style on lined paper', alt: 'Sample handwritten style letter in black ink on lined paper' },
-  { src: '/products/env-style-a.jpg', w: 1565, h: 808, name: 'Envelope with a Forever stamp', note: 'Handwriting style address and return address', alt: 'Sample envelope addressed in a handwriting style, with a return address and a Forever stamp' },
-  { src: '/products/env-style-c.jpg', w: 1498, h: 735, name: 'Envelope with your logo', note: 'Handwriting style address with your branding', alt: 'Sample envelope with a business logo and an address in a handwriting style' },
+  { src: '/products/letter-blue.jpg', w: 1102, h: 1428, name: 'Sample letter', note: 'Illustrative sample', alt: 'Sample handwritten style letter in blue ink on lined paper, written as a template with placeholders for the business name' },
+  { src: '/products/letter-black.jpg', w: 1104, h: 1425, name: 'Sample letter', note: 'Illustrative sample', alt: 'Sample handwritten style letter in black ink on lined paper' },
+  { src: '/products/env-style-a.jpg', w: 1565, h: 808, name: 'Sample envelope', note: 'Illustrative sample', alt: 'Sample envelope addressed in a handwriting style, with a return address and a Forever stamp' },
+  { src: '/products/env-style-c.jpg', w: 1498, h: 735, name: 'Sample envelope with a logo', note: 'Illustrative sample', alt: 'Sample envelope with a business logo and an address in a handwriting style' },
 ]
 
 const USES = [
   { h: 'Introduce your business', p: 'Reach homeowners in a new service area, or announce a new service, with a personal letter from a local business.' },
   { h: 'Neighborhood campaigns', p: 'Write to the homes around a job you just finished, or to the neighborhoods you most want to work in.' },
   { h: 'Past customers', p: 'Stay in touch with people who already know you, with a seasonal reminder or a thank you.' },
-  { h: 'Business outreach', p: 'Contact the owners of businesses you want to work with, by name, at their business address.' },
+  { h: 'Business outreach', p: 'Contact the owners of businesses you want to work with, at their business address.' },
 ]
 
 const REAL_ESTATE = [
-  { h: 'Homeowner outreach', p: 'Introduce yourself to the homeowners in the area you serve, with a letter addressed to each of them by name.' },
+  { h: 'Homeowner outreach', p: 'Introduce yourself to the homeowners in the area you serve, with a letter addressed to each of them.' },
   { h: 'Prospecting letters', p: 'Write to the owners of properties you would like to list or buy, and invite them to get in touch.' },
   { h: 'Neighborhood campaigns', p: 'Mail a neighborhood you are building a presence in, or the streets around a listing or a recent sale.' },
   { h: 'Seller lead generation', p: 'Ask owners who may be thinking about selling to call you, with one clear way to reply.' },
@@ -65,7 +65,7 @@ const REAL_ESTATE = [
 
 const STEPS = [
   { n: '01', h: 'Tell us about your campaign', p: 'Share your business, who you want to reach, the area and an approximate quantity.' },
-  { n: '02', h: 'Choose your audience', p: 'We prepare the mailing list with you, or review the list you already have.' },
+  { n: '02', h: 'Choose your audience', p: 'We agree the mailing audience with you, or review the list you already have.' },
   { n: '03', h: 'Approve your letter', p: 'We prepare the message, the letter style and the envelope with you. Nothing is printed until you approve.' },
   { n: '04', h: 'Printing and mailing', p: 'We coordinate printing, addressing, postage and mailing according to the agreed campaign details.' },
 ]
@@ -82,7 +82,7 @@ const LETTER_FAQS = [
   {
     question: 'What does your handwritten direct mail service include?',
     answer:
-      'Preparing your message, a targeted mailing list, handwritten style letters and envelopes, postage and mailing. You approve the letter and the mailing audience before anything is printed.',
+      'Preparing your message, help with your mailing list, handwritten style letters and envelopes, postage and mailing. You approve the letter and the mailing audience before anything is printed.',
   },
   {
     question: 'Are the letters written by hand?',
@@ -92,7 +92,7 @@ const LETTER_FAQS = [
   {
     question: 'Can each letter be personalized?',
     answer:
-      'Yes. Each letter can greet its recipient by name, and each envelope carries the recipient’s name and address. Tell us what else you would like to include and we will confirm what is possible for your campaign.',
+      'Each envelope is addressed to its recipient. If you would like to personalize the letter itself, tell us what you have in mind and we will confirm what is possible for your campaign.',
   },
   {
     question: 'Can I use my own mailing list or message?',
@@ -102,7 +102,7 @@ const LETTER_FAQS = [
   {
     question: 'Do you work with real estate agents and investors?',
     answer:
-      'Yes. We prepare letters for homeowner outreach, prospecting, neighborhood campaigns and seller lead generation, mailed to a list of owners in the areas you choose or to your own list.',
+      'Yes. We prepare letters for homeowner outreach, prospecting, neighborhood campaigns and seller lead generation, mailed to the audience we agree with you or to your own list.',
   },
   {
     question: 'How much does a handwritten letter campaign cost?',
@@ -229,8 +229,8 @@ function Styles() {
           </h2>
         </div>
         <p className="font-body text-[15px] leading-relaxed text-ggm-muted">
-          Choose blue or black ink for the letter, and an envelope with or without your logo. Every
-          style, including postage options and a full color insert, is on our{' '}
+          These samples show the kind of letters and envelopes we mail. The styles and options for
+          your campaign are confirmed with you in your quote. See more samples on our{' '}
           <Link href="/products" className={inlineLink}>
             products page
           </Link>
@@ -268,16 +268,16 @@ function Personalized() {
         <figure className="order-2 lg:order-1">
           <div className="overflow-hidden rounded-[1.25rem] bg-ggm-ivory p-2.5 ring-1 ring-ggm-line">
             <Image
-              src="/products/letter-personalized.jpg"
-              alt="Illustrative personalized letter sample generated with GGM’s handwriting tool for a fictional recipient"
-              width={1200}
-              height={792}
+              src="/products/env-style-a.jpg"
+              alt="Sample envelope addressed in a handwritten style to a fictional recipient"
+              width={1565}
+              height={808}
               sizes="(min-width: 1024px) 45vw, 92vw"
               className="block h-auto w-full rounded-[0.9rem]"
             />
           </div>
           <figcaption className="mt-3 font-body text-[12.5px] text-ggm-muted">
-            Illustrative sample for a fictional recipient and business.
+            Illustrative sample for a fictional recipient.
           </figcaption>
         </figure>
         <div className="order-1 lg:order-2">
@@ -286,13 +286,12 @@ function Personalized() {
             Personalized direct mail letters, addressed to each recipient
           </h2>
           <p className="mt-4 font-body text-[15.5px] leading-relaxed text-ggm-charcoal">
-            A letter can greet each person by name, and the envelope carries their name and address
-            in the same handwriting style, so every letter is addressed to one person, even when you
-            are mailing many.
+            Every letter goes out in an envelope addressed to its recipient in a handwritten style, so
+            each one arrives as a letter to one person, even when you are mailing many.
           </p>
           <p className="mt-4 font-body text-[15px] leading-relaxed text-ggm-muted">
-            Have something else in mind for your letters? Tell us when you request your quote and we
-            will confirm what is possible for your campaign.
+            Want to personalize the letter itself? Tell us when you request your quote and we will
+            confirm what is possible for your campaign.
           </p>
         </div>
       </div>
@@ -351,8 +350,8 @@ function RealEstate() {
         </h2>
         <p className="mt-4 font-body text-[15.5px] leading-relaxed text-ggm-ivory/85">
           Real estate is built on trust in a neighborhood. A handwritten style letter, addressed to
-          the owner by name, is a personal way to start that conversation. We prepare the list of
-          owners in the areas you choose, or mail to your own list.
+          the owner, is a personal way to start that conversation. We discuss the audience and the areas
+          you want to reach with you, or mail to your own list.
         </p>
       </div>
       <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
