@@ -279,6 +279,11 @@ export default function PrivacyPage() {
           <UL>
             <li><strong>If you do not become a client:</strong> we keep your quote request for up to 2 years, in case you come back to us.</li>
             <li><strong>If you become a client:</strong> we keep your records for 7 years, which is standard for business and tax records.</li>
+            <li>
+              <strong>Client mailing lists:</strong> we keep a client&rsquo;s mailing list for that client&rsquo;s future
+              campaigns, with no fixed end date, unless the law or our contract with that client requires us to delete it
+              sooner, or we receive a valid request to delete it.
+            </li>
             <li><strong>Free letters and postcard requests</strong> made on this website: our retention period is 24 months from the date we receive them.</li>
             <li>
               <strong>Google Analytics:</strong> we have set its event and user data retention to 14 months. That setting does not cover every kind of Google Analytics data; for example, Google keeps
@@ -347,8 +352,10 @@ export default function PrivacyPage() {
             our clients arrived and you do not know why: we are a direct mail company, and a business hired us to print and
             mail it. The mailing list came either from that business&rsquo;s own customer records, or from a list we put
             together for that campaign from public records, such as county property records. We use a client&rsquo;s
-            mailing list to produce and mail that client&rsquo;s campaign. To do that, we send the list to our printing
-            provider, which prints, addresses, and mails the postcards and letters. Client mailing lists are different from
+            mailing list to produce and mail that client&rsquo;s campaigns, including future campaigns for the same client.
+            To do that, we send the list to our printing provider, which prints, addresses, and mails the postcards and
+            letters. We do not use one client&rsquo;s mailing list for another client&rsquo;s campaigns without explicit
+            authorization. Client mailing lists are different from
             the business contact records we use for our own outreach, described next.
           </P>
           <P>
