@@ -15,6 +15,13 @@ const nextConfig = {
    */
   ...(process.env.GGM_LOCAL_BUILD === '1' ? { cleanDistDir: false, experimental: { webpackBuildWorker: false, workerThreads: false, cpus: 1 } } : {}),
   distDir: process.env.NEXT_DIST_DIR || '.next',
+  /*
+   * /ggm-video is a standalone static page in public/ggm-video/, served
+   * outside the root layout on purpose so it carries no analytics or pixel.
+   */
+  async rewrites() {
+    return [{ source: '/ggm-video', destination: '/ggm-video/index.html' }]
+  },
 }
 
 export default nextConfig
